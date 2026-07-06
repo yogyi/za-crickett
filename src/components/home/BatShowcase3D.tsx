@@ -1,0 +1,146 @@
+"use client";
+
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowRight, Sparkle } from "@phosphor-icons/react";
+import { motion, useReducedMotion } from "motion/react";
+import { FormattedPrice } from "@/components/shop/FormattedPrice";
+import { TiltCard } from "@/components/ui/TiltCard";
+
+const showcaseBats = [
+  {
+    name: "The Monarch",
+    price: 299,
+    tag: "Best starter",
+    specs: ["Reliable English willow", "Match-ready profile", "Club & school cricket"],
+    image: "/images/products/the-monarch/monarch-hero.jpg",
+    href: "/product/the-monarch",
+  },
+  {
+    name: "The Eagle",
+    price: 399,
+    tag: "Pro pick",
+    specs: ["Suryansh Gulecha line", "Premium grade willow", "Competitive leagues"],
+    image: "/images/products/the-eagle/eagle-hero.jpg",
+    href: "/product/the-eagle",
+  },
+  {
+    name: "The Signature",
+    price: 499,
+    tag: "Fully custom",
+    specs: ["Weight in grams", "Grain count 6–12", "Handle & engraving"],
+    image: "/images/products/the-signature/signature-hero.jpg",
+    href: "/product/the-signature",
+  },
+];
+
+export function BatShowcase3D() {
+  const reduce = useReducedMotion();
+
+  return (
+    <section className="py-16 sm:py-20 lg:py-28 bg-mesh-purple overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={reduce ? false : { opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          className="text-center mb-8 sm:mb-10"
+        >
+          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full badge-shimmer text-white text-xs font-semibold uppercase tracking-wider mb-4">
+            <Sparkle size={14} weight="fill" />
+            Interactive lineup
+          </span>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-zinc-900">
+            Explore our bat range in 3D
+          </h2>
+          <p className="mt-3 text-zinc-600 max-w-xl mx-auto text-sm sm:text-base">
+            Three English willow bats for every level — swipe on mobile, hover to
+            tilt on desktop.
+          </p>
+        </motion.div>
+
+        <div className="flex lg:hidden snap-scroll-x gap-4 pb-2 -mx-4 px-4">
+          {showcaseBats.map((bat) => (
+            <div key={bat.name} className="snap-scroll-item w-[min(82vw,300px)]">
+              <BatCard bat={bat} tilt={false} />
+            </div>
+          ))}
+        </div>
+
+        <div className="hidden lg:grid lg:grid-cols-3 gap-6">
+          {showcaseBats.map((bat, i) => (
+            <motion.div
+              key={bat.name}
+              initial={reduce ? false : { opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08 }}
+            >
+              <BatCard bat={bat} tilt />
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="text-center mt-8">
+          <Link
+            href="/shop/bats"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-brand hover:text-brand-dark"
+          >
+            Compare all bats
+            <ArrowRight size={16} weight="bold" />
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function BatCard({
+  bat,
+  tilt,
+}: {
+  bat: (typeof showcaseBats)[number];
+  tilt?: boolean;
+}) {
+  const card = (
+    <Link
+      href={bat.href}
+      className="flex flex-col h-full rounded-2xl overflow-hidden bg-white border border-border shadow-md hover:shadow-lg transition-shadow active:scale-[0.99]"
+    >
+      <div className="relative aspect-[4/5] bg-surface shrink-0">
+        <Image
+          src={bat.image}
+          alt={bat.name}
+          fill
+          className="object-cover"
+          sizes="(max-width: 1024px) 85vw, 33vw"
+        />
+        <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-sm text-brand text-xs font-bold">
+          {bat.tag}
+        </span>
+      </div>
+      <div className="flex flex-col flex-1 p-4 sm:p-5">
+        <div className="flex items-baseline justify-between gap-2">
+          <h3 className="font-bold text-base sm:text-lg text-zinc-900">{bat.name}</h3>
+          <span className="font-bold text-brand text-sm sm:text-base shrink-0">
+            <FormattedPrice amount={bat.price} />
+          </span>
+        </div>
+        <ul className="mt-3 space-y-1.5">
+          {bat.specs.map((spec) => (
+            <li key={spec} className="text-xs text-zinc-500 flex items-start gap-2">
+              <span className="mt-1.5 h-1 w-1 rounded-full bg-brand shrink-0" />
+              {spec}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Link>
+  );
+
+  if (tilt) {
+    return <TiltCard intensity={10}>{card}</TiltCard>;
+  }
+
+  return card;
+}
