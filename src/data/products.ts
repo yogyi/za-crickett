@@ -1,4 +1,4 @@
-import type { Athlete, Product, ProductCategory } from "@/types";
+import type { Product, ProductCategory } from "@/types";
 import type { CountryCode } from "@/lib/currency";
 import { formatPrice as formatPriceForCountry } from "@/lib/currency";
 
@@ -328,46 +328,6 @@ export const products: Product[] = [
       "Oiling",
       "Scuff sheet",
       "Epoxy toe guard",
-    ],
-  },
-];
-
-export const athletes: Athlete[] = [
-  {
-    id: "suryansh",
-    name: "Suryansh Gulecha",
-    role: "Opening Batter",
-    image: PLACEHOLDER,
-    productLine: "The Eagle",
-    bio: "An aggressive opening batter known for powerful stroke play. Suryansh worked closely with ZA to develop The Eagle bat line, tuned for players who like to dominate from ball one.",
-    achievements: [
-      "Singapore domestic league top scorer",
-      "ZA Cricket brand ambassador since 2024",
-      "The Eagle signature line",
-    ],
-  },
-  {
-    id: "aslan",
-    name: "Aslan Jafri",
-    role: "All-Rounder",
-    image: PLACEHOLDER,
-    bio: "A versatile all-rounder who contributes with both bat and ball. Aslan tests ZA protective gear and provides feedback on comfort and durability during long match days.",
-    achievements: [
-      "Represented Singapore at youth level",
-      "Club cricket all-rounder of the year",
-      "ZA sponsored athlete",
-    ],
-  },
-  {
-    id: "mahiyu",
-    name: "Mahiyu Bhatia",
-    role: "Middle Order",
-    image: PLACEHOLDER,
-    bio: "A composed middle-order batter with a reputation for building innings under pressure. Mahiyu helps refine ZA batting gloves and pads for fit and flexibility.",
-    achievements: [
-      "Consistent performer in local leagues",
-      "Youth development advocate",
-      "ZA sponsored athlete",
     ],
   },
 ];

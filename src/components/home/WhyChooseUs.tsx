@@ -16,7 +16,7 @@ const reasons = [
     icon: UsersThree,
     title: "Athlete-Developed",
     description:
-      "Tested by sponsored Singapore cricketers including Suryansh Gulecha, Aslan Jafri, and Mahiyu Bhatia.",
+      "Tested by sponsored athletes across Singapore and Hong Kong — including Suryansh Gulecha, Aslan Jafri, Mahiyu Bhatia, Hafeez Khan, and Shahid Wasif.",
   },
   {
     icon: MapPin,

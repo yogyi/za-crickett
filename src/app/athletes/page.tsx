@@ -1,101 +1,197 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { PageBanner } from "@/components/layout/PageBanner";
-import { athletes } from "@/data/products";
 import { CheckCircle } from "@phosphor-icons/react/dist/ssr";
+import {
+  athletes,
+  hongKongAthletes,
+  singaporeAthletes,
+} from "@/data/athletes";
+import { AthleteCard } from "@/components/athletes/AthleteCard";
 
 export const metadata: Metadata = {
   title: "Sponsored Athletes",
   description:
-    "Meet the ZA Cricket sponsored athletes driving our product innovation.",
+    "Meet the ZA Cricket sponsored athletes from Singapore and Hong Kong driving our product innovation.",
 };
+
+function AthleteProfile({
+  athlete,
+  reverse = false,
+}: {
+  athlete: (typeof athletes)[number];
+  reverse?: boolean;
+}) {
+  const isStudio = athlete.imageFocus?.includes("object-contain");
+  const [firstName, ...rest] = athlete.name.split(" ");
+
+  return (
+    <article
+      className={`grid lg:grid-cols-2 gap-8 lg:gap-14 items-center ${
+        reverse ? "lg:[direction:rtl]" : ""
+      }`}
+    >
+      <div
+        className={`relative aspect-[4/5] max-w-md mx-auto lg:max-w-none w-full rounded-3xl overflow-hidden shadow-2xl ${
+          isStudio ? "bg-zinc-100" : "bg-zinc-900"
+        } ${reverse ? "lg:[direction:ltr]" : ""}`}
+      >
+        <Image
+          src={athlete.image}
+          alt={athlete.name}
+          fill
+          className={athlete.imageFocus ?? "object-cover object-center"}
+          sizes="(max-width: 1024px) 100vw, 40vw"
+          priority={athlete.id === "suryansh"}
+        />
+        <div
+          className={`absolute inset-0 ${
+            isStudio
+              ? "bg-gradient-to-t from-zinc-900/60 via-transparent to-transparent"
+              : "bg-gradient-to-t from-black/50 via-transparent to-transparent"
+          } lg:hidden`}
+        />
+        <div className="absolute bottom-4 left-4 right-4 lg:hidden">
+          <h2 className="text-3xl font-bold text-white tracking-tight leading-none">
+            {firstName}
+          </h2>
+          {rest.length > 0 && (
+            <p className="text-xl font-bold text-white/90 mt-0.5">
+              {rest.join(" ")}
+            </p>
+          )}
+        </div>
+      </div>
+
+      <div className={reverse ? "lg:[direction:ltr]" : ""}>
+        <div className="flex flex-wrap items-center gap-2 mb-3">
+          <span className="px-3 py-1 rounded-full bg-brand-subtle text-brand text-xs font-semibold uppercase tracking-wider">
+            {athlete.region}
+          </span>
+          <span className="px-3 py-1 rounded-full bg-zinc-100 text-zinc-600 text-xs font-semibold">
+            ZA Sponsored
+          </span>
+        </div>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-zinc-900 tracking-tight leading-[0.95]">
+          <span className="block">{firstName}</span>
+          {rest.length > 0 && (
+            <span className="block text-zinc-700">{rest.join(" ")}</span>
+          )}
+        </h2>
+        <p className="text-brand font-semibold mt-1">{athlete.role}</p>
+        {athlete.bio && (
+          <p className="mt-5 text-zinc-600 leading-relaxed text-sm sm:text-base">
+            {athlete.bio}
+          </p>
+        )}
+        {athlete.achievements && (
+          <ul className="mt-6 space-y-2.5">
+            {athlete.achievements.map((item) => (
+              <li
+                key={item}
+                className="flex items-start gap-2.5 text-sm text-zinc-700"
+              >
+                <CheckCircle
+                  size={18}
+                  weight="fill"
+                  className="text-brand shrink-0 mt-0.5"
+                />
+                {item}
+              </li>
+            ))}
+          </ul>
+        )}
+        {athlete.productLine && athlete.productHref && (
+          <Link
+            href={athlete.productHref}
+            className="inline-flex mt-7 px-6 py-3.5 bg-brand text-white text-sm font-semibold rounded-xl hover:bg-brand-dark transition-colors active:scale-[0.98]"
+          >
+            Shop {athlete.productLine}
+          </Link>
+        )}
+      </div>
+    </article>
+  );
+}
+
+function AthleteRegionSection({
+  title,
+  subtitle,
+  regionAthletes,
+}: {
+  title: string;
+  subtitle: string;
+  regionAthletes: typeof athletes;
+}) {
+  return (
+    <section className="py-14 sm:py-20 border-t border-border first:border-t-0">
+      <div className="mb-10 sm:mb-14">
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900">
+          {title}
+        </h2>
+        <p className="mt-2 text-zinc-600 text-sm sm:text-base max-w-2xl">
+          {subtitle}
+        </p>
+      </div>
+
+      {/* Mobile roster strip */}
+      <div className="flex sm:hidden snap-scroll-x gap-3 pb-4 -mx-4 px-4 mb-10">
+        {regionAthletes.map((athlete) => (
+          <div key={athlete.id} className="snap-scroll-item w-[min(70vw,240px)]">
+            <AthleteCard athlete={athlete} />
+          </div>
+        ))}
+      </div>
+
+      <div className="space-y-16 sm:space-y-24">
+        {regionAthletes.map((athlete, i) => (
+          <AthleteProfile key={athlete.id} athlete={athlete} reverse={i % 2 === 1} />
+        ))}
+      </div>
+    </section>
+  );
+}
 
 export default function AthletesPage() {
   return (
     <div>
-      <PageBanner
-        title="ZA Sponsored Athletes"
-        description="Our sponsored athletes represent the best of Singapore cricket. They test, refine, and compete with ZA gear at every level."
-        image="/images/products/the-eagle/eagle-lifestyle-02.jpg"
-      />
-
-      <section className="py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto text-center mb-14">
-            <p className="text-zinc-600 leading-relaxed">
-              Every ZA product goes through real-world testing with our
-              sponsored athletes. Their feedback shapes our bats, gloves, pads,
-              and keeping gear. When you buy ZA, you are buying gear that has
-              been proven on Singapore pitches.
-            </p>
-          </div>
-
-          <div className="space-y-16">
-            {athletes.map((athlete, i) => (
-              <article
-                key={athlete.id}
-                className={`grid lg:grid-cols-2 gap-10 items-center ${
-                  i % 2 === 1 ? "lg:direction-rtl" : ""
-                }`}
-              >
-                <div
-                  className={`relative aspect-[4/5] max-w-md mx-auto lg:mx-0 rounded-2xl overflow-hidden bg-surface ${
-                    i % 2 === 1 ? "lg:order-2" : ""
-                  }`}
-                >
-                  <Image
-                    src={athlete.image}
-                    alt={athlete.name}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                  />
-                </div>
-                <div className={i % 2 === 1 ? "lg:order-1" : ""}>
-                  <p className="text-brand font-semibold text-sm">
-                    ZA Sponsored Athlete
-                  </p>
-                  <h2 className="text-2xl lg:text-3xl font-bold text-zinc-900 mt-2">
-                    {athlete.name}
-                  </h2>
-                  <p className="text-brand font-medium mt-1">{athlete.role}</p>
-                  {athlete.bio && (
-                    <p className="mt-4 text-zinc-600 leading-relaxed">
-                      {athlete.bio}
-                    </p>
-                  )}
-                  {athlete.achievements && (
-                    <ul className="mt-6 space-y-2">
-                      {athlete.achievements.map((item) => (
-                        <li
-                          key={item}
-                          className="flex items-center gap-2 text-sm text-zinc-700"
-                        >
-                          <CheckCircle
-                            size={18}
-                            weight="fill"
-                            className="text-brand shrink-0"
-                          />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                  {athlete.productLine && (
-                    <Link
-                      href="/product/the-eagle"
-                      className="inline-flex mt-6 px-5 py-2.5 bg-brand text-white text-sm font-semibold rounded-xl hover:bg-brand-dark transition-colors"
-                    >
-                      Shop {athlete.productLine}
-                    </Link>
-                  )}
-                </div>
-              </article>
-            ))}
+      <section className="relative bg-zinc-950 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-brand/40 via-zinc-950 to-zinc-950" />
+        <div className="absolute inset-0 pattern-dots opacity-20" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-glow mb-4">
+            ZA Cricket
+          </p>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.02] max-w-3xl">
+            The athletes behind the gear
+          </h1>
+          <p className="mt-5 text-zinc-400 text-base sm:text-lg leading-relaxed max-w-2xl">
+            Real players. Real feedback. Every product is tested on pitch by our
+            Singapore squad and Hong Kong internationals before it reaches you.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <span className="px-4 py-2 rounded-full bg-white/10 border border-white/15 text-sm font-medium">
+              {singaporeAthletes.length} Singapore athletes
+            </span>
+            <span className="px-4 py-2 rounded-full bg-white/10 border border-white/15 text-sm font-medium">
+              {hongKongAthletes.length} Hong Kong internationals
+            </span>
           </div>
         </div>
       </section>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AthleteRegionSection
+          title="Singapore squad"
+          subtitle="Club and national-pathway players who shape our bats, gloves, and protection for local conditions."
+          regionAthletes={singaporeAthletes}
+        />
+        <AthleteRegionSection
+          title="Hong Kong internationals"
+          subtitle="Cricket Hong Kong, China representatives who compete with ZA gear on the international stage."
+          regionAthletes={hongKongAthletes}
+        />
+      </div>
     </div>
   );
 }

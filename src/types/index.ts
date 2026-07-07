@@ -52,8 +52,12 @@ export interface Athlete {
   id: string;
   name: string;
   role: string;
+  region: "Singapore" | "Hong Kong";
   image: string;
+  imageFocus?: string;
   productLine?: string;
+  productHref?: string;
   bio?: string;
   achievements?: string[];
+  featured?: boolean;
 }

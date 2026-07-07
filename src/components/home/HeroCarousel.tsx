@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import {
   ArrowRight,
   CaretLeft,
@@ -35,7 +35,7 @@ function SlideImage({
       fill
       priority={priority}
       className={position}
-      sizes={variant === "mobile" ? "100vw" : "100vw"}
+      sizes="100vw"
     />
   );
 }
@@ -132,77 +132,60 @@ export function HeroCarousel() {
       {/* Mobile / tablet: product image panel above copy */}
       <div className="lg:hidden">
         <div className="relative w-full aspect-[5/4] sm:aspect-[3/2] max-h-[min(52vh,420px)] sm:max-h-[min(56vh,480px)] overflow-hidden bg-brand-subtle">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={slide.id}
-              initial={reduce ? false : { opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={reduce ? undefined : { opacity: 0 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="absolute inset-0"
-              aria-hidden="true"
-            >
-              <SlideImage slide={slide} priority={current === 0} variant="mobile" />
-              <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-r from-white/40 via-transparent to-transparent" />
-            </motion.div>
-          </AnimatePresence>
+          <motion.div
+            key={slide.id}
+            initial={false}
+            animate={reduce ? undefined : { opacity: 1 }}
+            transition={{ duration: 0.45, ease: "easeInOut" }}
+            className="absolute inset-0"
+            aria-hidden="true"
+          >
+            <SlideImage slide={slide} priority={current === 0} variant="mobile" />
+            <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-white/40 via-transparent to-transparent" />
+          </motion.div>
         </div>
 
         <div className="relative px-4 sm:px-6 pb-28 pt-6 sm:pt-8">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={slide.id + "-mobile-content"}
-              initial={reduce ? false : { opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={reduce ? undefined : { opacity: 0, y: -8 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-            >
-              <SlideContent slide={slide} />
-            </motion.div>
-          </AnimatePresence>
+          <motion.div
+            key={`${slide.id}-mobile`}
+            initial={false}
+            animate={reduce ? undefined : { opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+          >
+            <SlideContent slide={slide} />
+          </motion.div>
         </div>
       </div>
 
       {/* Desktop: full-bleed background */}
       <div className="hidden lg:block relative min-h-[100dvh]">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={slide.id}
-            initial={reduce ? false : { opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={reduce ? undefined : { opacity: 0 }}
-            transition={{ duration: 0.7, ease: "easeInOut" }}
-            className="absolute inset-0"
-            aria-hidden="true"
-          >
-            <motion.div
-              initial={reduce ? false : { scale: 1.05 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 8, ease: "easeOut" }}
-              className="absolute inset-0"
-            >
-              <SlideImage slide={slide} priority={current === 0} variant="desktop" />
-            </motion.div>
-            <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/75 to-white/10" />
-          </motion.div>
-        </AnimatePresence>
+        <motion.div
+          key={slide.id}
+          initial={false}
+          animate={reduce ? undefined : { opacity: 1 }}
+          transition={{ duration: 0.55, ease: "easeInOut" }}
+          className="absolute inset-0"
+          aria-hidden="true"
+        >
+          <div className="absolute inset-0">
+            <SlideImage slide={slide} priority={current === 0} variant="desktop" />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-white/15" />
+        </motion.div>
 
         <div className="absolute top-20 right-[8%] w-80 h-80 bg-brand-glow/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-8 w-full min-h-[100dvh] flex items-center">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={slide.id + "-desktop-content"}
-              initial={reduce ? false : { opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={reduce ? undefined : { opacity: 0, y: -16 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="max-w-xl"
-            >
-              <SlideContent slide={slide} />
-            </motion.div>
-          </AnimatePresence>
+          <motion.div
+            key={`${slide.id}-desktop`}
+            initial={false}
+            animate={reduce ? undefined : { opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="max-w-xl"
+          >
+            <SlideContent slide={slide} />
+          </motion.div>
         </div>
       </div>
 
