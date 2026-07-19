@@ -13,6 +13,9 @@ import { useCart } from "@/store/cart";
 
 interface ProductDetailClientProps {
   product: Product;
+  variant?: string;
+  onVariantChange?: (variant: string) => void;
+  displayImage?: string;
 }
 
 function RangeField({
@@ -66,11 +69,20 @@ function RangeField({
   );
 }
 
-export function ProductDetailClient({ product }: ProductDetailClientProps) {
+export function ProductDetailClient({
+  product,
+  variant: controlledVariant,
+  onVariantChange,
+  displayImage,
+}: ProductDetailClientProps) {
   const addItem = useCart((s) => s.addItem);
   const formatPrice = useFormatPrice();
   const { feeFormatted, label } = useShipping();
-  const [variant, setVariant] = useState(product.variants?.[0]?.label ?? "");
+  const [internalVariant, setInternalVariant] = useState(
+    product.variants?.[0]?.label ?? ""
+  );
+  const variant = controlledVariant ?? internalVariant;
+  const setVariant = onVariantChange ?? setInternalVariant;
   const [customization, setCustomization] = useState<Record<string, string>>(
     () => {
       const initial: Record<string, string> = {};
@@ -92,7 +104,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
       slug: product.slug,
       name: product.name,
       price: product.price,
-      image: product.image,
+      image: displayImage ?? product.image,
       variant: variant || undefined,
       customization: Object.keys(filled).length > 0 ? filled : undefined,
     });
@@ -239,7 +251,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
 
       {/* Sticky add-to-cart on mobile / tablet */}
       <div className="fixed bottom-0 left-0 right-0 z-30 lg:static lg:z-auto p-4 bg-white/95 backdrop-blur-md border-t border-border lg:border-0 lg:p-0 lg:bg-transparent lg:backdrop-blur-none safe-bottom">
-        <div className="flex items-center gap-4 max-w-7xl mx-auto lg:max-w-none">
+        <div className="flex items-center gap-4 max-w-[1800px] mx-auto lg:max-w-none">
           <span className="text-2xl font-bold text-zinc-900 lg:hidden shrink-0">
             {formatPrice(product.price)}
           </span>

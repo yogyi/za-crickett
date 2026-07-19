@@ -4,6 +4,8 @@ import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { CartDrawer } from "@/components/cart/CartDrawer";
+import { CricketAssistant } from "@/components/assistant/CricketAssistant";
+import { SplashScreen } from "@/components/layout/SplashScreen";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -53,11 +55,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${outfit.variable} h-full scroll-smooth`}>
       <body className="min-h-full flex flex-col bg-white text-zinc-900 antialiased">
+        <SplashScreen />
         <AnnouncementBar />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
         <CartDrawer />
+        <CricketAssistant />
       </body>
     </html>
   );

@@ -20,6 +20,7 @@ export function ProductImage({
   priority,
 }: ProductImageProps) {
   const isPlaceholder = src === PLACEHOLDER;
+  const isTransparentAsset = src.endsWith(".png");
 
   return (
     <Image
@@ -31,7 +32,9 @@ export function ProductImage({
       className={
         isPlaceholder
           ? "object-contain p-8 opacity-40"
-          : className
+          : isTransparentAsset
+            ? "object-contain p-4 sm:p-6"
+            : className
       }
     />
   );

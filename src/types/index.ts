@@ -30,7 +30,7 @@ export interface Product {
   image: string;
   images?: string[];
   badge?: string;
-  variants?: { id: string; label: string; color?: string }[];
+  variants?: { id: string; label: string; color?: string; image?: string }[];
   customization?: CustomizationOption[];
   features?: string[];
   inStock: boolean;

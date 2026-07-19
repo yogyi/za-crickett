@@ -60,11 +60,11 @@ body {
 
 /* Decorative backgrounds */
 .bg-mesh-purple {
-  background-color: #faf8fc;
+  background-color: #e8ddf2;
   background-image:
-    radial-gradient(at 20% 30%, rgba(124, 77, 171, 0.12) 0px, transparent 50%),
-    radial-gradient(at 80% 10%, rgba(168, 85, 247, 0.08) 0px, transparent 45%),
-    radial-gradient(at 60% 90%, rgba(75, 46, 99, 0.06) 0px, transparent 50%);
+    radial-gradient(at 20% 30%, rgba(124, 77, 171, 0.22) 0px, transparent 50%),
+    radial-gradient(at 80% 10%, rgba(168, 85, 247, 0.18) 0px, transparent 45%),
+    radial-gradient(at 60% 90%, rgba(75, 46, 99, 0.14) 0px, transparent 50%);
 }
 
 .bg-brand-gradient {
@@ -80,6 +80,53 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+.hero-bg-glow {
+  background-color: #3a234d;
+  background-image:
+    radial-gradient(circle at 78% 38%, rgba(168, 85, 247, 0.65) 0%, transparent 46%),
+    radial-gradient(circle at 18% 72%, rgba(124, 77, 171, 0.45) 0%, transparent 48%),
+    radial-gradient(circle at 50% 100%, rgba(59, 35, 77, 0.8) 0%, transparent 55%),
+    linear-gradient(135deg, #2d1a3d 0%, #4b2e63 42%, #6b3d8f 100%);
+}
+
+.hero-bg-deep {
+  background-color: #2d1a3d;
+  background-image:
+    radial-gradient(circle at 82% 22%, rgba(139, 92, 246, 0.55) 0%, transparent 42%),
+    radial-gradient(circle at 12% 78%, rgba(75, 46, 99, 0.7) 0%, transparent 50%),
+    linear-gradient(155deg, #1f1229 0%, #3a234d 45%, #5c3680 100%);
+}
+
+.hero-bg-warm {
+  background-color: #3d2454;
+  background-image:
+    radial-gradient(circle at 70% 32%, rgba(192, 132, 252, 0.5) 0%, transparent 44%),
+    radial-gradient(circle at 85% 75%, rgba(124, 77, 171, 0.55) 0%, transparent 46%),
+    linear-gradient(160deg, #2d1a3d 0%, #4b2e63 55%, #7c4dab 100%);
+}
+
+.hero-bg-signature {
+  background-color: #352045;
+  background-image:
+    radial-gradient(circle at 78% 28%, rgba(168, 85, 247, 0.5) 0%, transparent 42%),
+    radial-gradient(circle at 22% 68%, rgba(75, 46, 99, 0.6) 0%, transparent 48%),
+    linear-gradient(135deg, #1f1229 0%, #4b2e63 50%, #6b3d8f 100%);
+}
+
+.hero-bg-mesh {
+  background-color: #3a234d;
+  background-image:
+    radial-gradient(at 22% 28%, rgba(168, 85, 247, 0.35) 0px, transparent 50%),
+    radial-gradient(at 78% 12%, rgba(124, 77, 171, 0.4) 0px, transparent 45%),
+    radial-gradient(at 58% 88%, rgba(75, 46, 99, 0.5) 0px, transparent 50%),
+    linear-gradient(160deg, #2d1a3d 0%, #4b2e63 100%);
+}
+
+.pattern-dots-light {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 22px 22px;
 }
 
 .pattern-dots {
@@ -198,8 +245,194 @@ body {
   animation: shimmer 4s linear infinite;
 }
 
+/* Full-width metallic brand wordmark in the footer */
+.footer-wordmark {
+  /* Sized so "ZA CRICKET" spans nearly the full viewport width */
+  font-size: 17.8vw;
+  width: 100%;
+  background-image:
+    linear-gradient(
+      185deg,
+      #f8fafc 0%,
+      #d4d4d8 18%,
+      #ffffff 36%,
+      #a1a1aa 48%,
+      #e4e4e7 62%,
+      #71717a 78%,
+      #d4d4d8 100%
+    );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.18))
+    drop-shadow(0 10px 24px rgba(0, 0, 0, 0.45));
+}
+
+/* Hero stage — stadium night look */
+.hero-stage-base {
+  background:
+    radial-gradient(
+      ellipse 75% 55% at 72% 18%,
+      rgba(168, 85, 247, 0.32),
+      transparent 62%
+    ),
+    radial-gradient(
+      ellipse 55% 45% at 12% 88%,
+      rgba(124, 58, 237, 0.28),
+      transparent 60%
+    ),
+    linear-gradient(158deg, #170e29 0%, #2b1743 48%, #1b1030 100%);
+}
+
+.hero-floodlight {
+  position: absolute;
+  top: -18%;
+  width: 34%;
+  height: 90%;
+  background: linear-gradient(
+    to bottom,
+    rgba(233, 213, 255, 0.16),
+    rgba(233, 213, 255, 0.03) 55%,
+    transparent 80%
+  );
+  filter: blur(28px);
+  pointer-events: none;
+}
+
+.hero-floodlight--left {
+  left: 6%;
+  transform: skewX(14deg);
+}
+
+.hero-floodlight--right {
+  right: 10%;
+  transform: skewX(-16deg);
+}
+
+/* Giant outline watermark word */
+.hero-watermark {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.8;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.09);
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* Boundary ring behind hero product */
+.hero-boundary-ring {
+  border-radius: 9999px;
+  border: 1.5px dashed rgba(255, 255, 255, 0.16);
+  box-shadow:
+    inset 0 0 80px rgba(168, 85, 247, 0.14),
+    0 0 120px rgba(147, 51, 234, 0.22);
+}
+
+.hero-product-glow {
+  background: radial-gradient(
+    circle,
+    rgba(192, 132, 252, 0.4) 0%,
+    rgba(147, 51, 234, 0.18) 45%,
+    transparent 70%
+  );
+  filter: blur(30px);
+}
+
+/* Pitch crease lines at the base of the hero */
+.hero-pitch {
+  background:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(255, 255, 255, 0.05) 18%,
+      rgba(255, 255, 255, 0.09) 50%,
+      rgba(255, 255, 255, 0.05) 82%,
+      transparent 100%
+    );
+  mask-image: linear-gradient(to top, black 30%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, black 30%, transparent 100%);
+}
+
+.hero-pitch::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to right,
+    transparent 0px,
+    transparent 89px,
+    rgba(255, 255, 255, 0.10) 89px,
+    rgba(255, 255, 255, 0.10) 91px
+  );
+}
+
+/* Splash screen (logo preloader) */
+@keyframes splash-logo-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.72);
+  }
+  55% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes splash-logo-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.045);
+  }
+}
+
+@keyframes splash-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes splash-bar-sweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.splash-logo {
+  animation: splash-logo-in 0.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.splash-tagline {
+  animation: splash-fade-up 0.25s ease-out 0.05s both;
+}
+
+.splash-bar {
+  animation: splash-bar-sweep 0.45s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .badge-shimmer {
+    animation: none;
+  }
+  .splash-logo,
+  .splash-tagline,
+  .splash-bar {
     animation: none;
   }
 }

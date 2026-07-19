@@ -9,7 +9,6 @@ import {
   Storefront,
   Truck,
 } from "@phosphor-icons/react";
-import { motion, useReducedMotion } from "motion/react";
 import { TiltCard } from "@/components/ui/TiltCard";
 
 const steps = [
@@ -41,25 +40,18 @@ const steps = [
     icon: Truck,
     title: "Delivered to you",
     description:
-      "Island-wide delivery in 2–4 business days. Custom bats take 7–14 days — we confirm by email.",
+      "Worldwide delivery typically takes 1–14 business days after dispatch. Custom bats need an additional 1–10 business days for preparation.",
     href: "/policies/shipping",
     cta: "Delivery info",
   },
 ];
 
 export function HowItWorks() {
-  const reduce = useReducedMotion();
-
   return (
     <section className="py-16 sm:py-20 lg:py-28 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          <motion.div
-            initial={reduce ? false : { opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.5 }}
-          >
+          <div>
             <span className="inline-block px-4 py-1.5 rounded-full bg-brand-subtle text-brand text-xs font-semibold uppercase tracking-wider mb-4">
               How it works
             </span>
@@ -73,12 +65,8 @@ export function HowItWorks() {
 
             <div className="mt-8 space-y-4">
               {steps.map((step, i) => (
-                <motion.div
+                <div
                   key={step.title}
-                  initial={reduce ? false : { opacity: 0, x: -16 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08, duration: 0.4 }}
                   className="group flex gap-4 p-4 rounded-2xl border border-border hover:border-brand/25 hover:bg-brand-subtle/40 transition-colors"
                 >
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand text-white font-bold text-sm">
@@ -100,25 +88,19 @@ export function HowItWorks() {
                       <ArrowRight size={12} weight="bold" />
                     </Link>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={reduce ? false : { opacity: 0, scale: 0.96 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.55 }}
-            className="relative mx-auto w-full max-w-md lg:max-w-none"
-          >
+          <div className="relative mx-auto w-full max-w-md lg:max-w-none">
             <TiltCard className="w-full" intensity={14}>
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl shadow-brand/25 border border-white/50 bg-brand-subtle">
                 <Image
                   src="/images/products/the-signature/signature-hero.jpg"
                   alt="ZA Cricket The Signature custom bat"
                   fill
-                  className="object-cover"
+                  className="object-contain object-center p-6 pb-28"
                   sizes="(max-width: 1024px) 90vw, 40vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand/90 via-brand/20 to-transparent" />
@@ -143,7 +125,7 @@ export function HowItWorks() {
             <p className="text-center text-xs text-zinc-400 mt-4 lg:hidden">
               Tilt your phone or drag to explore
             </p>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

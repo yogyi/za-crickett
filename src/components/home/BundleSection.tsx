@@ -11,7 +11,7 @@ export function BundleSection() {
 
   return (
     <section className="py-20 lg:py-28 bg-brand-subtle">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-zinc-900">
             Bundle Offers
@@ -38,7 +38,7 @@ export function BundleSection() {
                       src={bundle.image}
                       alt={bundle.name}
                       fill
-                      className="object-cover"
+                      className="object-contain p-1"
                       sizes="64px"
                     />
                   </div>
@@ -74,7 +74,7 @@ export function BundleSection() {
                       src={bundle.image}
                       alt={bundle.name}
                       fill
-                      className="object-cover"
+                      className="object-contain p-1"
                       sizes="64px"
                     />
                   </div>

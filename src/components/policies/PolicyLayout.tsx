@@ -6,9 +6,14 @@ interface PolicySection {
 interface PolicyLayoutProps {
   title: string;
   sections: PolicySection[];
+  lastUpdated?: string;
 }
 
-export function PolicyLayout({ title, sections }: PolicyLayoutProps) {
+export function PolicyLayout({
+  title,
+  sections,
+  lastUpdated = "15 July 2026",
+}: PolicyLayoutProps) {
   return (
     <div className="py-12 lg:py-16">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,7 +21,7 @@ export function PolicyLayout({ title, sections }: PolicyLayoutProps) {
           {title}
         </h1>
         <p className="text-sm text-zinc-500 mb-12">
-          Last updated: July 2025
+          Last updated: {lastUpdated}
         </p>
 
         <div className="space-y-10">
@@ -25,7 +30,7 @@ export function PolicyLayout({ title, sections }: PolicyLayoutProps) {
               <h2 className="text-lg font-bold text-zinc-900 mb-3">
                 {section.title}
               </h2>
-              <p className="text-zinc-600 leading-relaxed text-sm">
+              <p className="text-zinc-600 leading-relaxed text-sm whitespace-pre-line">
                 {section.content}
               </p>
             </section>

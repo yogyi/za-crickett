@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useReducedMotion } from "motion/react";
 import { ArrowRight, Sparkle } from "@phosphor-icons/react";
 import { TiltCard } from "@/components/ui/TiltCard";
 
@@ -20,23 +19,15 @@ const stackImages = [
 ];
 
 export function FinalCTA() {
-  const reduce = useReducedMotion();
-
   return (
     <section className="relative py-20 sm:py-24 lg:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-brand via-brand-light to-violet-600" />
       <div className="absolute inset-0 pattern-dots opacity-30" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-glow/20 rounded-full blur-3xl animate-pulse-glow pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
-          <motion.div
-            initial={reduce ? false : { opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-            className="text-center lg:text-left order-2 lg:order-1"
-          >
+          <div className="text-center lg:text-left order-2 lg:order-1">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 text-white/90 text-sm font-medium mb-6">
               <Sparkle size={16} weight="fill" className="text-accent-warm" />
               Your next innings starts here
@@ -63,15 +54,9 @@ export function FinalCTA() {
                 Get sizing help
               </Link>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={reduce ? false : { opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="relative order-1 lg:order-2 mx-auto w-full max-w-sm lg:max-w-none"
-          >
+          <div className="relative order-1 lg:order-2 mx-auto w-full max-w-sm lg:max-w-none">
             <TiltCard intensity={12}>
               <div className="relative pb-8 pr-8">
                 <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/25 bg-white z-10">
@@ -79,7 +64,7 @@ export function FinalCTA() {
                     src={stackImages[0].src}
                     alt={stackImages[0].alt}
                     fill
-                    className="object-cover"
+                    className="object-contain object-center p-4"
                     sizes="(max-width: 1024px) 80vw, 40vw"
                   />
                   <div className="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
@@ -103,7 +88,7 @@ export function FinalCTA() {
               <p className="text-xs text-zinc-500 font-medium">Trusted by</p>
               <p className="text-lg font-bold text-brand">500+ players</p>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

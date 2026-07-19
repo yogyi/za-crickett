@@ -6,17 +6,33 @@ import { Minus, Plus, Trash } from "@phosphor-icons/react";
 import { useFormatPrice } from "@/hooks/useFormatPrice";
 import { useOrderTotals } from "@/hooks/useShipping";
 import { formatCustomizationDisplay } from "@/lib/customization";
+import { COUNTRIES } from "@/lib/currency";
+import { buildOrderMailto } from "@/lib/orderMailto";
 import { useCart } from "@/store/cart";
+import { useCurrency } from "@/store/currency";
 
 export default function CartPage() {
   const { items, removeItem, updateQuantity, clearCart } = useCart();
   const formatPrice = useFormatPrice();
+  const country = useCurrency((s) => s.country);
   const {
     subtotalFormatted,
     shippingFormatted,
     shippingLabel,
     totalFormatted,
   } = useOrderTotals();
+
+  function handleCheckout() {
+    const countryLabel = COUNTRIES[country]?.country ?? country;
+    window.location.href = buildOrderMailto({
+      items,
+      subtotalFormatted,
+      shippingFormatted,
+      shippingLabel,
+      totalFormatted,
+      countryLabel,
+    });
+  }
 
   if (items.length === 0) {
     return (
@@ -37,7 +53,7 @@ export default function CartPage() {
 
   return (
     <div className="py-12 lg:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-3xl font-bold text-zinc-900 mb-10">Your Cart</h1>
 
         <div className="grid lg:grid-cols-3 gap-10">
@@ -52,7 +68,7 @@ export default function CartPage() {
                     src={item.image}
                     alt={item.name}
                     fill
-                    className="object-cover"
+                    className="object-contain p-1"
                     sizes="96px"
                   />
                 </div>
@@ -73,7 +89,11 @@ export default function CartPage() {
                           {formatCustomizationDisplay(
                             k,
                             v,
-                            k === "weight" ? "g" : k === "grains" ? "grains" : undefined
+                            k === "weight"
+                              ? "g"
+                              : k === "grains"
+                                ? "grains"
+                                : undefined
                           )}
                         </p>
                       ) : null
@@ -85,6 +105,7 @@ export default function CartPage() {
                         updateQuantity(item.cartId, item.quantity - 1)
                       }
                       className="h-10 w-10 flex items-center justify-center rounded-lg border border-border hover:bg-zinc-50"
+                      aria-label="Decrease quantity"
                     >
                       <Minus size={14} />
                     </button>
@@ -95,6 +116,7 @@ export default function CartPage() {
                         updateQuantity(item.cartId, item.quantity + 1)
                       }
                       className="h-10 w-10 flex items-center justify-center rounded-lg border border-border hover:bg-zinc-50"
+                      aria-label="Increase quantity"
                     >
                       <Plus size={14} />
                     </button>
@@ -138,10 +160,14 @@ export default function CartPage() {
             </div>
             <button
               type="button"
+              onClick={handleCheckout}
               className="w-full mt-6 py-3.5 bg-brand text-white font-semibold rounded-xl hover:bg-brand-dark transition-colors active:scale-[0.98]"
             >
               Proceed to Checkout
             </button>
+            <p className="mt-2 text-xs text-zinc-500 text-center">
+              Opens your email to confirm the order with ZA Cricket
+            </p>
             <button
               type="button"
               onClick={clearCart}

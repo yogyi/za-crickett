@@ -9,7 +9,6 @@ import {
   Sun,
   Tree,
 } from "@phosphor-icons/react";
-import { motion, useReducedMotion } from "motion/react";
 
 const pitches = [
   {
@@ -54,19 +53,13 @@ const pitches = [
 ];
 
 export function SingaporePitchGuide() {
-  const reduce = useReducedMotion();
   const [active, setActive] = useState(pitches[0].id);
   const current = pitches.find((p) => p.id === active) ?? pitches[0];
 
   return (
     <section className="py-16 sm:py-20 lg:py-28 bg-brand-gradient-soft border-y border-border/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={reduce ? false : { opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          className="text-center mb-8 sm:mb-10"
-        >
+      <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8 sm:mb-10">
           <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white text-brand text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm">
             <Sun size={14} weight="fill" className="text-accent-warm" />
             Singapore playbook
@@ -78,7 +71,7 @@ export function SingaporePitchGuide() {
             Humidity, matting, and turf all play differently. Use this guide to
             match your kit to your pitch — then shop with confidence.
           </p>
-        </motion.div>
+        </div>
 
         {/* Mobile: pill tabs */}
         <div className="flex gap-2 overflow-x-auto pb-2 -mx-1 px-1 snap-scroll-x lg:hidden mb-6">
@@ -127,11 +120,8 @@ export function SingaporePitchGuide() {
             ))}
           </div>
 
-          <motion.div
+          <div
             key={current.id}
-            initial={reduce ? false : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35 }}
             className="lg:col-span-8 bg-white rounded-3xl border border-border p-6 sm:p-8 shadow-sm"
           >
             <div className="flex items-start gap-4 mb-6">
@@ -174,7 +164,7 @@ export function SingaporePitchGuide() {
               Shop recommended gear
               <ArrowRight size={16} weight="bold" />
             </Link>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

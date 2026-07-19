@@ -1,27 +1,32 @@
 import type { CountryCode } from "./currency";
 import { formatPrice } from "./currency";
 
-/** Flat standard delivery fee per order (SGD base, converted by country) */
-export const SHIPPING_RATES_SGD: Record<CountryCode, number> = {
-  SG: 12,
-  HK: 48,
-  IN: 55,
-};
+export const SHIPPING_THRESHOLD_SGD = 75;
+export const SHIPPING_BELOW_THRESHOLD_SGD = 4.99;
+export const SHIPPING_ABOVE_THRESHOLD_SGD = 9.99;
 
 export const SHIPPING_LABELS: Record<CountryCode, string> = {
-  SG: "Standard delivery (2–4 business days)",
-  HK: "Standard delivery to Hong Kong",
-  IN: "Standard delivery to India",
+  SG: "Worldwide delivery typically takes 1–14 business days after dispatch",
+  HK: "Worldwide delivery typically takes 1–14 business days after dispatch",
+  IN: "Worldwide delivery typically takes 1–14 business days after dispatch",
 };
 
-export function getShippingFeeSgd(country: CountryCode): number {
-  return SHIPPING_RATES_SGD[country];
+export function getShippingFeeSgd(
+  _country: CountryCode,
+  subtotalSgd = 0
+): number {
+  return subtotalSgd < SHIPPING_THRESHOLD_SGD
+    ? SHIPPING_BELOW_THRESHOLD_SGD
+    : SHIPPING_ABOVE_THRESHOLD_SGD;
 }
 
-export function formatShippingFee(country: CountryCode = "SG"): string {
-  return formatPrice(getShippingFeeSgd(country), country);
+export function formatShippingFee(
+  country: CountryCode = "SG",
+  subtotalSgd = 0
+): string {
+  return formatPrice(getShippingFeeSgd(country, subtotalSgd), country);
 }
 
 export function formatShippingFrom(country: CountryCode = "SG"): string {
-  return `from ${formatShippingFee(country)}`;
+  return `from ${formatPrice(SHIPPING_BELOW_THRESHOLD_SGD, country)}`;
 }

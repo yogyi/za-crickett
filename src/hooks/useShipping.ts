@@ -12,7 +12,8 @@ import { useCartTotal } from "@/store/cart";
 export function useShipping() {
   const country = useCurrency((s) => s.country);
   const formatPrice = useFormatPrice();
-  const feeSgd = getShippingFeeSgd(country);
+  const subtotal = useCartTotal();
+  const feeSgd = getShippingFeeSgd(country, subtotal);
 
   return useMemo(
     () => ({

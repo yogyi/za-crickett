@@ -9,7 +9,6 @@ import {
   Storefront,
   Wrench,
 } from "@phosphor-icons/react";
-import { motion, useReducedMotion } from "motion/react";
 
 const pills = [
   { href: "/shop/bats", label: "Bats", icon: Cricket, accent: "from-brand to-violet-600" },
@@ -21,23 +20,15 @@ const pills = [
 ];
 
 export function QuickNavPills() {
-  const reduce = useReducedMotion();
-
   return (
     <section className="py-4 sm:py-6 bg-white border-b border-border/60 lg:hidden">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-[1800px] mx-auto px-4">
         <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-3 px-1">
           Jump to
         </p>
         <div className="flex snap-scroll-x gap-3 pb-1 -mx-1 px-1">
-          {pills.map((pill, i) => (
-            <motion.div
-              key={pill.href + pill.label}
-              initial={reduce ? false : { opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.05, duration: 0.35 }}
-              className="snap-scroll-item"
-            >
+          {pills.map((pill) => (
+            <div key={pill.href + pill.label} className="snap-scroll-item">
               <Link
                 href={pill.href}
                 className="flex flex-col items-center gap-2 min-w-[5.5rem] active:scale-95 transition-transform"
@@ -51,7 +42,7 @@ export function QuickNavPills() {
                   {pill.label}
                 </span>
               </Link>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

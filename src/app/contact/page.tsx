@@ -7,6 +7,7 @@ import {
   ShieldCheck,
 } from "@phosphor-icons/react/dist/ssr";
 import { PageBanner } from "@/components/layout/PageBanner";
+import { ContactForm } from "@/components/contact/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -41,7 +42,7 @@ export default function ContactPage() {
       />
 
       <div className="py-12 lg:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid sm:grid-cols-3 gap-6 mb-14">
             {trustPoints.map((point) => (
               <div
@@ -71,7 +72,7 @@ export default function ContactPage() {
 
               <div className="space-y-4">
                 <a
-                  href="mailto:zacricket06@gmail.com"
+                  href="mailto:zacricket26@gmail.com"
                   className="flex items-center gap-4 p-5 rounded-2xl bg-surface hover:bg-brand-subtle transition-colors group"
                 >
                   <div className="h-12 w-12 flex items-center justify-center rounded-xl bg-brand text-white">
@@ -80,13 +81,13 @@ export default function ContactPage() {
                   <div>
                     <p className="text-sm text-zinc-500">Email</p>
                     <p className="font-semibold text-zinc-900 group-hover:text-brand transition-colors">
-                      zacricket06@gmail.com
+                      zacricket26@gmail.com
                     </p>
                   </div>
                 </a>
 
                 <a
-                  href="https://instagram.com"
+                  href="https://instagram.com/_zacricket"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-5 rounded-2xl bg-surface hover:bg-brand-subtle transition-colors group"
@@ -97,24 +98,7 @@ export default function ContactPage() {
                   <div>
                     <p className="text-sm text-zinc-500">Instagram</p>
                     <p className="font-semibold text-zinc-900 group-hover:text-brand transition-colors">
-                      @zacricket
-                    </p>
-                  </div>
-                </a>
-
-                <a
-                  href="https://www.facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-5 rounded-2xl bg-surface hover:bg-brand-subtle transition-colors group"
-                >
-                  <div className="h-12 w-12 flex items-center justify-center rounded-xl bg-brand text-white">
-                    <span className="font-bold text-sm">f</span>
-                  </div>
-                  <div>
-                    <p className="text-sm text-zinc-500">Facebook</p>
-                    <p className="font-semibold text-zinc-900 group-hover:text-brand transition-colors">
-                      ZA Cricket
+                      @_zacricket
                     </p>
                   </div>
                 </a>
@@ -139,78 +123,7 @@ export default function ContactPage() {
               <p className="text-sm text-zinc-500 mb-6">
                 Fill in the form and we will get back to you shortly.
               </p>
-              <form className="space-y-5">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-zinc-900 mb-2"
-                  >
-                    Name
-                  </label>
-                  <input
-                    id="name"
-                    type="text"
-                    name="name"
-                    placeholder="Your full name"
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-white text-zinc-900 text-sm placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-brand/30 focus:border-brand"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-zinc-900 mb-2"
-                  >
-                    Email
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    name="email"
-                    placeholder="you@email.com"
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-white text-zinc-900 text-sm placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-brand/30 focus:border-brand"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="subject"
-                    className="block text-sm font-medium text-zinc-900 mb-2"
-                  >
-                    Subject
-                  </label>
-                  <select
-                    id="subject"
-                    name="subject"
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-white text-zinc-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand/30 focus:border-brand"
-                  >
-                    <option>General Enquiry</option>
-                    <option>Custom Bat Order</option>
-                    <option>Product Question</option>
-                    <option>Exchange / Return</option>
-                    <option>Sponsorship</option>
-                  </select>
-                </div>
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-zinc-900 mb-2"
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={5}
-                    placeholder="How can we help?"
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-white text-zinc-900 text-sm resize-none placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-brand/30 focus:border-brand"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full py-3.5 bg-brand text-white font-semibold rounded-xl hover:bg-brand-dark transition-colors active:scale-[0.98]"
-                >
-                  Send Message
-                </button>
-              </form>
+              <ContactForm />
             </div>
           </div>
         </div>

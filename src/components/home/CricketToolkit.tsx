@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useReducedMotion } from "motion/react";
 import { FormattedPrice } from "@/components/shop/FormattedPrice";
 import {
   Scales,
@@ -26,20 +25,12 @@ const careTips = [
 ];
 
 export function CricketToolkit() {
-  const reduce = useReducedMotion();
-
   return (
     <section className="py-20 lg:py-28 bg-mesh-purple relative overflow-hidden">
       <div className="absolute top-0 right-0 w-96 h-96 bg-brand-glow/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <motion.div
-          initial={reduce ? false : { opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
+      <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div className="text-center mb-12">
           <span className="inline-block px-4 py-1.5 rounded-full bg-brand-subtle text-brand text-xs font-semibold uppercase tracking-wider mb-4">
             Player Toolkit
           </span>
@@ -50,17 +41,11 @@ export function CricketToolkit() {
             Practical guides from our team — built for Singapore&apos;s heat,
             humidity, and playing surfaces.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid lg:grid-cols-12 gap-5 lg:gap-6">
           {/* Bat weight guide */}
-          <motion.div
-            initial={reduce ? false : { opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: 0.05 }}
-            className="lg:col-span-7 bg-white rounded-3xl border border-border p-6 lg:p-8 shadow-sm"
-          >
+          <div className="lg:col-span-7 bg-white rounded-3xl border border-border p-6 lg:p-8 shadow-sm">
             <div className="flex items-center gap-3 mb-6">
               <div className="h-11 w-11 rounded-2xl bg-brand-subtle flex items-center justify-center text-brand">
                 <Scales size={24} weight="duotone" />
@@ -108,16 +93,10 @@ export function CricketToolkit() {
               Build your custom bat
               <ArrowRight size={16} weight="bold" />
             </Link>
-          </motion.div>
+          </div>
 
           {/* Singapore care */}
-          <motion.div
-            initial={reduce ? false : { opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="lg:col-span-5 bg-gradient-to-br from-brand via-brand-light to-violet-600 rounded-3xl p-6 lg:p-8 text-white relative overflow-hidden"
-          >
+          <div className="lg:col-span-5 bg-gradient-to-br from-brand via-brand-light to-violet-600 rounded-3xl p-6 lg:p-8 text-white relative overflow-hidden">
             <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-white/10 rounded-full blur-2xl" />
             <div className="relative">
               <div className="flex items-center gap-3 mb-6">
@@ -145,16 +124,10 @@ export function CricketToolkit() {
                 Bat prep bundles
               </Link>
             </div>
-          </motion.div>
+          </div>
 
           {/* Glove & pad sizing */}
-          <motion.div
-            initial={reduce ? false : { opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="lg:col-span-4 bg-white rounded-3xl border border-border p-6 shadow-sm"
-          >
+          <div className="lg:col-span-4 bg-white rounded-3xl border border-border p-6 shadow-sm">
             <div className="flex items-center gap-3 mb-5">
               <div className="h-11 w-11 rounded-2xl bg-accent-cream flex items-center justify-center text-accent-warm">
                 <Ruler size={24} weight="duotone" />
@@ -181,16 +154,10 @@ export function CricketToolkit() {
               Get sizing help
               <ArrowRight size={16} weight="bold" />
             </Link>
-          </motion.div>
+          </div>
 
           {/* Compare bats */}
-          <motion.div
-            initial={reduce ? false : { opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="lg:col-span-8 bg-white rounded-3xl border border-border p-6 lg:p-8 shadow-sm"
-          >
+          <div className="lg:col-span-8 bg-white rounded-3xl border border-border p-6 lg:p-8 shadow-sm">
             <h3 className="font-bold text-zinc-900 mb-5">Which ZA bat is right for you?</h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
@@ -235,7 +202,7 @@ export function CricketToolkit() {
                 </Link>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

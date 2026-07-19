@@ -10,7 +10,7 @@ export function StatsMarquee() {
     "500+ Singapore players kitted",
     "Athlete-tested gear",
     `Delivery ${formatShippingFrom(country)}`,
-    "Custom bats in 7–14 days",
+    "Custom bat prep in 1–10 business days",
     "English willow & pro protection",
     `Bundle & save up to ${formatPrice(15, country)}`,
   ];

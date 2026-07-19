@@ -2,44 +2,60 @@ import type { Metadata } from "next";
 import { PolicyLayout } from "@/components/policies/PolicyLayout";
 
 export const metadata: Metadata = {
-  title: "Exchange Policy",
+  title: "Exchange, Refund and Cancellation Policy",
+  description:
+    "Exchange, replacement, refund, and cancellation conditions for ZA Cricket orders.",
 };
 
 const sections = [
   {
     title: "Overview",
     content:
-      "At ZA Cricket, we want you to be completely satisfied with your purchase. If you are not happy with your order, we offer exchanges subject to the conditions below.",
+      "ZA Cricket does not accept returns. Exchanges or replacements are available only for an incorrect item, transit damage, a defective product, or a verified manufacturing defect, subject to the conditions below.",
   },
   {
-    title: "Eligibility",
+    title: "Exchange Eligibility",
     content:
-      "Items must be returned within 14 days of delivery in their original, unused condition with all tags and packaging intact. Customised products, including engraved bats, are not eligible for exchange unless there is a manufacturing defect.",
+      "An exchange request must be raised within 5 calendar days of delivery. The product must be unused, unaltered, in its original packaging, and include all tags and the invoice.\n\nAn exchange is permitted only for the same item or a higher-value item, subject to availability. The customer must pay any price difference. Every request is subject to ZA Cricket's quality assessment, and only one exchange is permitted per order.",
   },
   {
     title: "Exchange Process",
     content:
-      "To initiate an exchange, contact us at zacricket06@gmail.com with your order number and reason for exchange. We will provide return instructions and process your exchange once the item is received and inspected.",
+      "1. Email zacricket26@gmail.com with your order number and reason for the request.\n2. Include clear product images, the invoice, and the required 360-degree unboxing video.\n3. Our team will respond within 24–48 working hours.\n4. If approved, hand the product to our pickup partner or self-courier it as instructed.\n5. The exchange will be processed after the product passes inspection.\n\nUnauthorised returns or shipments sent without prior approval will not be accepted.",
   },
   {
-    title: "Bat Bundles and Services",
+    title: "Unboxing Video Requirement",
     content:
-      "Bat preparation bundles (knocking, oiling, scuff sheet, etc.) are service-based products and are non-refundable once the service has been performed.",
+      "Record a continuous 360-degree video showing the sealed package and the product's condition as you open it. Submit the video within 24 hours of delivery. Claims for damage, defects, or an incorrect item will only be considered when supported by this video.",
   },
   {
-    title: "Defective Items",
+    title: "Premium and Custom Products",
     content:
-      "If you receive a defective or damaged item, please contact us within 48 hours of delivery with photos. We will arrange a replacement or full refund at no additional cost.",
+      "Premium English willow bats and customised products are eligible for exchange only for a verified manufacturing defect, major transit damage supported by the required unboxing video, or delivery of the wrong item. Natural willow variations in grain, shade, weight distribution, and minor blemishes do not automatically constitute a defect.",
   },
   {
-    title: "Shipping Costs",
+    title: "Non-Exchangeable Products",
     content:
-      "Customers are responsible for return shipping costs unless the exchange is due to our error or a defective product. Exchange shipping for the replacement item is free within Singapore.",
+      "Used, damaged, altered, or improperly stored products cannot be exchanged. Products without original packaging, tags, or an invoice are also ineligible. Bat preparation services are non-refundable once work has begun. A request declined because required information is missing or incorrect cannot be resubmitted.",
+  },
+  {
+    title: "Cancellations",
+    content:
+      "Orders may be cancelled only before dispatch. If an order is cancelled after shipping, a one-way courier fee will be deducted from the refund. Cancellations are not processed on Sundays or public holidays.",
+  },
+  {
+    title: "Consumer Rights",
+    content:
+      "Nothing in this policy removes or restricts any consumer right or remedy that cannot lawfully be excluded under Singapore law.",
   },
 ];
 
 export default function ExchangePolicyPage() {
   return (
-    <PolicyLayout title="Exchange Policy" sections={sections} />
+    <PolicyLayout
+      title="Exchange, Refund and Cancellation Policy"
+      sections={sections}
+      lastUpdated="15 July 2026"
+    />
   );
 }

@@ -4,8 +4,6 @@ import Link from "next/link";
 import { ProductImage } from "@/components/shop/ProductImage";
 import { categoryMeta } from "@/data/products";
 import type { ProductCategory } from "@/types";
-import { motion, useReducedMotion } from "motion/react";
-
 const featuredCategories: ProductCategory[] = [
   "bats",
   "gloves",
@@ -13,24 +11,11 @@ const featuredCategories: ProductCategory[] = [
   "wicket-keeping",
 ];
 
-function CategoryCard({
-  cat,
-  index,
-}: {
-  cat: ProductCategory;
-  index: number;
-}) {
+function CategoryCard({ cat }: { cat: ProductCategory }) {
   const meta = categoryMeta[cat];
-  const reduce = useReducedMotion();
 
   return (
-    <motion.div
-      initial={reduce ? false : { opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ delay: index * 0.05, duration: 0.4 }}
-      className="snap-scroll-item w-[min(78vw,280px)] sm:w-auto"
-    >
+    <div className="snap-scroll-item w-[min(78vw,280px)] sm:w-auto">
       <Link
         href={`/shop/${cat}`}
         className="group block relative overflow-hidden rounded-2xl active:scale-[0.99] transition-transform"
@@ -43,7 +28,7 @@ function CategoryCard({
             className={`transition-transform duration-500 group-hover:scale-105 ${
               meta.image.includes("za-cricket-logo")
                 ? "object-contain p-8 opacity-40"
-                : "object-cover"
+                : "object-contain object-center p-4 pb-16"
             }`}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-brand/95 via-brand/40 to-transparent" />
@@ -60,14 +45,14 @@ function CategoryCard({
           </div>
         </div>
       </Link>
-    </motion.div>
+    </div>
   );
 }
 
 export function CategoryGrid() {
   return (
     <section className="py-16 sm:py-20 lg:py-28 bg-mesh-purple">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 sm:gap-4 mb-6 sm:mb-10">
           <div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-zinc-900">
@@ -87,14 +72,14 @@ export function CategoryGrid() {
         </div>
 
         <div className="flex sm:hidden snap-scroll-x gap-3 pb-1 -mx-4 px-4">
-          {featuredCategories.map((cat, i) => (
-            <CategoryCard key={cat} cat={cat} index={i} />
+          {featuredCategories.map((cat) => (
+            <CategoryCard key={cat} cat={cat} />
           ))}
         </div>
 
         <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
-          {featuredCategories.map((cat, i) => (
-            <CategoryCard key={cat} cat={cat} index={i} />
+          {featuredCategories.map((cat) => (
+            <CategoryCard key={cat} cat={cat} />
           ))}
         </div>
       </div>

@@ -28,7 +28,7 @@ export default function BundlesPage() {
       />
 
       <div className="py-12 lg:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-6 mb-14">
             <div className="p-6 rounded-2xl bg-brand-subtle border border-brand/10">
               <h3 className="font-bold text-zinc-900">Value Bundles</h3>

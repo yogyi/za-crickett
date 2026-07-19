@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Sparkle } from "@phosphor-icons/react";
-import { motion, useReducedMotion } from "motion/react";
 import { FormattedPrice } from "@/components/shop/FormattedPrice";
 import { TiltCard } from "@/components/ui/TiltCard";
 
@@ -11,41 +10,34 @@ const showcaseBats = [
   {
     name: "The Monarch",
     price: 299,
-    tag: "Best starter",
-    specs: ["Reliable English willow", "Match-ready profile", "Club & school cricket"],
+    tag: "Grade 2",
+    specs: ["Grade 2 English Willow", "Balanced pick-up", "Powerful sweet spot"],
     image: "/images/products/the-monarch/monarch-hero.jpg",
     href: "/product/the-monarch",
   },
   {
     name: "The Eagle",
     price: 399,
-    tag: "Pro pick",
-    specs: ["Suryansh Gulecha line", "Premium grade willow", "Competitive leagues"],
-    image: "/images/products/the-eagle/eagle-hero.jpg",
+    tag: "Grade 1",
+    specs: ["Grade 1 English Willow", "Enhanced edges", "Deep sweet spot"],
+    image: "/images/products/the-eagle/eagle-front-02.jpg",
     href: "/product/the-eagle",
   },
   {
     name: "The Signature",
     price: 499,
-    tag: "Fully custom",
-    specs: ["Weight in grams", "Grain count 6–12", "Handle & engraving"],
+    tag: "Grade 1 custom",
+    specs: ["Premium Grade 1 willow", "Custom profile & handle", "Built to your specifications"],
     image: "/images/products/the-signature/signature-hero.jpg",
     href: "/product/the-signature",
   },
 ];
 
 export function BatShowcase3D() {
-  const reduce = useReducedMotion();
-
   return (
     <section className="py-16 sm:py-20 lg:py-28 bg-mesh-purple overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={reduce ? false : { opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          className="text-center mb-8 sm:mb-10"
-        >
+      <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8 sm:mb-10">
           <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full badge-shimmer text-white text-xs font-semibold uppercase tracking-wider mb-4">
             <Sparkle size={14} weight="fill" />
             Interactive lineup
@@ -57,7 +49,7 @@ export function BatShowcase3D() {
             Three English willow bats for every level — swipe on mobile, hover to
             tilt on desktop.
           </p>
-        </motion.div>
+        </div>
 
         <div className="flex lg:hidden snap-scroll-x gap-4 pb-2 -mx-4 px-4">
           {showcaseBats.map((bat) => (
@@ -68,16 +60,10 @@ export function BatShowcase3D() {
         </div>
 
         <div className="hidden lg:grid lg:grid-cols-3 gap-6">
-          {showcaseBats.map((bat, i) => (
-            <motion.div
-              key={bat.name}
-              initial={reduce ? false : { opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-            >
+          {showcaseBats.map((bat) => (
+            <div key={bat.name}>
               <BatCard bat={bat} tilt />
-            </motion.div>
+            </div>
           ))}
         </div>
 
@@ -107,14 +93,18 @@ function BatCard({
       href={bat.href}
       className="flex flex-col h-full rounded-2xl overflow-hidden bg-white border border-border shadow-md hover:shadow-lg transition-shadow active:scale-[0.99]"
     >
-      <div className="relative aspect-[4/5] bg-surface shrink-0">
-        <Image
-          src={bat.image}
-          alt={bat.name}
-          fill
-          className="object-cover"
-          sizes="(max-width: 1024px) 85vw, 33vw"
-        />
+      <div className="relative aspect-[3/4] bg-surface shrink-0 overflow-hidden">
+        <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-5">
+          <div className="relative h-full w-full">
+            <Image
+              src={bat.image}
+              alt={bat.name}
+              fill
+              className="object-contain object-center"
+              sizes="(max-width: 1024px) 85vw, 33vw"
+            />
+          </div>
+        </div>
         <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-sm text-brand text-xs font-bold">
           {bat.tag}
         </span>

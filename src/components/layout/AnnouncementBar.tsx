@@ -5,7 +5,7 @@ import { formatPrice } from "@/lib/currency";
 import { useCurrency } from "@/store/currency";
 
 const staticMessages = [
-  { text: "Custom bats ready in", highlight: "7–14 days" },
+  { text: "Custom bat preparation in", highlight: "1–10 business days" },
   { text: "Athlete-tested gear for", highlight: "Singapore" },
 ];
 
@@ -15,7 +15,7 @@ export function AnnouncementBar() {
   const bundleSave = formatPrice(15, country);
 
   const messages = [
-    { text: "Island-wide delivery", highlight: deliveryFrom },
+    { text: "Worldwide delivery", highlight: deliveryFrom },
     ...staticMessages,
     { text: "Bundle & save up to", highlight: bundleSave },
   ];

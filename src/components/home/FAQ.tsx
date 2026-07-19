@@ -12,19 +12,19 @@ const faqs = [
     icon: Wrench,
     question: "How long does a custom Signature bat take?",
     answer:
-      "Custom Signature bats take 7–14 business days. Your weight (grams), grain count, handle shape, and engraving are confirmed by email after ordering.",
+      "Custom bats require an additional 1–10 business days for drafting and preparation before dispatch. Your weight, grain count, handle shape, grip, profile, and engraving are confirmed before processing.",
   },
   {
     icon: Truck,
-    question: "Do you ship across Singapore?",
+    question: "Where do you ship?",
     answer:
-      "Yes. We deliver island-wide across Singapore, Hong Kong, and India. Standard delivery charges apply to every order and are shown in your cart before checkout.",
+      "We ship worldwide and currently serve customers across Singapore, Bahrain, Oman, and beyond. Standard delivery typically takes 1–14 business days after dispatch.",
   },
   {
     icon: ArrowsLeftRight,
-    question: "Can I exchange a product if it does not fit?",
+    question: "Can I return or exchange a product?",
     answer:
-      "Unused items can be exchanged within 14 days. Custom engraved bats are excluded unless there is a manufacturing defect.",
+      "We do not accept returns. Exchanges or replacements are available only for an incorrect item, transit damage, a defective product, or a verified manufacturing defect. Requests must be raised within 5 calendar days, and a 360-degree unboxing video is mandatory.",
   },
   {
     icon: Question,
@@ -42,7 +42,7 @@ const faqs = [
     icon: Question,
     question: "What delivery charges apply?",
     answer:
-      "Standard delivery fees apply to all orders — there is no free-shipping threshold. Fees are shown in your cart based on your country (Singapore, Hong Kong, or India). See our Shipping Policy for full details.",
+      "Orders below S$75 are charged S$4.99. Orders of S$75 and above are charged S$9.99. Select international destinations may have different rates confirmed at checkout.",
   },
   {
     icon: Wrench,

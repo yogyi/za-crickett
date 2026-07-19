@@ -14,7 +14,7 @@ export const athletes: Athlete[] = [
     bio: "An aggressive opening batter known for powerful stroke play. Suryansh worked closely with ZA to develop The Eagle bat line, tuned for players who like to dominate from ball one.",
     achievements: [
       "Singapore domestic league top scorer",
-      "ZA Cricket brand ambassador since 2024",
+      "ZA Cricket sponsored player since 2026",
       "The Eagle signature line",
     ],
   },
@@ -40,8 +40,6 @@ export const athletes: Athlete[] = [
     region: "Singapore",
     image: "/images/athletes/mahiyu-bhatia.jpg",
     imageFocus: "object-cover object-top",
-    productLine: "The Monarch",
-    productHref: "/product/the-monarch",
     featured: true,
     bio: "A composed middle-order batter with a reputation for building innings under pressure. Mahiyu helps refine ZA batting gloves and pads for fit and flexibility.",
     achievements: [
@@ -61,7 +59,7 @@ export const athletes: Athlete[] = [
     bio: "Representing Cricket Hong Kong, China on the international stage. Hafeez trusts ZA bats and gloves for training and competition across the region.",
     achievements: [
       "Cricket Hong Kong, China squad",
-      "ZA Cricket regional ambassador",
+      "ZA Cricket sponsored player",
       "International tournament experience",
     ],
   },

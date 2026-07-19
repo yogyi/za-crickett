@@ -16,8 +16,8 @@ const monarchImages = [
 ];
 
 const eagleImages = [
-  "/images/products/the-eagle/eagle-hero.jpg",
   "/images/products/the-eagle/eagle-front-02.jpg",
+  "/images/products/the-eagle/eagle-hero.jpg",
   "/images/products/the-eagle/eagle-front-03.jpg",
   "/images/products/the-eagle/eagle-detail-01.jpg",
   "/images/products/the-eagle/eagle-detail-02.jpg",
@@ -43,14 +43,21 @@ const playersGlovesImages = [
 ];
 
 const ghostGlovesImages = [
-  "/images/products/gloves/ghost-gloves.jpg",
-  "/images/products/gloves/img_8684.jpg",
-  "/images/products/gloves/img_8685.jpg",
+  "/images/products/gloves/ghost-edition.png",
 ];
 
 const whitePadsImages = ["/images/products/pads/white-pads.png"];
 
-const colouredPadsImages = ["/images/products/pads/coloured-red-pads.png"];
+const colouredPadsImages = [
+  "/images/products/pads/coloured-red-pads.png",
+  "/images/products/pads/black-pads.jpg",
+];
+
+const valueBundleImages = [
+  "/images/products/value-bundle-gloves-pads.png",
+  "/images/products/gloves/players-edition.png",
+  "/images/products/pads/white-pads.png",
+];
 
 export const categoryMeta: Record<
   ProductCategory,
@@ -79,7 +86,7 @@ export const categoryMeta: Record<
   "value-bundles": {
     label: "Value Bundles",
     description: "Save more when you kit up together.",
-    image: playersGlovesImages[0],
+    image: valueBundleImages[0],
   },
   "bat-bundles": {
     label: "Bat Bundles",
@@ -96,17 +103,17 @@ export const products: Product[] = [
     price: 499,
     category: "bats",
     description:
-      "Fully customisable top-grade English willow bat. Built to your exact preferences for weight, profile, and handle shape.",
-    tagline: "Top Grade · Fully Customisable",
+      "The pinnacle of the ZA Cricket range. A fully bespoke Grade 1 English Willow bat built to your exact specifications — from willow selection and weight to handle type, grip, and profile.",
+    tagline: "Grade 1 · Fully Customisable",
     image: signatureImages[0],
     images: signatureImages,
     badge: "Flagship",
     inStock: true,
     features: [
-      "Top-grade English willow",
-      "Hand-selected clefts",
+      "Premium-selection Grade 1 English Willow",
+      "Fully customisable weight, pick-up, profile, handle, and grip",
+      "Built to individual player specifications",
       "Personal engraving available",
-      "Singapore-tuned balance",
     ],
     customization: [
       {
@@ -153,17 +160,17 @@ export const products: Product[] = [
     price: 399,
     category: "bats",
     description:
-      "Suryansh Gulecha's signature line. Aggressive profile with a sweet spot tuned for power hitting.",
-    tagline: "Suryansh Gulecha Line",
+      "Where craftsmanship meets performance. The Eagle is made from premium Grade 1 English Willow with minimal blemishes and tight, straight grains for the serious competitor.",
+    tagline: "Grade 1 English Willow",
     image: eagleImages[0],
     images: eagleImages,
     badge: "Athlete Edition",
     inStock: true,
     features: [
-      "Premium Kashmir willow",
-      "Athlete-tested profile",
-      "Extended sweet spot",
-      "Light pick-up",
+      "Premium Grade 1 English Willow",
+      "Minimal blemishes with tight, straight grains",
+      "Enhanced edge thickness",
+      "Deep, powerful sweet spot",
     ],
   },
   {
@@ -173,16 +180,16 @@ export const products: Product[] = [
     price: 299,
     category: "bats",
     description:
-      "Reliable performance for club and school cricket. Balanced pick-up with a classic profile. Official ZA Cricket product photography.",
-    tagline: "Everyday Performance",
+      "Built for the player who demands performance without compromise. The Monarch is crafted from hand-selected Grade 2 English Willow with a generous sweet spot, balanced pick-up, and a clean, responsive sound.",
+    tagline: "Grade 2 English Willow",
     image: monarchImages[0],
     images: monarchImages,
     inStock: true,
     features: [
-      "Grade A Kashmir willow",
-      "Balanced mid-profile",
-      "ZA Cricket branded sticker",
-      "Ready to play",
+      "Hand-selected Grade 2 English Willow",
+      "Balanced weight distribution for enhanced control",
+      "Traditional profile",
+      "Generous, powerful sweet spot",
     ],
   },
   {
@@ -192,11 +199,15 @@ export const products: Product[] = [
     price: 40,
     category: "gloves",
     description:
-      "Lightweight batting gloves with reinforced finger protection and breathable palm mesh.",
+      "Everyday reliability engineered for performance. The Players Edition uses a classic sausage-finger design with high-density foam and a durable, breathable palm for players who train and compete week after week.",
     image: playersGlovesImages[0],
     images: playersGlovesImages,
     inStock: true,
-    features: ["Ventilated palm", "Reinforced fingers", "Secure wrist strap"],
+    features: [
+      "Sausage-finger segmented protection",
+      "High-density shock-absorbing foam",
+      "Breathable, durable palm construction",
+    ],
   },
   {
     id: "gloves-ghost",
@@ -205,12 +216,16 @@ export const products: Product[] = [
     price: 50,
     category: "gloves",
     description:
-      "Stealth black design with premium padding. Built for players who want edge and comfort.",
+      "Precision, silence, power. The all-white Ghost Edition pairs a clean ZA silhouette with segmented protective padding, a soft grip palm, and a secure wrist strap for confident training and match play.",
     image: ghostGlovesImages[0],
     images: ghostGlovesImages,
     badge: "Limited",
     inStock: true,
-    features: ["Premium padding", "Sleek black finish", "Pro-grade grip"],
+    features: [
+      "All-white ZA profile with bold branding",
+      "Segmented protective padding for flexibility",
+      "Soft grip palm with secure wrist strap",
+    ],
   },
   {
     id: "pads-white",
@@ -219,11 +234,16 @@ export const products: Product[] = [
     price: 80,
     category: "pads",
     description:
-      "Classic white batting pads with triple-layer protection and ergonomic knee roll.",
+      "Protection built to move with you. Players Edition Pads combine lightweight, high-density foam with a traditional three-strap design for a secure, comfortable fit through long innings.",
     image: whitePadsImages[0],
     images: whitePadsImages,
     inStock: true,
-    features: ["Triple-layer protection", "Lightweight shell", "Adjustable straps"],
+    features: [
+      "Lightweight, high-density protective foam",
+      "Traditional three-strap secure fit",
+      "Reinforced knee rolls and shin protection",
+      "Available in white, red, and green",
+    ],
   },
   {
     id: "pads-coloured",
@@ -232,15 +252,29 @@ export const products: Product[] = [
     price: 80,
     category: "pads",
     description:
-      "Same pro protection in bold colourways. Stand out at the crease.",
+      "Players Edition protection in bold red and green colourways, with lightweight high-density foam, reinforced knee rolls, and a secure traditional three-strap fit.",
     image: colouredPadsImages[0],
     images: colouredPadsImages,
     variants: [
-      { id: "red", label: "Red", color: "#DC2626" },
-      { id: "black", label: "Black", color: "#171717" },
+      {
+        id: "red",
+        label: "Red",
+        color: "#DC2626",
+        image: "/images/products/pads/coloured-red-pads.png",
+      },
+      {
+        id: "green",
+        label: "Green",
+        color: "#15803D",
+      },
     ],
     inStock: true,
-    features: ["Red & Black available", "Pro-grade padding", "Ergonomic fit"],
+    features: [
+      "Available in red and green",
+      "Lightweight, high-density protective foam",
+      "Traditional three-strap secure fit",
+      "Reinforced knee rolls and shin protection",
+    ],
   },
   {
     id: "wk-gloves",
@@ -249,10 +283,15 @@ export const products: Product[] = [
     price: 75,
     category: "wicket-keeping",
     description:
-      "Wicket keeping gloves with enhanced webbing and shock absorption for all-day comfort.",
+      "Safe hands, every time. ZA Wicket Keeping Gloves combine an internal support cage, high-density padding, and a soft sure-grip palm to help keepers take the toughest chances cleanly.",
     image: PLACEHOLDER,
     inStock: true,
-    features: ["Enhanced webbing", "Shock absorption", "Secure wrist closure"],
+    features: [
+      "Internal support cage for finger protection",
+      "High-density palm and back-of-hand padding",
+      "Sure-grip palm surface for clean takes",
+      "Available in white, red, and black",
+    ],
   },
   {
     id: "wk-pads",
@@ -261,10 +300,14 @@ export const products: Product[] = [
     price: 60,
     category: "wicket-keeping",
     description:
-      "Low-profile keeping pads designed for agility behind the stumps.",
+      "Built for the player behind the stumps who never switches off. ZA Wicket Keeping Pads provide low-profile, lightweight protection designed for speed, mobility, and extended wear.",
     image: PLACEHOLDER,
     inStock: true,
-    features: ["Low-profile design", "Quick lateral movement", "Durable outer"],
+    features: [
+      "Low-profile design for speed behind the stumps",
+      "Lightweight construction for extended wear",
+      "Available in white, red, and black",
+    ],
   },
   {
     id: "bundle-value",
@@ -274,7 +317,8 @@ export const products: Product[] = [
     category: "value-bundles",
     description:
       "Complete protection bundle. Two pairs of Players Edition Gloves plus one pair of Players Edition Pads.",
-    image: playersGlovesImages[0],
+    image: valueBundleImages[0],
+    images: valueBundleImages,
     badge: "Save $15",
     inStock: true,
     features: [
@@ -290,7 +334,7 @@ export const products: Product[] = [
     price: 35,
     category: "bat-bundles",
     description: "Essential bat preparation for match-ready performance.",
-    image: monarchImages[2],
+    image: monarchImages[1],
     inStock: true,
     features: ["Hand knocking", "Oiling", "Scuff sheet"],
   },
@@ -320,7 +364,7 @@ export const products: Product[] = [
     category: "bat-bundles",
     description:
       "Complete restoration service to bring your bat back to peak condition.",
-    image: monarchImages[4],
+    image: monarchImages[0],
     inStock: true,
     features: [
       "Repair",
@@ -337,7 +381,16 @@ export function getProductBySlug(slug: string): Product | undefined {
 }
 
 export function getProductsByCategory(category: ProductCategory): Product[] {
-  return products.filter((p) => p.category === category);
+  const filtered = products.filter((p) => p.category === category);
+
+  if (category === "bats") {
+    const batOrder = ["bat-monarch", "bat-eagle", "bat-signature"];
+    return [...filtered].sort(
+      (a, b) => batOrder.indexOf(a.id) - batOrder.indexOf(b.id)
+    );
+  }
+
+  return filtered;
 }
 
 export function formatPrice(amount: number, country: CountryCode = "SG"): string {

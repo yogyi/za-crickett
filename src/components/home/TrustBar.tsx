@@ -9,8 +9,8 @@ const trustItems = [
   },
   {
     icon: Truck,
-    title: "Singapore Delivery",
-    description: "Standard delivery charges apply.",
+    title: "Worldwide Delivery",
+    description: "Shipping from S$4.99.",
     color: "bg-emerald-100 text-emerald-700",
   },
   {
@@ -30,7 +30,7 @@ const trustItems = [
 export function TrustBar() {
   return (
     <section className="py-10 bg-brand-gradient-soft border-y border-border/60">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           {trustItems.map((item) => (
             <div

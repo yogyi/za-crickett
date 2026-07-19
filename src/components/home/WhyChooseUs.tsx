@@ -9,7 +9,6 @@ import {
   Certificate,
   ArrowRight,
 } from "@phosphor-icons/react";
-import { motion, useReducedMotion } from "motion/react";
 
 const reasons = [
   {
@@ -33,20 +32,12 @@ const reasons = [
 ];
 
 export function WhyChooseUs() {
-  const reduce = useReducedMotion();
-
   return (
     <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-brand-subtle rounded-full blur-3xl -translate-x-1/2 translate-y-1/2 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <motion.div
-          initial={reduce ? false : { opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-14"
-        >
+      <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div className="text-center mb-14">
           <span className="inline-block px-4 py-1.5 rounded-full bg-brand-subtle text-brand text-xs font-semibold uppercase tracking-wider mb-4">
             The ZA difference
           </span>
@@ -57,18 +48,12 @@ export function WhyChooseUs() {
             A Singapore brand built by players, for players — not just another
             equipment seller.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid lg:grid-cols-2 gap-5 mb-5">
-          <motion.div
-            initial={reduce ? false : { opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5 }}
-            className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand via-brand-light to-violet-600 text-white shadow-xl shadow-brand/25 lg:row-span-2 min-h-[320px]"
-          >
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand via-brand-light to-violet-600 text-white shadow-xl shadow-brand/25 lg:row-span-2 min-h-[320px]">
             <div className="absolute inset-0 pattern-dots opacity-20 pointer-events-none" />
-            <div className="relative p-6 lg:p-8 flex flex-col h-full">
+            <div className="relative z-10 p-6 lg:p-8 flex flex-col h-full">
               <div className="h-12 w-12 flex items-center justify-center rounded-2xl bg-white/15 mb-5">
                 <Wrench size={26} weight="duotone" />
               </div>
@@ -78,33 +63,31 @@ export function WhyChooseUs() {
                 professional knocking, oiling, and finishing — match-ready from
                 day one.
               </p>
-              <Link
-                href="/bundles"
-                className="inline-flex items-center gap-2 mt-auto pt-6 text-sm font-semibold text-white hover:text-white/90 transition-colors"
-              >
-                Explore bat prep bundles
-                <ArrowRight size={16} weight="bold" />
-              </Link>
+              <div className="mt-auto pt-6 flex items-end justify-between gap-4">
+                <Link
+                  href="/bundles"
+                  className="inline-flex items-center gap-2 pb-2 text-sm font-semibold text-white hover:text-white/90 transition-colors"
+                >
+                  Explore bat prep bundles
+                  <ArrowRight size={16} weight="bold" />
+                </Link>
+                <div className="relative w-28 h-28 sm:w-40 sm:h-40 lg:w-48 lg:h-48 shrink-0 -mb-3 -mr-3 sm:-mb-4 sm:-mr-4 opacity-90 pointer-events-none">
+                  <Image
+                    src="/images/products/the-monarch/monarch-lifestyle-01.jpg"
+                    alt="ZA Cricket bat"
+                    fill
+                    className="object-cover rounded-2xl rotate-6 shadow-2xl"
+                    sizes="192px"
+                  />
+                </div>
+              </div>
             </div>
-            <div className="absolute bottom-0 right-0 w-48 h-48 lg:w-56 lg:h-56 translate-x-4 translate-y-4 opacity-90 pointer-events-none">
-              <Image
-                src="/images/products/the-monarch/monarch-lifestyle-01.jpg"
-                alt="ZA Cricket bat"
-                fill
-                className="object-cover rounded-2xl rotate-6 shadow-2xl"
-                sizes="224px"
-              />
-            </div>
-          </motion.div>
+          </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-5">
-            {reasons.slice(0, 2).map((reason, i) => (
-              <motion.div
+            {reasons.slice(0, 2).map((reason) => (
+              <div
                 key={reason.title}
-                initial={reduce ? false : { opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, delay: (i + 1) * 0.08 }}
                 className="p-6 rounded-3xl bg-surface border border-border hover:border-brand/20 hover:shadow-lg hover:-translate-y-1 transition-all"
               >
                 <div className="h-12 w-12 flex items-center justify-center rounded-2xl bg-brand-subtle text-brand mb-5">
@@ -114,19 +97,15 @@ export function WhyChooseUs() {
                 <p className="mt-2 text-sm leading-relaxed text-zinc-600">
                   {reason.description}
                 </p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
 
         <div className="grid sm:grid-cols-2 gap-5">
-          {reasons.slice(2).map((reason, i) => (
-            <motion.div
+          {reasons.slice(2).map((reason) => (
+            <div
               key={reason.title}
-              initial={reduce ? false : { opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: (i + 3) * 0.08 }}
               className="p-6 rounded-3xl bg-surface border border-border hover:border-brand/20 hover:shadow-lg hover:-translate-y-1 transition-all"
             >
               <div className="h-12 w-12 flex items-center justify-center rounded-2xl bg-brand-subtle text-brand mb-5">
@@ -136,7 +115,7 @@ export function WhyChooseUs() {
               <p className="mt-2 text-sm leading-relaxed text-zinc-600">
                 {reason.description}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

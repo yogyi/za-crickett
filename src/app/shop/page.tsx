@@ -42,7 +42,7 @@ export default function ShopPage() {
       />
 
       <div className="py-12 lg:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
             {highlights.map((item) => (
               <div

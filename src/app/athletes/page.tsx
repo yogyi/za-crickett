@@ -158,7 +158,7 @@ export default function AthletesPage() {
       <section className="relative bg-zinc-950 text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-brand/40 via-zinc-950 to-zinc-950" />
         <div className="absolute inset-0 pattern-dots opacity-20" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
+        <div className="relative max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-glow mb-4">
             ZA Cricket
           </p>
@@ -180,7 +180,7 @@ export default function AthletesPage() {
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
         <AthleteRegionSection
           title="Singapore squad"
           subtitle="Club and national-pathway players who shape our bats, gloves, and protection for local conditions."

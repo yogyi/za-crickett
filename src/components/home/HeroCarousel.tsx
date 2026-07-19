@@ -8,88 +8,178 @@ import {
   ArrowRight,
   CaretLeft,
   CaretRight,
-  Trophy,
+  Lightning,
+  Medal,
+  Package,
+  ShieldCheck,
+  Sparkle,
+  Truck,
 } from "@phosphor-icons/react";
 import { heroSlides, type HeroSlide } from "@/data/heroSlides";
 
 const INTERVAL_MS = 5500;
 
-function SlideImage({
+const slideChips: Record<string, { icon: typeof Medal; label: string }[]> = {
+  greatness: [
+    { icon: Medal, label: "Grade 1 English Willow" },
+    { icon: ShieldCheck, label: "Athlete Tested" },
+    { icon: Truck, label: "Fast SG Delivery" },
+  ],
+  protection: [
+    { icon: ShieldCheck, label: "Pro-Level Protection" },
+    { icon: Lightning, label: "Lightweight & Breathable" },
+    { icon: Medal, label: "Match Ready" },
+  ],
+  "coloured-pads": [
+    { icon: Sparkle, label: "Bold Colourways" },
+    { icon: ShieldCheck, label: "Same Pro Protection" },
+    { icon: Medal, label: "Stand Out At The Crease" },
+  ],
+  custom: [
+    { icon: Sparkle, label: "Fully Customisable" },
+    { icon: Medal, label: "Grade 1 English Willow" },
+    { icon: Lightning, label: "Built To Your Spec" },
+  ],
+  bundles: [
+    { icon: Package, label: "Value Bundles" },
+    { icon: Sparkle, label: "Pro Bat Prep" },
+    { icon: Truck, label: "Kit Up & Save" },
+  ],
+};
+
+const slideDecorIcon: Partial<Record<string, typeof ShieldCheck>> = {
+  protection: ShieldCheck,
+  bundles: Package,
+};
+
+function SlideVisual({
   slide,
-  priority,
   variant,
 }: {
   slide: HeroSlide;
-  priority?: boolean;
   variant: "mobile" | "desktop";
 }) {
-  const position =
-    variant === "mobile"
-      ? slide.imagePositionMobile ?? "object-cover object-[78%_center]"
-      : slide.imagePosition ?? "object-cover object-center";
+  const isDesktop = variant === "desktop";
+  const DecorIcon = slideDecorIcon[slide.id];
 
   return (
-    <Image
-      src={slide.image}
-      alt=""
-      fill
-      priority={priority}
-      className={position}
-      sizes="100vw"
-    />
+    <div
+      className={`relative pointer-events-none ${
+        isDesktop ? "h-[min(72vh,680px)] w-full" : "h-[300px] w-full"
+      }`}
+      aria-hidden="true"
+    >
+      {/* Boundary ring + glow */}
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 aspect-square w-[78%] max-w-[520px]">
+        <div className="hero-boundary-ring absolute inset-0" />
+        <div className="hero-boundary-ring absolute inset-[9%] opacity-60" />
+        <div className="hero-product-glow absolute inset-[12%] rounded-full" />
+      </div>
+
+      {slide.accentImage ? (
+        // Pre-compressed WebP cutouts — skip the optimizer so the full-res
+        // original is served instead of a re-encoded upscale
+        <Image
+          src={slide.accentImage}
+          alt=""
+          fill
+          unoptimized
+          className="object-contain object-center drop-shadow-[0_36px_60px_rgba(0,0,0,0.55)]"
+          sizes={isDesktop ? "1000px" : "700px"}
+          priority={slide.id === "greatness"}
+        />
+      ) : (
+        DecorIcon && (
+          <div className="absolute inset-0 flex items-center justify-center text-white/20">
+            <DecorIcon size={isDesktop ? 300 : 190} weight="duotone" />
+          </div>
+        )
+      )}
+    </div>
   );
 }
 
 function SlideContent({ slide }: { slide: HeroSlide }) {
+  const chips = slideChips[slide.id] ?? [];
+
   return (
     <>
-      <div className="flex flex-wrap items-center gap-3 mb-4 sm:mb-5">
-        <Image
-          src="/images/za-cricket-logo.png"
-          alt="ZA Cricket"
-          width={120}
-          height={48}
-          className="h-9 sm:h-10 lg:h-11 w-auto object-contain"
-          priority
-        />
-        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-brand-subtle lg:bg-white/80 backdrop-blur-sm border border-brand/10 text-brand text-xs font-semibold shadow-sm">
-          <Trophy size={14} weight="fill" />
-          {slide.eyebrow}
-        </span>
-      </div>
+      <span className="inline-flex items-center gap-2 rounded-full border border-violet-300/30 bg-violet-400/10 px-4 py-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-[0.22em] text-violet-200 backdrop-blur-md">
+        <span className="h-1.5 w-1.5 rounded-full bg-fuchsia-400 animate-pulse" />
+        {slide.eyebrow}
+      </span>
 
-      <h1 className="text-[1.75rem] leading-[1.08] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-zinc-900">
+      <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl xl:text-[4.75rem] font-extrabold uppercase tracking-tight leading-[0.95] text-white">
         {slide.title}
         {slide.highlight && (
           <>
             <br />
-            <span className="text-gradient-brand">{slide.highlight}</span>
+            <span className="bg-gradient-to-r from-fuchsia-300 via-violet-200 to-purple-300 bg-clip-text text-transparent drop-shadow-[0_0_28px_rgba(217,70,239,0.35)]">
+              {slide.highlight}
+            </span>
           </>
         )}
       </h1>
 
-      <p className="mt-4 sm:mt-5 text-[0.9375rem] sm:text-lg text-zinc-600 leading-relaxed max-w-md">
+      <p className="mt-4 sm:mt-5 max-w-md text-[0.9375rem] sm:text-lg leading-relaxed text-purple-100/85">
         {slide.description}
       </p>
 
-      <div className="mt-5 sm:mt-6 lg:mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
+      {chips.length > 0 && (
+        <div className="mt-5 flex flex-wrap gap-2">
+          {chips.map(({ icon: Icon, label }) => (
+            <span
+              key={label}
+              className="inline-flex items-center gap-1.5 rounded-lg border border-white/12 bg-white/[0.07] px-3 py-1.5 text-[11px] sm:text-xs font-semibold text-purple-100/90 backdrop-blur-sm"
+            >
+              <Icon size={14} weight="fill" className="text-fuchsia-300" />
+              {label}
+            </span>
+          ))}
+        </div>
+      )}
+
+      <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
         <Link
           href={slide.primaryCta.href}
-          className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 bg-brand text-white font-semibold rounded-xl hover:bg-brand-dark transition-colors active:scale-[0.98] shadow-lg shadow-brand/25 w-full sm:w-auto"
+          className="group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-fuchsia-500 to-violet-600 px-7 py-3.5 font-bold text-white shadow-[0_16px_40px_-8px_rgba(192,38,211,0.55)] transition-all hover:shadow-[0_20px_48px_-8px_rgba(192,38,211,0.7)] hover:brightness-110 active:scale-[0.98] sm:w-auto"
         >
           {slide.primaryCta.label}
-          <ArrowRight size={18} weight="bold" />
+          <ArrowRight
+            size={18}
+            weight="bold"
+            className="transition-transform group-hover:translate-x-0.5"
+          />
         </Link>
         {slide.secondaryCta && (
           <Link
             href={slide.secondaryCta.href}
-            className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 bg-white border-2 border-brand/15 text-brand font-semibold rounded-xl hover:border-brand hover:bg-brand-subtle transition-colors active:scale-[0.98] w-full sm:w-auto"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/25 bg-white/[0.06] px-7 py-3.5 font-semibold text-white backdrop-blur-sm transition-colors hover:border-white/45 hover:bg-white/[0.12] active:scale-[0.98] sm:w-auto"
           >
             {slide.secondaryCta.label}
           </Link>
         )}
       </div>
     </>
+  );
+}
+
+function StageBackdrop({ watermark }: { watermark: string }) {
+  return (
+    <div className="absolute inset-0 hero-stage-base" aria-hidden="true">
+      <div className="absolute inset-0 pattern-dots-light opacity-25" />
+      <div className="hero-floodlight hero-floodlight--left" />
+      <div className="hero-floodlight hero-floodlight--right" />
+
+      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-center overflow-hidden">
+        <span className="hero-watermark text-[24vw] lg:text-[19vw]">
+          {watermark}
+        </span>
+      </div>
+
+      <div className="hero-pitch absolute inset-x-0 bottom-0 h-40 sm:h-52" />
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#150c24] to-transparent" />
+    </div>
   );
 }
 
@@ -113,87 +203,59 @@ export function HeroCarousel() {
   }, [next, paused, reduce]);
 
   const slide = heroSlides[current];
+  const watermark = (slide.highlight ?? slide.title).toUpperCase();
 
   return (
     <section
-      className="relative overflow-hidden bg-white lg:min-h-[100dvh] lg:bg-brand-subtle"
+      className="relative overflow-hidden bg-[#170e29] lg:min-h-[100dvh]"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onTouchStart={(e) => setTouchStart(e.touches[0].clientX)}
       onTouchEnd={(e) => {
         if (touchStart === null) return;
         const diff = touchStart - e.changedTouches[0].clientX;
-        if (Math.abs(diff) > 50) diff > 0 ? next() : prev();
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) next();
+          else prev();
+        }
         setTouchStart(null);
       }}
       aria-roledescription="carousel"
       aria-label="Featured promotions"
     >
-      {/* Mobile / tablet: product image panel above copy */}
-      <div className="lg:hidden">
-        <div className="relative w-full aspect-[5/4] sm:aspect-[3/2] max-h-[min(52vh,420px)] sm:max-h-[min(56vh,480px)] overflow-hidden bg-brand-subtle">
-          <motion.div
-            key={slide.id}
-            initial={false}
-            animate={reduce ? undefined : { opacity: 1 }}
-            transition={{ duration: 0.45, ease: "easeInOut" }}
-            className="absolute inset-0"
-            aria-hidden="true"
-          >
-            <SlideImage slide={slide} priority={current === 0} variant="mobile" />
-            <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-r from-white/40 via-transparent to-transparent" />
-          </motion.div>
-        </div>
-
-        <div className="relative px-4 sm:px-6 pb-28 pt-6 sm:pt-8">
-          <motion.div
-            key={`${slide.id}-mobile`}
-            initial={false}
-            animate={reduce ? undefined : { opacity: 1, y: 0 }}
-            transition={{ duration: 0.35, ease: "easeOut" }}
-          >
-            <SlideContent slide={slide} />
-          </motion.div>
-        </div>
+      <div key={`stage-${slide.id}`} className="absolute inset-0">
+        <StageBackdrop watermark={watermark} />
       </div>
 
-      {/* Desktop: full-bleed background */}
-      <div className="hidden lg:block relative min-h-[100dvh]">
-        <motion.div
-          key={slide.id}
-          initial={false}
-          animate={reduce ? undefined : { opacity: 1 }}
-          transition={{ duration: 0.55, ease: "easeInOut" }}
-          className="absolute inset-0"
-          aria-hidden="true"
+      {/* Mobile / tablet */}
+      <div className="lg:hidden relative min-h-[min(92dvh,820px)] flex flex-col justify-end overflow-hidden">
+        <div key={`${slide.id}-visual-m`} className="relative z-10 mt-20 px-6">
+          <SlideVisual slide={slide} variant="mobile" />
+        </div>
+        <div
+          key={`${slide.id}-mobile`}
+          className="relative z-10 w-full px-4 sm:px-6 pb-28 pt-6"
         >
-          <div className="absolute inset-0">
-            <SlideImage slide={slide} priority={current === 0} variant="desktop" />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-white/15" />
-        </motion.div>
-
-        <div className="absolute top-20 right-[8%] w-80 h-80 bg-brand-glow/10 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-8 w-full min-h-[100dvh] flex items-center">
-          <motion.div
-            key={`${slide.id}-desktop`}
-            initial={false}
-            animate={reduce ? undefined : { opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-            className="max-w-xl"
-          >
-            <SlideContent slide={slide} />
-          </motion.div>
+          <SlideContent slide={slide} />
         </div>
       </div>
 
-      {/* Prev / Next */}
+      {/* Desktop */}
+      <div className="hidden lg:block relative min-h-[100dvh]">
+        <div className="relative z-10 max-w-[1800px] mx-auto px-8 w-full min-h-[100dvh] grid grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] items-center gap-8">
+          <div key={`${slide.id}-desktop`} className="max-w-xl pt-10">
+            <SlideContent slide={slide} />
+          </div>
+          <div key={`${slide.id}-visual-d`} className="pt-10">
+            <SlideVisual slide={slide} variant="desktop" />
+          </div>
+        </div>
+      </div>
+
       <button
         type="button"
         onClick={prev}
-        className="absolute left-3 sm:left-4 lg:left-8 top-[min(26vh,210px)] sm:top-[min(28vh,240px)] lg:top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-white/95 backdrop-blur-sm border border-border text-zinc-700 shadow-lg hover:bg-white hover:text-brand transition-colors active:scale-95"
+        className="absolute left-3 sm:left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-lg hover:bg-white/20 transition-colors active:scale-95"
         aria-label="Previous slide"
       >
         <CaretLeft size={22} weight="bold" />
@@ -201,13 +263,12 @@ export function HeroCarousel() {
       <button
         type="button"
         onClick={next}
-        className="absolute right-3 sm:right-4 lg:right-8 top-[min(26vh,210px)] sm:top-[min(28vh,240px)] lg:top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-white/95 backdrop-blur-sm border border-border text-zinc-700 shadow-lg hover:bg-white hover:text-brand transition-colors active:scale-95"
+        className="absolute right-3 sm:right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-lg hover:bg-white/20 transition-colors active:scale-95"
         aria-label="Next slide"
       >
         <CaretRight size={22} weight="bold" />
       </button>
 
-      {/* Dots + progress */}
       <div className="absolute bottom-6 sm:bottom-8 lg:bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 sm:gap-3">
         <div className="flex items-center gap-2">
           {heroSlides.map((s, i) => (
@@ -222,24 +283,23 @@ export function HeroCarousel() {
               <span
                 className={`block h-2 rounded-full transition-all duration-300 ${
                   i === current
-                    ? "w-8 bg-brand"
-                    : "w-2 bg-zinc-300 group-hover:bg-brand/50"
+                    ? "w-8 bg-gradient-to-r from-fuchsia-400 to-violet-300"
+                    : "w-2 bg-white/35 group-hover:bg-white/60"
                 }`}
               />
             </button>
           ))}
         </div>
-        <p className="text-xs text-zinc-500 font-medium tabular-nums">
+        <p className="text-xs text-white/60 font-medium tabular-nums">
           {String(current + 1).padStart(2, "0")} /{" "}
           {String(heroSlides.length).padStart(2, "0")}
         </p>
       </div>
 
-      {/* Auto-play progress bar */}
       {!reduce && !paused && (
         <motion.div
           key={`progress-${current}`}
-          className="absolute bottom-0 left-0 h-1 bg-brand z-20"
+          className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-fuchsia-500 via-violet-400 to-purple-300 z-20"
           initial={{ width: "0%" }}
           animate={{ width: "100%" }}
           transition={{ duration: INTERVAL_MS / 1000, ease: "linear" }}

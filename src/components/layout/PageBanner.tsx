@@ -9,7 +9,7 @@ interface PageBannerProps {
 export function PageBanner({ title, description, image }: PageBannerProps) {
   return (
     <section className="relative bg-brand-subtle overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+      <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div>
             <Image
@@ -27,13 +27,13 @@ export function PageBanner({ title, description, image }: PageBannerProps) {
             </p>
           </div>
           {image && (
-            <div className="relative aspect-[16/10] md:aspect-[2/1] lg:aspect-[16/10] rounded-2xl overflow-hidden mt-6 md:mt-0">
+            <div className="relative aspect-[3/4] max-h-[min(72vh,480px)] rounded-2xl overflow-hidden mt-6 md:mt-0 bg-white border border-border shadow-sm">
               <Image
                 src={image}
                 alt=""
                 fill
-                className="object-cover"
-                sizes="50vw"
+                className="object-contain object-center p-6 sm:p-8"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
           )}

@@ -11,15 +11,16 @@ const shopLinks = [
 ];
 
 const policyLinks = [
+  { href: "/policies/terms", label: "Terms & Conditions" },
   { href: "/policies/privacy", label: "Privacy Policy" },
-  { href: "/policies/exchange", label: "Exchange Policy" },
-  { href: "/policies/shipping", label: "Shipping Policy" },
+  { href: "/policies/exchange", label: "Exchange & Refund Policy" },
+  { href: "/policies/shipping", label: "Shipping & Delivery" },
 ];
 
 export function Footer() {
   return (
     <footer className="bg-zinc-950 text-zinc-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
             <div className="mb-4">
@@ -78,32 +79,42 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:zacricket06@gmail.com"
+                  href="mailto:zacricket26@gmail.com"
                   className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors break-all"
                 >
                   <EnvelopeSimple size={18} />
-                  zacricket06@gmail.com
+                  zacricket26@gmail.com
                 </a>
               </li>
               <li>
                 <a
-                  href="https://instagram.com"
+                  href="https://instagram.com/_zacricket"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors"
                 >
                   <InstagramLogo size={18} />
-                  Instagram
+                  @_zacricket
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-zinc-800 flex flex-col sm:flex-row justify-between gap-4 text-xs text-zinc-500">
-          <p>&copy; {new Date().getFullYear()} ZA Cricket. All rights reserved.</p>
-          <p>Singapore</p>
-        </div>
+      </div>
+
+      <div className="border-t border-zinc-800 px-2 sm:px-3 pt-8 sm:pt-10 overflow-hidden">
+        <p
+          className="footer-wordmark select-none text-center font-extrabold uppercase leading-none tracking-[-0.04em] whitespace-nowrap"
+          aria-hidden="true"
+        >
+          ZA Cricket
+        </p>
+      </div>
+
+      <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 pb-8 pt-6 flex flex-col sm:flex-row justify-between gap-4 text-xs text-zinc-500">
+        <p>&copy; {new Date().getFullYear()} ZA Cricket. All rights reserved.</p>
+        <p>Singapore</p>
       </div>
     </footer>
   );
