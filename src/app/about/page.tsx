@@ -63,39 +63,32 @@ const milestones = [
   {
     year: "2026",
     title: "Full kit range",
-    detail: "Gloves, pads, bundles, and bat prep services complete the lineup.",
+    detail: "Gloves, pads, keeping gear, thigh pads, and custom duffel bags.",
   },
 ];
 
 const lineup = [
   {
-    name: "The Monarch",
+    name: "Monarch Edition",
     tag: "Grade 2 English Willow",
     price: "S$299",
-    image: "/images/products/the-monarch/monarch-hero.jpg",
+    image: "/images/products/the-monarch/monarch-studio.jpg",
     href: "/product/the-monarch",
   },
   {
-    name: "The Eagle",
+    name: "Eagle Edition",
     tag: "Grade 1 English Willow",
     price: "S$399",
-    image: "/images/products/the-eagle/eagle-front-02.jpg",
+    image: "/images/products/the-eagle/eagle-studio.jpg",
     href: "/product/the-eagle",
   },
   {
-    name: "The Signature",
+    name: "Signature Edition",
     tag: "Grade 1 · Fully custom",
     price: "S$499",
-    image: "/images/products/the-signature/signature-hero.jpg",
+    image: "/images/products/the-signature/signature-studio.jpg",
     href: "/product/the-signature",
   },
-];
-
-const stats = [
-  { value: "500+", label: "Players kitted" },
-  { value: "5", label: "Sponsored athletes" },
-  { value: "3", label: "English willow bats" },
-  { value: "2026", label: "Est. Singapore" },
 ];
 
 export default function AboutPage() {
@@ -158,7 +151,7 @@ export default function AboutPage() {
               <div className="absolute right-0 bottom-0 w-[52%] aspect-[3/4] rounded-3xl overflow-hidden border border-white/25 shadow-2xl shadow-black/40 bg-white p-3">
                 <div className="relative h-full w-full rounded-2xl overflow-hidden bg-brand-subtle">
                   <Image
-                    src="/images/products/the-signature/signature-hero.jpg"
+                    src="/images/products/the-signature/signature-studio.jpg"
                     alt="The Signature custom bat"
                     fill
                     className="object-contain object-center p-6 sm:p-8"
@@ -180,24 +173,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="border-b border-border bg-brand-subtle">
-        <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 py-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <p className="text-3xl sm:text-4xl font-bold text-brand tracking-tight">
-                  {stat.value}
-                </p>
-                <p className="mt-1 text-sm text-zinc-600 font-medium">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Mission */}
       <section className="py-16 sm:py-20 lg:py-28">
         <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -207,7 +182,7 @@ export default function AboutPage() {
                 src="/images/athletes/mahiyu-bhatia.jpg"
                 alt="Mahiyu Bhatia with ZA Cricket bat"
                 fill
-                className="object-cover object-top"
+                className="object-contain object-bottom"
                 sizes="(max-width: 1024px) 90vw, 45vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/70 via-transparent to-transparent" />
@@ -242,7 +217,7 @@ export default function AboutPage() {
                 {[
                   "English willow bats from S$299 to fully custom Signature",
                   "Pro gloves, pads, and coloured protection",
-                  "Bat prep bundles — knocking, oiling, and match-ready finish",
+                  "Wicket-keeping gear, thigh pads, and custom duffel bags",
                 ].map((item) => (
                   <li
                     key={item}
@@ -363,9 +338,9 @@ export default function AboutPage() {
                 More than bats
               </h2>
               <p className="mt-5 text-zinc-400 leading-relaxed">
-                Players Edition gloves and pads, coloured protection, value
-                bundles, and professional bat prep — everything you need from net
-                session to match day.
+                Players Edition gloves and pads, wicket-keeping gear, thigh pads,
+                and custom duffel bags — everything you need from net session to
+                match day.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
@@ -381,10 +356,10 @@ export default function AboutPage() {
                   Pads
                 </Link>
                 <Link
-                  href="/bundles"
+                  href="/shop/accessories"
                   className="px-5 py-2.5 rounded-full bg-white/10 border border-white/15 text-sm font-semibold hover:bg-white/15 transition-colors"
                 >
-                  Bundles
+                  Accessories
                 </Link>
               </div>
             </div>

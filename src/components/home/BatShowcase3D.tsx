@@ -12,7 +12,7 @@ const showcaseBats = [
     price: 299,
     tag: "Grade 2",
     specs: ["Grade 2 English Willow", "Balanced pick-up", "Powerful sweet spot"],
-    image: "/images/products/the-monarch/monarch-hero.jpg",
+    image: "/images/products/the-monarch/monarch-studio.jpg",
     href: "/product/the-monarch",
   },
   {
@@ -20,7 +20,7 @@ const showcaseBats = [
     price: 399,
     tag: "Grade 1",
     specs: ["Grade 1 English Willow", "Enhanced edges", "Deep sweet spot"],
-    image: "/images/products/the-eagle/eagle-front-02.jpg",
+    image: "/images/products/the-eagle/eagle-studio.jpg",
     href: "/product/the-eagle",
   },
   {
@@ -28,7 +28,7 @@ const showcaseBats = [
     price: 499,
     tag: "Grade 1 custom",
     specs: ["Premium Grade 1 willow", "Custom profile & handle", "Built to your specifications"],
-    image: "/images/products/the-signature/signature-hero.jpg",
+    image: "/images/products/the-signature/signature-studio.jpg",
     href: "/product/the-signature",
   },
 ];

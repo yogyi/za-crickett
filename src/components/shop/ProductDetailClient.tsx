@@ -111,7 +111,7 @@ export function ProductDetailClient({
   };
 
   return (
-    <div className="space-y-6 pb-24 lg:pb-0">
+    <div className="space-y-6 pb-28 lg:pb-0">
       {hasCustomization && (
         <div className="flex items-center gap-2 pb-2 border-b border-border">
           <Sliders size={20} weight="duotone" className="text-brand" />
@@ -125,7 +125,7 @@ export function ProductDetailClient({
       )}
 
       {product.variants && product.variants.length > 0 && (
-        <div>
+        <div className="scroll-mt-28">
           <label className="block text-sm font-medium text-zinc-900 mb-2">
             Colour
           </label>
@@ -135,7 +135,7 @@ export function ProductDetailClient({
                 key={v.id}
                 type="button"
                 onClick={() => setVariant(v.label)}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl border text-sm font-medium transition-colors active:scale-[0.98] ${
+                className={`flex items-center gap-2 min-h-11 px-4 py-2.5 rounded-xl border text-sm font-medium transition-colors active:scale-[0.98] ${
                   variant === v.label
                     ? "border-brand bg-brand-subtle text-brand"
                     : "border-border text-zinc-700 hover:border-zinc-300"

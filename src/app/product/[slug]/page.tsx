@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { ProductPageContent } from "@/components/shop/ProductPageContent";
 import { getProductBySlug, products } from "@/data/products";
 
@@ -9,7 +9,9 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  return products.map((p) => ({ slug: p.slug }));
+  return products
+    .filter((p) => p.category !== "services")
+    .map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -27,6 +29,10 @@ export default async function ProductPage({ params }: Props) {
   const product = getProductBySlug(slug);
 
   if (!product) notFound();
+
+  if (product.category === "services") {
+    redirect("/bundles");
+  }
 
   return (
     <div className="py-12 lg:py-16">

@@ -40,16 +40,16 @@ const slideChips: Record<string, { icon: typeof Medal; label: string }[]> = {
     { icon: Medal, label: "Grade 1 English Willow" },
     { icon: Lightning, label: "Built To Your Spec" },
   ],
-  bundles: [
-    { icon: Package, label: "Value Bundles" },
-    { icon: Sparkle, label: "Pro Bat Prep" },
-    { icon: Truck, label: "Kit Up & Save" },
+  accessories: [
+    { icon: Package, label: "Thigh Pads & Bags" },
+    { icon: Sparkle, label: "Complete Your Kit" },
+    { icon: Truck, label: "Match-Day Ready" },
   ],
 };
 
 const slideDecorIcon: Partial<Record<string, typeof ShieldCheck>> = {
   protection: ShieldCheck,
-  bundles: Package,
+  accessories: Package,
 };
 
 function SlideVisual({

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CheckCircle } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight, CheckCircle } from "@phosphor-icons/react/dist/ssr";
 import {
   athletes,
   hongKongAthletes,
@@ -10,9 +10,9 @@ import {
 import { AthleteCard } from "@/components/athletes/AthleteCard";
 
 export const metadata: Metadata = {
-  title: "Sponsored Athletes",
+  title: "ZA Stars Select",
   description:
-    "Meet the ZA Cricket sponsored athletes from Singapore and Hong Kong driving our product innovation.",
+    "Meet ZA STARS SELECT — sponsored athletes from Singapore and Hong Kong driving ZA Cricket product innovation.",
 };
 
 function AthleteProfile({
@@ -27,7 +27,8 @@ function AthleteProfile({
 
   return (
     <article
-      className={`grid lg:grid-cols-2 gap-8 lg:gap-14 items-center ${
+      id={athlete.id}
+      className={`grid lg:grid-cols-2 gap-8 lg:gap-14 items-center scroll-mt-28 ${
         reverse ? "lg:[direction:rtl]" : ""
       }`}
     >
@@ -69,7 +70,7 @@ function AthleteProfile({
             {athlete.region}
           </span>
           <span className="px-3 py-1 rounded-full bg-zinc-100 text-zinc-600 text-xs font-semibold">
-            ZA Sponsored
+            ZA Stars Select
           </span>
         </div>
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-zinc-900 tracking-tight leading-[0.95]">
@@ -84,23 +85,53 @@ function AthleteProfile({
             {athlete.bio}
           </p>
         )}
-        {athlete.achievements && (
-          <ul className="mt-6 space-y-2.5">
-            {athlete.achievements.map((item) => (
-              <li
-                key={item}
-                className="flex items-start gap-2.5 text-sm text-zinc-700"
-              >
-                <CheckCircle
-                  size={18}
-                  weight="fill"
-                  className="text-brand shrink-0 mt-0.5"
-                />
-                {item}
-              </li>
-            ))}
-          </ul>
+
+        {athlete.records && athlete.records.length > 0 && (
+          <div className="mt-7">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500 mb-3">
+              Records
+            </h3>
+            <ul className="space-y-2.5">
+              {athlete.records.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-2.5 text-sm text-zinc-700"
+                >
+                  <CheckCircle
+                    size={18}
+                    weight="fill"
+                    className="text-brand shrink-0 mt-0.5"
+                  />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
+
+        {athlete.experience && athlete.experience.length > 0 && (
+          <div className="mt-7">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500 mb-3">
+              Experience
+            </h3>
+            <ul className="space-y-2.5">
+              {athlete.experience.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-2.5 text-sm text-zinc-700"
+                >
+                  <CheckCircle
+                    size={18}
+                    weight="fill"
+                    className="text-brand shrink-0 mt-0.5"
+                  />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
         {athlete.productLine && athlete.productHref && (
           <Link
             href={athlete.productHref}
@@ -134,7 +165,6 @@ function AthleteRegionSection({
         </p>
       </div>
 
-      {/* Mobile roster strip */}
       <div className="flex sm:hidden snap-scroll-x gap-3 pb-4 -mx-4 px-4 mb-10">
         {regionAthletes.map((athlete) => (
           <div key={athlete.id} className="snap-scroll-item w-[min(70vw,240px)]">
@@ -145,7 +175,11 @@ function AthleteRegionSection({
 
       <div className="space-y-16 sm:space-y-24">
         {regionAthletes.map((athlete, i) => (
-          <AthleteProfile key={athlete.id} athlete={athlete} reverse={i % 2 === 1} />
+          <AthleteProfile
+            key={athlete.id}
+            athlete={athlete}
+            reverse={i % 2 === 1}
+          />
         ))}
       </div>
     </section>
@@ -163,19 +197,50 @@ export default function AthletesPage() {
             ZA Cricket
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.02] max-w-3xl">
-            The athletes behind the gear
+            ZA Stars Select
           </h1>
           <p className="mt-5 text-zinc-400 text-base sm:text-lg leading-relaxed max-w-2xl">
-            Real players. Real feedback. Every product is tested on pitch by our
-            Singapore squad and Hong Kong internationals before it reaches you.
+            Five sponsored athletes. Real international experience. Every product
+            is tested on pitch by our Singapore and Hong Kong stars before it
+            reaches you.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <span className="px-4 py-2 rounded-full bg-white/10 border border-white/15 text-sm font-medium">
               {singaporeAthletes.length} Singapore athletes
             </span>
             <span className="px-4 py-2 rounded-full bg-white/10 border border-white/15 text-sm font-medium">
-              {hongKongAthletes.length} Hong Kong internationals
+              {hongKongAthletes.length} Hong Kong athletes
             </span>
+          </div>
+        </div>
+      </section>
+
+      {/* ZA STARS SELECT roster strip */}
+      <section className="border-b border-border bg-white">
+        <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+          <div className="flex items-end justify-between gap-4 mb-8">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand mb-2">
+                Roster
+              </p>
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900">
+                Meet the five
+              </h2>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+            {athletes.map((athlete) => (
+              <div key={athlete.id} className="space-y-3">
+                <AthleteCard athlete={athlete} />
+                <Link
+                  href={`#${athlete.id}`}
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:text-brand-dark transition-colors"
+                >
+                  Learn more
+                  <ArrowRight size={14} weight="bold" />
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -183,12 +248,12 @@ export default function AthletesPage() {
       <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
         <AthleteRegionSection
           title="Singapore squad"
-          subtitle="Club and national-pathway players who shape our bats, gloves, and protection for local conditions."
+          subtitle="National and pathway players shaping ZA bats, gloves, and protection for local conditions."
           regionAthletes={singaporeAthletes}
         />
         <AthleteRegionSection
-          title="Hong Kong internationals"
-          subtitle="Cricket Hong Kong, China representatives who compete with ZA gear on the international stage."
+          title="Hong Kong squad"
+          subtitle="Representative players testing ZA gear across regional and international fixtures."
           regionAthletes={hongKongAthletes}
         />
       </div>

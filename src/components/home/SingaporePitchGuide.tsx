@@ -21,7 +21,7 @@ const pitches = [
       "Medium-weight bat (2.10–2.11 lbs) for control",
       "Players Edition pads handle repeated impact well",
     ],
-    tip: "Our Performance Bundle adds epoxy toe guard + grip — ideal for matting.",
+    tip: "Ask us about toe guards and grip options for hard matting surfaces.",
     color: "from-slate-600 to-zinc-700",
   },
   {
@@ -47,7 +47,7 @@ const pitches = [
       "Ghost Edition gloves — extra ventilation",
       "Knock in new bats before hard indoor balls",
     ],
-    tip: "Pair a Basic prep bundle with any new bat before net sessions.",
+    tip: "Knock in and oil new bats before hard indoor sessions — contact us for prep tips.",
     color: "from-sky-600 to-indigo-700",
   },
 ];

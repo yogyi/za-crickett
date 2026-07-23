@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import type { Athlete } from "@/types";
 
 interface AthleteCardProps {
@@ -11,19 +12,24 @@ export function AthleteCard({ athlete, variant = "compact" }: AthleteCardProps) 
   const isFeature = variant === "feature";
   const isStudio = athlete.imageFocus?.includes("object-contain");
   const [firstName, ...rest] = athlete.name.split(" ");
+  const scaleClass =
+    athlete.imageScale ??
+    (isStudio
+      ? "scale-[1.18] origin-bottom group-hover:scale-[1.25]"
+      : "group-hover:scale-105");
 
   return (
     <Link
-      href="/athletes"
+      href={`/athletes#${athlete.id}`}
       className={`group relative block overflow-hidden rounded-2xl sm:rounded-3xl shadow-lg transition-transform active:scale-[0.99] ${
-        isStudio ? "bg-zinc-100" : "bg-zinc-900"
+        isStudio ? "bg-zinc-200" : "bg-zinc-900"
       } ${isFeature ? "aspect-[3/4] min-h-[320px]" : "aspect-[3/4]"}`}
     >
       <Image
         src={athlete.image}
         alt={athlete.name}
         fill
-        className={`transition-transform duration-700 group-hover:scale-105 ${
+        className={`grayscale group-hover:grayscale-0 transition-[filter,transform] duration-700 ${scaleClass} ${
           athlete.imageFocus ?? "object-cover object-center"
         }`}
         sizes={
@@ -60,7 +66,7 @@ export function AthleteCard({ athlete, variant = "compact" }: AthleteCardProps) 
 
       <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
         <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-white/60 mb-1">
-          ZA Athlete
+          ZA Stars Select
         </p>
         <h3
           className={`font-bold text-white leading-[0.95] tracking-tight ${
@@ -73,6 +79,10 @@ export function AthleteCard({ athlete, variant = "compact" }: AthleteCardProps) 
           )}
         </h3>
         <p className="text-xs sm:text-sm text-white/75 mt-1.5">{athlete.role}</p>
+        <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-white/90 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all">
+          Learn more
+          <ArrowRight size={12} weight="bold" />
+        </span>
       </div>
     </Link>
   );

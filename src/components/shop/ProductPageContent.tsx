@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Check } from "@phosphor-icons/react";
 import { ProductDetailClient } from "@/components/shop/ProductDetailClient";
 import { ProductGallery } from "@/components/shop/ProductGallery";
@@ -12,23 +12,37 @@ interface ProductPageContentProps {
 
 export function ProductPageContent({ product }: ProductPageContentProps) {
   const [variant, setVariant] = useState(product.variants?.[0]?.label ?? "");
+  const [imageIndex, setImageIndex] = useState(0);
+
+  const hasVariantImages = Boolean(product.variants?.some((v) => v.image));
 
   const variantIndex = Math.max(
     0,
     product.variants?.findIndex((v) => v.label === variant) ?? 0
   );
 
-  const displayImage = useMemo(() => {
-    const selected = product.variants?.find((v) => v.label === variant);
-    return selected?.image ?? product.image;
-  }, [product, variant]);
-
   const galleryImages = useMemo(() => {
-    if (product.variants?.some((v) => v.image)) {
+    if (hasVariantImages && product.variants) {
       return product.variants.map((v) => v.image ?? product.image);
     }
     return product.images?.length ? product.images : [product.image];
-  }, [product]);
+  }, [product, hasVariantImages]);
+
+  const activeIndex = hasVariantImages ? variantIndex : imageIndex;
+
+  // Keep image index in range when switching products / gallery sizes
+  useEffect(() => {
+    setImageIndex(0);
+    setVariant(product.variants?.[0]?.label ?? "");
+  }, [product.id, product.variants]);
+
+  useEffect(() => {
+    setImageIndex((prev) =>
+      Math.min(prev, Math.max(galleryImages.length - 1, 0))
+    );
+  }, [galleryImages.length]);
+
+  const displayImage = galleryImages[activeIndex] ?? product.image;
 
   return (
     <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
@@ -37,10 +51,14 @@ export function ProductPageContent({ product }: ProductPageContentProps) {
           name={product.name}
           image={displayImage}
           images={galleryImages}
-          activeIndex={variantIndex}
+          activeIndex={activeIndex}
           onActiveChange={(index) => {
-            const next = product.variants?.[index];
-            if (next) setVariant(next.label);
+            if (hasVariantImages) {
+              const next = product.variants?.[index];
+              if (next) setVariant(next.label);
+              return;
+            }
+            setImageIndex(index);
           }}
         />
         {product.badge && (

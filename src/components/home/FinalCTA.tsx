@@ -7,7 +7,7 @@ import { TiltCard } from "@/components/ui/TiltCard";
 
 const stackImages = [
   {
-    src: "/images/products/the-monarch/monarch-hero.jpg",
+    src: "/images/products/the-monarch/monarch-studio.jpg",
     alt: "The Monarch bat",
     label: "The Monarch",
   },
@@ -36,7 +36,7 @@ export function FinalCTA() {
               Step up to the crease with confidence
             </h2>
             <p className="mt-5 text-white/75 text-base sm:text-lg leading-relaxed max-w-lg mx-auto lg:mx-0">
-              From custom English willow to complete protection bundles — gear
+              From custom English willow to complete protection — gear
               tested on Singapore pitches by players like you.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3 justify-center lg:justify-start">
@@ -85,8 +85,8 @@ export function FinalCTA() {
               </div>
             </TiltCard>
             <div className="absolute -bottom-2 left-0 lg:-bottom-4 lg:-left-4 bg-white rounded-2xl px-5 py-3 shadow-xl z-30">
-              <p className="text-xs text-zinc-500 font-medium">Trusted by</p>
-              <p className="text-lg font-bold text-brand">500+ players</p>
+              <p className="text-xs text-zinc-500 font-medium">Team ZA</p>
+              <p className="text-lg font-bold text-brand">Athlete-tested</p>
             </div>
           </div>
         </div>

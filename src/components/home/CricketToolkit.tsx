@@ -121,7 +121,7 @@ export function CricketToolkit() {
                 className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 bg-white text-brand font-semibold rounded-xl text-sm hover:bg-accent-cream transition-colors active:scale-[0.98]"
               >
                 <Package size={16} weight="bold" />
-                Bat prep bundles
+                View bundles
               </Link>
             </div>
           </div>

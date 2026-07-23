@@ -26,7 +26,7 @@ export const reviews: Review[] = [
   {
     id: "3",
     quote:
-      "Ordered the Performance Bundle for my son's new bat. Came match-ready and the quality of preparation was outstanding. Will order again.",
+      "Ordered Players Edition gloves and pads for my son. Quality was outstanding and everything arrived well packed. Will order again.",
     name: "David Tan",
     initial: "D",
     avatarColor: "#2563eb",
@@ -90,7 +90,7 @@ export const reviews: Review[] = [
   {
     id: "11",
     quote:
-      "The value bundle saved me money on gloves and pads. Everything arrived well packed and exactly as described on the website.",
+      "Bought Players Edition gloves and pads together — fair prices and everything arrived well packed, exactly as described on the website.",
     name: "Aakash Chaudhary",
     initial: "A",
     avatarColor: "#059669",
@@ -98,7 +98,7 @@ export const reviews: Review[] = [
   {
     id: "12",
     quote:
-      "Restore Bundle brought my old bat back to life. Knocking, oiling, and toe guard work was top class. Very happy with the service.",
+      "The Eagle bat feels premium and the team helped with sizing. Knocking and oiling advice was clear — very happy with the purchase.",
     name: "Nitin Kapoor",
     initial: "N",
     avatarColor: "#6366f1",

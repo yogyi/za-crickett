@@ -3,8 +3,8 @@ export type ProductCategory =
   | "gloves"
   | "pads"
   | "wicket-keeping"
-  | "value-bundles"
-  | "bat-bundles";
+  | "accessories"
+  | "services";
 
 export interface CustomizationOption {
   id: string;
@@ -55,9 +55,13 @@ export interface Athlete {
   region: "Singapore" | "Hong Kong";
   image: string;
   imageFocus?: string;
+  /** Extra CSS scale for cards when the source portrait is framed small */
+  imageScale?: string;
   productLine?: string;
   productHref?: string;
   bio?: string;
+  records?: string[];
+  experience?: string[];
   achievements?: string[];
   featured?: boolean;
 }

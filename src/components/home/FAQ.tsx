@@ -28,9 +28,9 @@ const faqs = [
   },
   {
     icon: Question,
-    question: "What is included in bat bundles?",
+    question: "What products do you sell?",
     answer:
-      "Our Basic Bundle covers knocking, oiling, and scuff sheet. Performance adds toe guard and grip. Restore includes full repair and cleaning.",
+      "Our published retail range covers Signature, Eagle, and Monarch bats; Players Edition pads; batting gloves (Ghost and Players Edition); wicket-keeping gloves, pads, and inners; thigh pads; and custom duffel bags.",
   },
   {
     icon: Ruler,
@@ -46,9 +46,9 @@ const faqs = [
   },
   {
     icon: Wrench,
-    question: "Do I need a bat prep bundle?",
+    question: "Do new bats need knocking in?",
     answer:
-      "New English willow bats should be knocked in before match use. Our Basic Bundle covers knocking, oiling, and scuff sheet — essential for Singapore matting and indoor nets.",
+      "Yes. New English willow bats should be knocked in and oiled before match use. Choose the Basic Bundle, Performance Bundle, or Restore Bundle from the Bundles page.",
   },
 ];
 

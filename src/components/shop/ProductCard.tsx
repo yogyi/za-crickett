@@ -34,7 +34,7 @@ export function ProductCard({ product }: ProductCardProps) {
     (product.variants?.length ?? 0) > 0;
 
   const isBat =
-    product.category === "bats" || product.category === "bat-bundles";
+    product.category === "bats";
   const imageFit = isBat
     ? "object-contain object-center"
     : "object-contain p-4 sm:p-5";
@@ -44,7 +44,7 @@ export function ProductCard({ product }: ProductCardProps) {
       <Link href={`/product/${product.slug}`} className="block">
         <div className="relative aspect-[3/4] rounded-2xl bg-surface overflow-hidden mb-4">
           {isBat ? (
-            <div className="absolute inset-0 flex items-center justify-center p-5 sm:p-6">
+            <div className="absolute inset-0 flex items-center justify-center p-3 sm:p-6">
               <div className="relative h-full w-full">
                 <ProductImage
                   src={product.image}

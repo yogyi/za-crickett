@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { List, ShoppingBag, X } from "@phosphor-icons/react";
 import { CountryCurrencySelector } from "@/components/layout/CountryCurrencySelector";
 import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
@@ -24,6 +24,10 @@ export function Header() {
   const cartCount = useCartCount();
   const setCartOpen = useCart((s) => s.setCartOpen);
   useBodyScrollLock(mobileOpen);
+
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-border">
@@ -90,8 +94,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              onClick={() => setMobileOpen(false)}
-              className="block px-3 py-2.5 text-sm font-medium text-zinc-700 hover:text-brand hover:bg-brand-subtle rounded-lg"
+              className="flex items-center min-h-11 px-3 py-3 text-base font-medium text-zinc-700 hover:text-brand hover:bg-brand-subtle rounded-lg"
             >
               {link.label}
             </Link>

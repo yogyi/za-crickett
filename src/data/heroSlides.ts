@@ -63,7 +63,7 @@ export const heroSlides: HeroSlide[] = [
     highlight: "Pads",
     description:
       "Same pro protection in bold colourways. Stand out at the crease with ZA Cricket gear.",
-    primaryCta: { label: "Shop Coloured Pads", href: "/product/players-edition-coloured-pads" },
+    primaryCta: { label: "Shop Pads", href: "/product/players-edition-pads" },
     secondaryCta: { label: "All Pads", href: "/shop/pads" },
   },
   {
@@ -76,17 +76,17 @@ export const heroSlides: HeroSlide[] = [
     description:
       "Fully customisable Grade 1 English Willow. Choose weight, pick-up, profile, handle, grip & engraving.",
     primaryCta: { label: "Build Your Bat", href: "/product/the-signature" },
-    secondaryCta: { label: "Bat Prep Bundles", href: "/bundles" },
+    secondaryCta: { label: "Shop All Bats", href: "/shop/bats" },
   },
   {
-    id: "bundles",
+    id: "accessories",
     background: "mesh",
-    eyebrow: "Save More",
-    title: "Bundle",
-    highlight: "Deals",
+    eyebrow: "Complete Your Kit",
+    title: "Match",
+    highlight: "Accessories",
     description:
-      "Kit up smarter — value bundles on gloves & pads, plus professional bat prep packages.",
-    primaryCta: { label: "View Bundles", href: "/bundles" },
-    secondaryCta: { label: "View Value Bundle", href: "/product/value-bundle-gloves-pads" },
+      "Thigh pads and custom duffel bags — finish your kit with ZA Cricket essentials.",
+    primaryCta: { label: "Shop Accessories", href: "/shop/accessories" },
+    secondaryCta: { label: "Wicket Keeping", href: "/shop/wicket-keeping" },
   },
 ];

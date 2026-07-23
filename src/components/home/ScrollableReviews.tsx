@@ -113,7 +113,7 @@ export function ScrollableReviews() {
             <span className="font-semibold text-zinc-800">
               Trusted by players across Singapore
             </span>{" "}
-            - from custom bats to complete protection bundles.{" "}
+            - from custom bats to full match-day protection.{" "}
             <span className="text-brand font-medium">
               100% verified customer reviews.
             </span>

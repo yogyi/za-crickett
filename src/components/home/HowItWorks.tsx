@@ -16,7 +16,7 @@ const steps = [
     icon: Storefront,
     title: "Pick your gear",
     description:
-      "Browse bats, gloves, pads, and bundles. Compare specs and real product photos.",
+      "Browse bats, gloves, pads, keeping gear, and accessories from our published retail list.",
     href: "/shop",
     cta: "Shop now",
   },
@@ -24,17 +24,17 @@ const steps = [
     icon: Sliders,
     title: "Customise (optional)",
     description:
-      "Build The Signature with your weight in grams, grain count, handle shape, and engraving.",
+      "Build the Signature Edition with your weight in grams, grain count, handle shape, and engraving.",
     href: "/product/the-signature",
     cta: "Custom bat builder",
   },
   {
     icon: Package,
-    title: "Expert prep",
+    title: "Complete your kit",
     description:
-      "Add a knocking & oiling bundle so your bat is match-ready on Singapore pitches.",
+      "Add a bat care bundle — knocking, oiling, and protection — so your willow is match-ready.",
     href: "/bundles",
-    cta: "View prep bundles",
+    cta: "View bundles",
   },
   {
     icon: Truck,
@@ -97,7 +97,7 @@ export function HowItWorks() {
             <TiltCard className="w-full" intensity={14}>
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl shadow-brand/25 border border-white/50 bg-brand-subtle">
                 <Image
-                  src="/images/products/the-signature/signature-hero.jpg"
+                  src="/images/products/the-signature/signature-studio.jpg"
                   alt="ZA Cricket The Signature custom bat"
                   fill
                   className="object-contain object-center p-6 pb-28"

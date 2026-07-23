@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Minus, Plus, ShoppingBag, Trash, X } from "@phosphor-icons/react";
 import { formatCustomizationDisplay } from "@/lib/customization";
 import { useFormatPrice } from "@/hooks/useFormatPrice";
@@ -10,6 +11,7 @@ import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
 import { useCart } from "@/store/cart";
 
 export function CartDrawer() {
+  const router = useRouter();
   const { items, isOpen, setCartOpen, removeItem, updateQuantity } = useCart();
   const formatPrice = useFormatPrice();
   const {
@@ -174,13 +176,16 @@ export function CartDrawer() {
               <p className="text-xs text-zinc-500">
                 Taxes, if applicable, are calculated at checkout.
               </p>
-              <Link
-                href="/cart"
-                onClick={() => setCartOpen(false)}
+              <button
+                type="button"
+                onClick={() => {
+                  router.push("/cart");
+                  setCartOpen(false);
+                }}
                 className="block w-full text-center py-3.5 bg-brand text-white font-semibold rounded-xl hover:bg-brand-dark transition-colors active:scale-[0.98]"
               >
                 Checkout
-              </Link>
+              </button>
             </div>
           </>
         )}

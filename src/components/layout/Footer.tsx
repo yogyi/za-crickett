@@ -7,6 +7,7 @@ const shopLinks = [
   { href: "/shop/gloves", label: "Gloves" },
   { href: "/shop/pads", label: "Batting Pads" },
   { href: "/shop/wicket-keeping", label: "Wicket Keeping" },
+  { href: "/shop/accessories", label: "Accessories" },
   { href: "/bundles", label: "Bundles" },
 ];
 

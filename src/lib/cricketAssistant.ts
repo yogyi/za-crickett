@@ -23,6 +23,7 @@ const SITE_LINKS = [
   { label: "Shop batting pads", href: "/shop/pads" },
   { label: "Shop wicket-keeping gear", href: "/shop/wicket-keeping" },
   { label: "View bundles", href: "/bundles" },
+  { label: "Shop accessories", href: "/shop/accessories" },
   { label: "Contact ZA Cricket", href: "/contact" },
   { label: "Shipping and delivery", href: "/policies/shipping" },
   { label: "Exchange and refund policy", href: "/policies/exchange" },
@@ -104,7 +105,7 @@ VOICE
 - Do not use markdown links. Links are supplied separately through actions.
 
 YOUR JOB
-- Help shoppers choose bats, batting gloves, pads, wicket-keeping gear, bundles, and bat preparation services.
+- Help shoppers choose bats, batting gloves, pads, wicket-keeping gear, accessories, and bat care bundles from the published catalogue only.
 - Guide a conversational bat fitting. Ask about age group, height, playing level, batting role/style, format, current bat weight, strength/comfort, and budget when relevant.
 - For The Signature custom bat, help users select weight, grain count, handle shape, and optional engraving using only the available options below.
 - Explain trade-offs honestly. Recommend no more than three products and say why each fits.
@@ -217,7 +218,7 @@ export function getFallbackAssistantReply(message: string): AssistantReply {
 
   return {
     answer:
-      "I can help compare ZA Cricket bats, recommend gloves or pads, explain bundles and delivery, or guide your Signature bat customisation. Advanced personalised AI guidance will activate once the Gemini key is connected, but the full catalogue is available now.",
+      "I can help compare ZA Cricket bats, recommend gloves or pads, explain delivery, or guide your Signature bat customisation. Advanced personalised AI guidance will activate once the Gemini key is connected, but the full catalogue is available now.",
     actions: [
       { label: "Shop all products", href: "/shop" },
       { label: "Compare cricket bats", href: "/shop/bats" },

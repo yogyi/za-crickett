@@ -1,23 +1,21 @@
 "use client";
 
 import { formatShippingFrom } from "@/lib/shipping";
-import { formatPrice } from "@/lib/currency";
 import { useCurrency } from "@/store/currency";
 
 const staticMessages = [
   { text: "Custom bat preparation in", highlight: "1–10 business days" },
   { text: "Athlete-tested gear for", highlight: "Singapore" },
+  { text: "Published retail prices", highlight: "online" },
 ];
 
 export function AnnouncementBar() {
   const country = useCurrency((s) => s.country);
   const deliveryFrom = formatShippingFrom(country);
-  const bundleSave = formatPrice(15, country);
 
   const messages = [
     { text: "Worldwide delivery", highlight: deliveryFrom },
     ...staticMessages,
-    { text: "Bundle & save up to", highlight: bundleSave },
   ];
 
   const items = [...messages, ...messages];

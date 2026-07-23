@@ -59,8 +59,8 @@ export function CategoryGrid() {
               Shop by Category
             </h2>
             <p className="mt-2 sm:mt-3 text-zinc-600 max-w-lg text-sm sm:text-base">
-              Everything you need at the crease — bats, gloves, pads, and wicket
-              keeping gear.
+              Everything you need at the crease — bats, gloves, pads, and
+              keeping gear. Bat care bundles live on the Bundles page.
             </p>
           </div>
           <Link

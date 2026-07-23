@@ -1,18 +1,17 @@
 "use client";
 
-import { formatPrice } from "@/lib/currency";
 import { formatShippingFrom } from "@/lib/shipping";
 import { useCurrency } from "@/store/currency";
 
 export function StatsMarquee() {
   const country = useCurrency((s) => s.country);
   const items = [
-    "500+ Singapore players kitted",
-    "Athlete-tested gear",
+    "Team ZA athlete-tested gear",
+    "Published retail prices",
     `Delivery ${formatShippingFrom(country)}`,
     "Custom bat prep in 1–10 business days",
     "English willow & pro protection",
-    `Bundle & save up to ${formatPrice(15, country)}`,
+    "Gloves, pads, keeping & accessories",
   ];
   const doubled = [...items, ...items];
 

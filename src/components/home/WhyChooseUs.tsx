@@ -59,16 +59,15 @@ export function WhyChooseUs() {
               </div>
               <h3 className="font-bold text-2xl text-white">Hand-Crafted Quality</h3>
               <p className="mt-3 text-sm leading-relaxed text-white/85 max-w-sm">
-                Every bat is hand-selected and prepared. Our bat bundles include
-                professional knocking, oiling, and finishing — match-ready from
-                day one.
+                Every bat is hand-selected and prepared for performance —
+                athlete-tested English willow ready for Singapore conditions.
               </p>
               <div className="mt-auto pt-6 flex items-end justify-between gap-4">
                 <Link
-                  href="/bundles"
+                  href="/shop/bats"
                   className="inline-flex items-center gap-2 pb-2 text-sm font-semibold text-white hover:text-white/90 transition-colors"
                 >
-                  Explore bat prep bundles
+                  Shop bats
                   <ArrowRight size={16} weight="bold" />
                 </Link>
                 <div className="relative w-28 h-28 sm:w-40 sm:h-40 lg:w-48 lg:h-48 shrink-0 -mb-3 -mr-3 sm:-mb-4 sm:-mr-4 opacity-90 pointer-events-none">
