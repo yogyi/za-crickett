@@ -15,7 +15,7 @@ export function AthleteCard({ athlete, variant = "compact" }: AthleteCardProps) 
   const scaleClass =
     athlete.imageScale ??
     (isStudio
-      ? "scale-[1.18] origin-bottom group-hover:scale-[1.25]"
+      ? "origin-bottom group-hover:scale-[1.04]"
       : "group-hover:scale-105");
 
   return (

@@ -89,9 +89,8 @@ export const athletes: Athlete[] = [
     name: "Shahid Wasif",
     role: "Top Order",
     region: "Hong Kong",
-    image: "/images/athletes/shahid-wasif-card-v4.jpg",
-    imageFocus: "object-cover object-bottom",
-    imageScale: "scale-105 origin-bottom group-hover:scale-110",
+    image: "/images/athletes/shahid-wasif-fit.jpg",
+    imageFocus: "object-contain object-bottom",
     featured: true,
     bio: "Experienced Hong Kong batter with a long international résumé across Asia Cup, World Cup qualifiers, Asian Games, and high-profile T20 events.",
     experience: [

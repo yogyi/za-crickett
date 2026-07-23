@@ -70,14 +70,16 @@ export function WhyChooseUs() {
                   Shop bats
                   <ArrowRight size={16} weight="bold" />
                 </Link>
-                <div className="relative w-28 h-28 sm:w-40 sm:h-40 lg:w-48 lg:h-48 shrink-0 -mb-3 -mr-3 sm:-mb-4 sm:-mr-4 opacity-90 pointer-events-none">
-                  <Image
-                    src="/images/products/the-monarch/monarch-lifestyle-01.jpg"
-                    alt="ZA Cricket bat"
-                    fill
-                    className="object-cover rounded-2xl rotate-6 shadow-2xl"
-                    sizes="192px"
-                  />
+                <div className="relative w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 shrink-0 -mb-1 -mr-1 sm:-mb-2 sm:-mr-2 pointer-events-none">
+                  <div className="absolute inset-0 rounded-2xl rotate-6 bg-white shadow-2xl overflow-hidden flex items-center justify-center p-4">
+                    <Image
+                      src="/images/za-cricket-logo.png"
+                      alt="ZA Cricket"
+                      width={120}
+                      height={120}
+                      className="object-contain w-full h-full"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
