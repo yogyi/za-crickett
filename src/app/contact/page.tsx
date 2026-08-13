@@ -12,16 +12,17 @@ import {
   Cricket,
 } from "@phosphor-icons/react/dist/ssr";
 import { ContactForm } from "@/components/contact/ContactForm";
+import {
+  CONTACT_PHONE_DISPLAY,
+  CONTACT_PHONE_TEL,
+  WHATSAPP_URL,
+} from "@/lib/contact";
 
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
     "Get in touch with ZA Cricket for orders, custom bats, and enquiries.",
 };
-
-const CONTACT_PHONE_DISPLAY = "+65 9423 1702";
-const CONTACT_PHONE_TEL = "+6594231702";
-const CONTACT_WHATSAPP = "https://wa.me/6594231702";
 
 const channels = [
   {
@@ -34,7 +35,7 @@ const channels = [
   {
     label: "WhatsApp",
     value: CONTACT_PHONE_DISPLAY,
-    href: CONTACT_WHATSAPP,
+    href: WHATSAPP_URL,
     icon: WhatsappLogo,
     hint: "Fast replies for sizing & orders",
     external: true,
@@ -106,7 +107,7 @@ export default function ContactPage() {
                   Email the team
                 </a>
                 <a
-                  href={CONTACT_WHATSAPP}
+                  href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-white/30 text-white font-semibold text-sm hover:bg-white/10 transition-colors active:scale-[0.98]"

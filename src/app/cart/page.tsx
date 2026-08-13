@@ -7,7 +7,7 @@ import { useFormatPrice } from "@/hooks/useFormatPrice";
 import { useOrderTotals } from "@/hooks/useShipping";
 import { formatCustomizationDisplay } from "@/lib/customization";
 import { COUNTRIES } from "@/lib/currency";
-import { buildOrderMailto } from "@/lib/orderMailto";
+import { openOrderWhatsApp } from "@/lib/orderMailto";
 import { useCart } from "@/store/cart";
 import { useCurrency } from "@/store/currency";
 
@@ -24,7 +24,7 @@ export default function CartPage() {
 
   function handleCheckout() {
     const countryLabel = COUNTRIES[country]?.country ?? country;
-    window.location.href = buildOrderMailto({
+    openOrderWhatsApp({
       items,
       subtotalFormatted,
       shippingFormatted,
@@ -163,10 +163,10 @@ export default function CartPage() {
               onClick={handleCheckout}
               className="w-full mt-6 py-3.5 bg-brand text-white font-semibold rounded-xl hover:bg-brand-dark transition-colors active:scale-[0.98]"
             >
-              Proceed to Checkout
+              Order on WhatsApp
             </button>
             <p className="mt-2 text-xs text-zinc-500 text-center">
-              Opens your email to confirm the order with ZA Cricket
+              Opens WhatsApp with your order for ZA Cricket to confirm
             </p>
             <button
               type="button"

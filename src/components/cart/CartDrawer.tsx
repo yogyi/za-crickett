@@ -2,18 +2,20 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { Minus, Plus, ShoppingBag, Trash, X } from "@phosphor-icons/react";
 import { formatCustomizationDisplay } from "@/lib/customization";
+import { COUNTRIES } from "@/lib/currency";
+import { openOrderWhatsApp } from "@/lib/orderMailto";
 import { useFormatPrice } from "@/hooks/useFormatPrice";
 import { useOrderTotals } from "@/hooks/useShipping";
 import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
 import { useCart } from "@/store/cart";
+import { useCurrency } from "@/store/currency";
 
 export function CartDrawer() {
-  const router = useRouter();
   const { items, isOpen, setCartOpen, removeItem, updateQuantity } = useCart();
   const formatPrice = useFormatPrice();
+  const country = useCurrency((s) => s.country);
   const {
     subtotalFormatted,
     shippingFormatted,
@@ -21,6 +23,18 @@ export function CartDrawer() {
     totalFormatted,
   } = useOrderTotals();
   useBodyScrollLock(isOpen);
+
+  function handleCheckout() {
+    openOrderWhatsApp({
+      items,
+      subtotalFormatted,
+      shippingFormatted,
+      shippingLabel,
+      totalFormatted,
+      countryLabel: COUNTRIES[country]?.country ?? country,
+    });
+    setCartOpen(false);
+  }
 
   if (!isOpen) return null;
 
@@ -174,17 +188,14 @@ export function CartDrawer() {
                 <span className="font-bold text-brand">{totalFormatted}</span>
               </div>
               <p className="text-xs text-zinc-500">
-                Taxes, if applicable, are calculated at checkout.
+                Confirm your order on WhatsApp — we will send payment details.
               </p>
               <button
                 type="button"
-                onClick={() => {
-                  router.push("/cart");
-                  setCartOpen(false);
-                }}
+                onClick={handleCheckout}
                 className="block w-full text-center py-3.5 bg-brand text-white font-semibold rounded-xl hover:bg-brand-dark transition-colors active:scale-[0.98]"
               >
-                Checkout
+                Order on WhatsApp
               </button>
             </div>
           </>

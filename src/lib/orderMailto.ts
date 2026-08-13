@@ -1,23 +1,26 @@
 import type { CartItem } from "@/types";
+import { CONTACT_EMAIL, buildWhatsAppUrl } from "@/lib/contact";
 
-export const ORDER_EMAIL = "zacricket26@gmail.com";
+export const ORDER_EMAIL = CONTACT_EMAIL;
 
-export function buildOrderMailto({
-  items,
-  subtotalFormatted,
-  shippingFormatted,
-  shippingLabel,
-  totalFormatted,
-  countryLabel,
-}: {
+export type OrderSummary = {
   items: CartItem[];
   subtotalFormatted: string;
   shippingFormatted: string;
   shippingLabel: string;
   totalFormatted: string;
   countryLabel: string;
-}): string {
-  const lines = [
+};
+
+export function buildOrderMessage({
+  items,
+  subtotalFormatted,
+  shippingFormatted,
+  shippingLabel,
+  totalFormatted,
+  countryLabel,
+}: OrderSummary): string {
+  return [
     "Hi ZA Cricket team,",
     "",
     "I would like to place the following order:",
@@ -46,10 +49,20 @@ export function buildOrderMailto({
     "Please confirm payment details and delivery timeline.",
     "",
     "Thanks,",
-  ];
+  ].join("\n");
+}
 
+export function buildOrderWhatsApp(summary: OrderSummary): string {
+  return buildWhatsAppUrl(buildOrderMessage(summary));
+}
+
+export function openOrderWhatsApp(summary: OrderSummary) {
+  window.open(buildOrderWhatsApp(summary), "_blank", "noopener,noreferrer");
+}
+
+export function buildOrderMailto(summary: OrderSummary): string {
   const subject = encodeURIComponent("ZA Cricket Order Enquiry");
-  const body = encodeURIComponent(lines.join("\n"));
+  const body = encodeURIComponent(buildOrderMessage(summary));
   return `mailto:${ORDER_EMAIL}?subject=${subject}&body=${body}`;
 }
 
