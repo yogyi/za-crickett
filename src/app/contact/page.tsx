@@ -5,6 +5,8 @@ import {
   ArrowRight,
   EnvelopeSimple,
   InstagramLogo,
+  Phone,
+  WhatsappLogo,
   Clock,
   ChatCircle,
   Cricket,
@@ -17,6 +19,10 @@ export const metadata: Metadata = {
     "Get in touch with ZA Cricket for orders, custom bats, and enquiries.",
 };
 
+const CONTACT_PHONE_DISPLAY = "+65 9423 1702";
+const CONTACT_PHONE_TEL = "+6594231702";
+const CONTACT_WHATSAPP = "https://wa.me/6594231702";
+
 const channels = [
   {
     label: "Email",
@@ -24,6 +30,21 @@ const channels = [
     href: "mailto:zacricket26@gmail.com",
     icon: EnvelopeSimple,
     hint: "Best for custom bats & orders",
+  },
+  {
+    label: "WhatsApp",
+    value: CONTACT_PHONE_DISPLAY,
+    href: CONTACT_WHATSAPP,
+    icon: WhatsappLogo,
+    hint: "Fast replies for sizing & orders",
+    external: true,
+  },
+  {
+    label: "Phone",
+    value: CONTACT_PHONE_DISPLAY,
+    href: `tel:${CONTACT_PHONE_TEL}`,
+    icon: Phone,
+    hint: "Call the Singapore team",
   },
   {
     label: "Instagram",
@@ -85,6 +106,15 @@ export default function ContactPage() {
                   Email the team
                 </a>
                 <a
+                  href={CONTACT_WHATSAPP}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-white/30 text-white font-semibold text-sm hover:bg-white/10 transition-colors active:scale-[0.98]"
+                >
+                  <WhatsappLogo size={18} weight="fill" />
+                  WhatsApp {CONTACT_PHONE_DISPLAY}
+                </a>
+                <a
                   href="#message"
                   className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-white/30 text-white font-semibold text-sm hover:bg-white/10 transition-colors active:scale-[0.98]"
                 >
@@ -94,6 +124,13 @@ export default function ContactPage() {
               </div>
               <p className="mt-8 text-sm text-purple-200/55">
                 Usually reply within one business day ·{" "}
+                <a
+                  href={`tel:${CONTACT_PHONE_TEL}`}
+                  className="text-purple-100/80 underline-offset-4 hover:underline hover:text-white transition-colors"
+                >
+                  {CONTACT_PHONE_DISPLAY}
+                </a>
+                {" · "}
                 <a
                   href="https://instagram.com/_zacricket"
                   target="_blank"

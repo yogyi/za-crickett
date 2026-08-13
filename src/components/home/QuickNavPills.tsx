@@ -15,7 +15,7 @@ const pills = [
   { href: "/product/the-signature", label: "Custom Bat", icon: Sliders, accent: "from-violet-600 to-fuchsia-600" },
   { href: "/shop/gloves", label: "Gloves", icon: Storefront, accent: "from-emerald-600 to-teal-600" },
   { href: "/shop/pads", label: "Pads", icon: Package, accent: "from-amber-500 to-orange-600" },
-  { href: "/contact", label: "Sizing Help", icon: Ruler, accent: "from-sky-600 to-blue-600" },
+  { href: "/tips", label: "Tips", icon: Ruler, accent: "from-sky-600 to-blue-600" },
   { href: "/bundles", label: "Bundles", icon: Wrench, accent: "from-zinc-600 to-zinc-800" },
 ];
 

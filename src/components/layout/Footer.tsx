@@ -9,6 +9,7 @@ const shopLinks = [
   { href: "/shop/wicket-keeping", label: "Wicket Keeping" },
   { href: "/shop/accessories", label: "Accessories" },
   { href: "/bundles", label: "Bundles" },
+  { href: "/tips", label: "Tips & Toolkit" },
 ];
 
 const policyLinks = [

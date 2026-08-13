@@ -57,7 +57,7 @@ export const heroSlides: HeroSlide[] = [
   {
     id: "coloured-pads",
     background: "warm",
-    accentImage: "/images/hero/coloured-red-pads-cut.webp",
+    accentImage: "/images/hero/coloured-red-pads-cut.webp?v=7",
     eyebrow: "Stand Out",
     title: "Coloured",
     highlight: "Pads",

@@ -32,23 +32,23 @@ function GoogleBadge() {
 
 function ReviewCard({ review }: { review: Review }) {
   return (
-    <article className="rounded-2xl border border-zinc-100 bg-white p-5 sm:p-6 shadow-lg shadow-brand/5 transition-shadow hover:shadow-xl">
+    <article className="rounded-2xl border border-zinc-100 bg-white p-4 sm:p-6 shadow-lg shadow-brand/5 transition-shadow hover:shadow-xl">
       <div
-        className="mb-3 flex gap-0.5"
+        className="mb-2 sm:mb-3 flex gap-0.5"
         role="img"
         aria-label="5 out of 5 stars"
       >
         {Array.from({ length: 5 }).map((_, i) => (
-          <Star key={i} size={16} weight="fill" className="text-amber-400" />
+          <Star key={i} size={14} weight="fill" className="text-amber-400" />
         ))}
       </div>
-      <p className="text-sm text-zinc-700 leading-relaxed">
+      <p className="text-sm text-zinc-700 leading-relaxed line-clamp-4 sm:line-clamp-none">
         &ldquo;{review.quote}&rdquo;
       </p>
-      <footer className="mt-5 flex items-center justify-between gap-3">
-        <div className="flex items-center gap-3 min-w-0">
+      <footer className="mt-4 sm:mt-5 flex items-center justify-between gap-3">
+        <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
           <div
-            className="h-10 w-10 shrink-0 rounded-full flex items-center justify-center text-white font-semibold text-sm"
+            className="h-9 w-9 sm:h-10 sm:w-10 shrink-0 rounded-full flex items-center justify-center text-white font-semibold text-sm"
             style={{ backgroundColor: review.avatarColor }}
           >
             {review.initial}
@@ -102,14 +102,14 @@ export function ScrollableReviews() {
   const columns = splitReviewsIntoColumns(reviews, 3);
 
   return (
-    <section className="py-14 sm:py-20 lg:py-28 bg-zinc-100 overflow-hidden">
+    <section className="py-12 sm:py-16 lg:py-24 bg-zinc-100 overflow-hidden">
       <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8 sm:mb-12 max-w-2xl mx-auto">
+        <div className="text-center mb-6 sm:mb-10 max-w-2xl mx-auto">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-zinc-900">
             Real Stories from{" "}
             <span className="text-brand">Happy Players</span>
           </h2>
-          <p className="mt-4 text-zinc-600 leading-relaxed">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-base text-zinc-600 leading-relaxed">
             <span className="font-semibold text-zinc-800">
               Trusted by players across Singapore
             </span>{" "}
@@ -121,7 +121,7 @@ export function ScrollableReviews() {
         </div>
 
         <div
-          className="review-columns-mask flex justify-center gap-4 sm:gap-6 max-h-[520px] sm:max-h-[600px] lg:max-h-[700px] overflow-hidden"
+          className="review-columns-mask flex justify-center gap-4 sm:gap-6 max-h-[340px] sm:max-h-[520px] lg:max-h-[640px] overflow-hidden"
           role="list"
           aria-label="Customer reviews"
         >
@@ -145,7 +145,7 @@ export function ScrollableReviews() {
           />
         </div>
 
-        <p className="text-center mt-10 text-sm text-zinc-500">
+        <p className="text-center mt-6 sm:mt-8 text-xs sm:text-sm text-zinc-500">
           Reviews from verified ZA Cricket customers across Singapore
         </p>
       </div>

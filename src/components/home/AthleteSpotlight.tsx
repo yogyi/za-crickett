@@ -9,20 +9,19 @@ const featured = athletes.filter((a) => a.featured);
 
 export function AthleteSpotlight() {
   return (
-    <section className="py-16 sm:py-20 lg:py-28 bg-zinc-950 text-white overflow-hidden">
+    <section className="py-12 sm:py-16 lg:py-20 bg-zinc-950 text-white overflow-hidden">
       <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-8 sm:mb-12">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-6 sm:mb-8">
           <div className="max-w-xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-glow mb-3">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-glow mb-2">
               ZA Stars Select
             </p>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.05]">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight leading-[1.05]">
               Athletes who wear the purple
             </h2>
-            <p className="mt-4 text-zinc-400 text-sm sm:text-base leading-relaxed">
-              Five sponsored athletes from Singapore and Hong Kong — record
-              holders and international campaigners testing ZA gear in real
-              competition.
+            <p className="mt-2 text-zinc-400 text-sm leading-relaxed">
+              Sponsored players from Singapore and Hong Kong testing ZA gear in
+              real competition.
             </p>
           </div>
           <Link

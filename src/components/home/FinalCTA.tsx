@@ -20,22 +20,22 @@ const stackImages = [
 
 export function FinalCTA() {
   return (
-    <section className="relative py-20 sm:py-24 lg:py-32 overflow-hidden">
+    <section className="relative py-12 sm:py-16 lg:py-20 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-brand via-brand-light to-violet-600" />
       <div className="absolute inset-0 pattern-dots opacity-30" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-glow/20 rounded-full blur-3xl animate-pulse-glow pointer-events-none" />
 
       <div className="relative max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="text-center lg:text-left order-2 lg:order-1">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 text-white/90 text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 text-white/90 text-sm font-medium mb-4">
               <Sparkle size={16} weight="fill" className="text-accent-warm" />
               Your next innings starts here
             </div>
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white leading-tight">
               Step up to the crease with confidence
             </h2>
-            <p className="mt-5 text-white/75 text-base sm:text-lg leading-relaxed max-w-lg mx-auto lg:mx-0">
+            <p className="mt-3 text-white/75 text-sm sm:text-base leading-relaxed max-w-lg mx-auto lg:mx-0">
               From custom English willow to complete protection — gear
               tested on Singapore pitches by players like you.
             </p>

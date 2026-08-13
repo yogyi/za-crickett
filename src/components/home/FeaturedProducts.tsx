@@ -11,19 +11,19 @@ const featured = products.filter((p) =>
 
 export function FeaturedProducts() {
   return (
-    <section className="py-20 lg:py-28 bg-brand-gradient-soft relative overflow-hidden">
+    <section className="py-12 sm:py-16 lg:py-20 bg-brand-gradient-soft relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-64 bg-brand-glow/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8 sm:mb-10">
           <div>
-            <span className="inline-block px-4 py-1.5 rounded-full bg-white text-brand text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-white text-brand text-xs font-semibold uppercase tracking-wider mb-3 shadow-sm">
               Fan favourites
             </span>
-            <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-zinc-900">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-zinc-900">
               Bestsellers
             </h2>
-            <p className="mt-3 text-zinc-600 max-w-lg">
+            <p className="mt-2 text-sm sm:text-base text-zinc-600 max-w-lg">
               Real gear, real photos — trusted by club players and sponsored
               athletes across Singapore.
             </p>

@@ -29,13 +29,13 @@ const trustItems = [
 
 export function TrustBar() {
   return (
-    <section className="py-10 bg-brand-gradient-soft border-y border-border/60">
+    <section className="py-6 sm:py-8 bg-brand-gradient-soft border-y border-border/60">
       <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           {trustItems.map((item) => (
             <div
               key={item.title}
-              className="flex items-start gap-3 p-4 rounded-2xl bg-white/70 backdrop-blur-sm border border-white shadow-sm"
+              className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/70 backdrop-blur-sm border border-white shadow-sm"
             >
               <div
                 className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${item.color}`}
