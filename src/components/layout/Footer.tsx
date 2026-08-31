@@ -114,8 +114,9 @@ export function Footer() {
         </p>
       </div>
 
-      <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 pb-8 pt-6 flex flex-col sm:flex-row justify-between gap-4 text-xs text-zinc-500">
+      <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 pb-8 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-zinc-500">
         <p>&copy; {new Date().getFullYear()} ZA Cricket. All rights reserved.</p>
+        <p className="text-zinc-600">made by karm</p>
         <p>Singapore</p>
       </div>
     </footer>
