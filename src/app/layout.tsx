@@ -58,7 +58,7 @@ export default function RootLayout({
         <SplashScreen />
         <AnnouncementBar />
         <Header />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 min-w-0 w-full max-w-full">{children}</main>
         <Footer />
         <CartDrawer />
         <CricketAssistant />

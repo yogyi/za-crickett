@@ -36,8 +36,8 @@ export function FinalCTA() {
               Step up to the crease with confidence
             </h2>
             <p className="mt-3 text-white/75 text-sm sm:text-base leading-relaxed max-w-lg mx-auto lg:mx-0">
-              From custom English willow to complete protection — gear
-              tested on Singapore pitches by players like you.
+              Step up with gear tested on Singapore pitches by five sponsored
+              athletes — Grade 1 English willow bats, gloves, and pads.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3 justify-center lg:justify-start">
               <Link

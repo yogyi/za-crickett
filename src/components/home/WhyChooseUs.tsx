@@ -27,7 +27,7 @@ const reasons = [
     icon: Certificate,
     title: "Full Customisation",
     description:
-      "The Signature bat lets you choose weight, profile, handle shape, and personal engraving.",
+      "The Signature bat lets you set weight, grain count, and handle shape on the page. Profile, grip, and pick-up are confirmed on WhatsApp.",
   },
 ];
 
@@ -45,8 +45,8 @@ export function WhyChooseUs() {
             Why players choose ZA
           </h2>
           <p className="mt-3 text-zinc-600 max-w-xl mx-auto">
-            A Singapore brand built by players, for players — not just another
-            equipment seller.
+            Built by players, for players — five sponsored athletes test the
+            bats, gloves, and pads in Singapore and Hong Kong.
           </p>
         </div>
 

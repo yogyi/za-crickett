@@ -9,6 +9,8 @@ import {
   CaretLeft,
   CaretRight,
   Lightning,
+  Pause,
+  Play,
   Medal,
   Package,
   ShieldCheck,
@@ -17,7 +19,7 @@ import {
 } from "@phosphor-icons/react";
 import { heroSlides, type HeroSlide } from "@/data/heroSlides";
 
-const INTERVAL_MS = 5500;
+const INTERVAL_MS = 10000;
 
 const slideChips: Record<string, { icon: typeof Medal; label: string }[]> = {
   greatness: [
@@ -186,7 +188,9 @@ function StageBackdrop({ watermark }: { watermark: string }) {
 export function HeroCarousel() {
   const reduce = useReducedMotion();
   const [current, setCurrent] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const [userPaused, setUserPaused] = useState(false);
+  const [hoverPaused, setHoverPaused] = useState(false);
+  const paused = userPaused || hoverPaused;
   const [touchStart, setTouchStart] = useState<number | null>(null);
 
   const goTo = useCallback((index: number) => {
@@ -208,8 +212,8 @@ export function HeroCarousel() {
   return (
     <section
       className="relative overflow-hidden bg-[#170e29] lg:min-h-[100dvh]"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
+      onMouseEnter={() => setHoverPaused(true)}
+      onMouseLeave={() => setHoverPaused(false)}
       onTouchStart={(e) => setTouchStart(e.touches[0].clientX)}
       onTouchEnd={(e) => {
         if (touchStart === null) return;
@@ -231,6 +235,22 @@ export function HeroCarousel() {
       <div className="lg:hidden relative min-h-[min(92dvh,820px)] flex flex-col justify-end overflow-hidden">
         <div key={`${slide.id}-visual-m`} className="relative z-10 mt-20 px-6">
           <SlideVisual slide={slide} variant="mobile" />
+          <button
+            type="button"
+            onClick={prev}
+            className="absolute left-1 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white shadow-lg backdrop-blur-md transition-colors hover:bg-white/20 active:scale-95 sm:h-11 sm:w-11"
+            aria-label="Previous slide"
+          >
+            <CaretLeft size={22} weight="bold" />
+          </button>
+          <button
+            type="button"
+            onClick={next}
+            className="absolute right-1 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white shadow-lg backdrop-blur-md transition-colors hover:bg-white/20 active:scale-95 sm:h-11 sm:w-11"
+            aria-label="Next slide"
+          >
+            <CaretRight size={22} weight="bold" />
+          </button>
         </div>
         <div
           key={`${slide.id}-mobile`}
@@ -255,7 +275,7 @@ export function HeroCarousel() {
       <button
         type="button"
         onClick={prev}
-        className="absolute left-3 sm:left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-lg hover:bg-white/20 transition-colors active:scale-95"
+        className="absolute left-3 sm:left-4 lg:left-8 top-1/2 z-20 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white shadow-lg backdrop-blur-md transition-colors hover:bg-white/20 active:scale-95 sm:h-11 sm:w-11 lg:flex"
         aria-label="Previous slide"
       >
         <CaretLeft size={22} weight="bold" />
@@ -263,7 +283,7 @@ export function HeroCarousel() {
       <button
         type="button"
         onClick={next}
-        className="absolute right-3 sm:right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-lg hover:bg-white/20 transition-colors active:scale-95"
+        className="absolute right-3 sm:right-4 lg:right-8 top-1/2 z-20 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white shadow-lg backdrop-blur-md transition-colors hover:bg-white/20 active:scale-95 sm:h-11 sm:w-11 lg:flex"
         aria-label="Next slide"
       >
         <CaretRight size={22} weight="bold" />
@@ -290,10 +310,27 @@ export function HeroCarousel() {
             </button>
           ))}
         </div>
-        <p className="text-xs text-white/60 font-medium tabular-nums">
-          {String(current + 1).padStart(2, "0")} /{" "}
-          {String(heroSlides.length).padStart(2, "0")}
-        </p>
+        <div className="flex items-center gap-2">
+          {!reduce && (
+            <button
+              type="button"
+              onClick={() => setUserPaused((value) => !value)}
+              aria-pressed={userPaused}
+              aria-label={userPaused ? "Play slideshow" : "Pause slideshow"}
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-md transition-colors hover:bg-white/20 active:scale-95"
+            >
+              {userPaused ? (
+                <Play size={16} weight="fill" />
+              ) : (
+                <Pause size={16} weight="fill" />
+              )}
+            </button>
+          )}
+          <p className="text-xs text-white/60 font-medium tabular-nums">
+            {String(current + 1).padStart(2, "0")} /{" "}
+            {String(heroSlides.length).padStart(2, "0")}
+          </p>
+        </div>
       </div>
 
       {!reduce && !paused && (

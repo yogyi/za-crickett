@@ -39,7 +39,7 @@ export const heroSlides: HeroSlide[] = [
     title: "Achieve",
     highlight: "Greatness",
     description:
-      "Premium English willow bats, pro gloves, and protection — built for cricketers who demand more.",
+      "Built for cricketers who demand more — Grade 1 English willow bats, tested on pitch by five sponsored athletes.",
     primaryCta: { label: "Shop Collection", href: "/shop" },
     secondaryCta: { label: "Customise Your Bat", href: "/product/the-signature" },
   },
@@ -62,7 +62,7 @@ export const heroSlides: HeroSlide[] = [
     title: "Coloured",
     highlight: "Pads",
     description:
-      "Same pro protection in bold colourways. Stand out at the crease with ZA Cricket gear.",
+      "Stand out at the crease — Players Edition pads in white, red, green, or black, with the same pro foam.",
     primaryCta: { label: "Shop Pads", href: "/product/players-edition-pads" },
     secondaryCta: { label: "All Pads", href: "/shop/pads" },
   },
@@ -74,7 +74,7 @@ export const heroSlides: HeroSlide[] = [
     title: "The",
     highlight: "Signature",
     description:
-      "Fully customisable Grade 1 English Willow. Choose weight, pick-up, profile, handle, grip & engraving.",
+      "Fully customisable Grade 1 English Willow. Set weight, grain count, and handle shape on the page. Profile, grip, and pick-up are confirmed on WhatsApp.",
     primaryCta: { label: "Build Your Bat", href: "/product/the-signature" },
     secondaryCta: { label: "Shop All Bats", href: "/shop/bats" },
   },

@@ -12,7 +12,7 @@ const faqs = [
     icon: Wrench,
     question: "How long does a custom Signature bat take?",
     answer:
-      "Custom bats need an extra 1–10 business days before dispatch. Weight, grains, handle, grip, profile, and engraving are confirmed first.",
+      "Custom bats need an extra 1–10 business days before dispatch. Set weight, grain count, and handle shape on the product page. Profile, grip, and pick-up are confirmed on WhatsApp.",
   },
   {
     icon: Truck,
@@ -42,7 +42,7 @@ const faqs = [
     icon: Question,
     question: "What delivery charges apply?",
     answer:
-      "Under S$75: S$4.99. S$75 and above: S$9.99. Some international destinations may differ at checkout.",
+      "Under S$75: S$4.99. S$75 and above: S$9.99. Some international destinations may differ, and that rate is confirmed on WhatsApp.",
   },
   {
     icon: Wrench,

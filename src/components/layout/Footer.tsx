@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { InstagramLogo, EnvelopeSimple } from "@phosphor-icons/react/dist/ssr";
+import { CONTACT_EMAIL } from "@/lib/contact";
 
 const shopLinks = [
   { href: "/shop/bats", label: "Bats" },
@@ -21,7 +22,7 @@ const policyLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-zinc-950 text-zinc-300">
+    <footer className="bg-zinc-950 text-zinc-300 min-w-0 max-w-full overflow-x-clip">
       <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
@@ -36,7 +37,8 @@ export function Footer() {
             </div>
             <p className="text-sm leading-relaxed text-zinc-400 max-w-xs">
               Singapore-based cricket equipment built to bring out the best in
-              every player. Achieve Greatness.
+              every player. Achieve Greatness with Grade 1 English willow,
+              tested by five sponsored athletes.
             </p>
             <p className="mt-4 text-xs text-zinc-500">
               Trusted by club players, schools, and sponsored athletes across
@@ -81,11 +83,11 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:zacricket26@gmail.com"
+                  href={`mailto:${CONTACT_EMAIL}`}
                   className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors break-all"
                 >
                   <EnvelopeSimple size={18} />
-                  zacricket26@gmail.com
+                  {CONTACT_EMAIL}
                 </a>
               </li>
               <li>

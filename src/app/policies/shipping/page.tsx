@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PolicyLayout } from "@/components/policies/PolicyLayout";
+import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY } from "@/lib/contact";
 
 export const metadata: Metadata = {
   title: "Shipping and Delivery Policy",
@@ -16,7 +17,7 @@ const sections = [
   {
     title: "Processing Time",
     content:
-      "Orders are processed within 1–3 business days after payment confirmation. Custom bats require an additional 1–10 business days for drafting and preparation before dispatch because they are made to individual specifications. We will notify you if a custom item requires additional time.",
+      "Orders are processed within 1–3 business days after we confirm payment in the WhatsApp chat. Custom bats need a further 1–10 business days for preparation before they are sent. We will tell you in that chat if a custom bat needs longer.",
   },
   {
     title: "Delivery Times",
@@ -26,12 +27,12 @@ const sections = [
   {
     title: "Delivery Charges",
     content:
-      "Orders below S$75: S$4.99\nOrders of S$75 and above: S$9.99\n\nRates for select international destinations may vary and will be calculated or confirmed at checkout.",
+      "These are the fees shown on the product page. There is no extra fee added at a card checkout, because this site does not take payment.\n\nOrders below S$75: S$4.99\nOrders of S$75 and above: S$9.99\n\nSome deliveries outside Singapore cost more. If yours does, we state that fee on WhatsApp before you pay.",
   },
   {
     title: "Order Tracking",
     content:
-      "Once your order is dispatched, we will share the shipment and tracking details so you can monitor delivery in real time.",
+      "When an order is sent, we message you the courier and tracking number on WhatsApp.",
   },
   {
     title: "Damaged in Transit",
@@ -46,7 +47,7 @@ const sections = [
   {
     title: "Questions",
     content:
-      "For questions about an order or delivery, contact zacricket26@gmail.com.",
+      `For a question about an order or a delivery, email ${CONTACT_EMAIL} or WhatsApp ${CONTACT_PHONE_DISPLAY}.`,
   },
 ];
 
@@ -55,7 +56,7 @@ export default function ShippingPolicyPage() {
     <PolicyLayout
       title="Shipping and Delivery Policy"
       sections={sections}
-      lastUpdated="15 July 2026"
+      lastUpdated="28 September 2026"
     />
   );
 }

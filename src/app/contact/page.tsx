@@ -13,6 +13,7 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import { ContactForm } from "@/components/contact/ContactForm";
 import {
+  CONTACT_EMAIL,
   CONTACT_PHONE_DISPLAY,
   CONTACT_PHONE_TEL,
   WHATSAPP_URL,
@@ -27,8 +28,8 @@ export const metadata: Metadata = {
 const channels = [
   {
     label: "Email",
-    value: "zacricket26@gmail.com",
-    href: "mailto:zacricket26@gmail.com",
+    value: CONTACT_EMAIL,
+    href: `mailto:${CONTACT_EMAIL}`,
     icon: EnvelopeSimple,
     hint: "Best for custom bats & orders",
   },
@@ -100,7 +101,7 @@ export default function ContactPage() {
               </p>
               <div className="mt-9 flex flex-wrap gap-3">
                 <a
-                  href="mailto:zacricket26@gmail.com"
+                  href={`mailto:${CONTACT_EMAIL}`}
                   className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white text-brand font-semibold text-sm hover:bg-violet-100 transition-colors active:scale-[0.98]"
                 >
                   <EnvelopeSimple size={18} weight="bold" />

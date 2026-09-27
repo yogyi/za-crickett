@@ -2,15 +2,15 @@
 
 import { FormEvent, useState } from "react";
 import { PaperPlaneTilt } from "@phosphor-icons/react";
-import { buildContactMailto } from "@/lib/orderMailto";
 
 const fieldClass =
   "w-full px-4 py-3.5 rounded-xl border border-border bg-white text-zinc-900 text-sm placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-brand/25 focus:border-brand transition-shadow";
 
 export function ContactForm() {
   const [error, setError] = useState("");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     const data = new FormData(form);
@@ -18,6 +18,7 @@ export function ContactForm() {
     const email = String(data.get("email") ?? "").trim();
     const subject = String(data.get("subject") ?? "General Enquiry").trim();
     const message = String(data.get("message") ?? "").trim();
+    const company = String(data.get("company") ?? "");
 
     if (!name || !email || !message) {
       setError("Please fill in your name, email, and message.");
@@ -25,17 +26,38 @@ export function ContactForm() {
     }
 
     setError("");
-    window.location.href = buildContactMailto({ name, email, subject, message });
+    setStatus("sending");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, subject, message, company }),
+      });
+      const result = (await response.json().catch(() => null)) as { error?: string } | null;
+      if (!response.ok) {
+        setStatus("idle");
+        setError(result?.error || "We couldn't send that just now. Please try again, or WhatsApp us.");
+        return;
+      }
+      setStatus("sent");
+      form.reset();
+    } catch {
+      setStatus("idle");
+      setError("We couldn't send that just now. Please try again, or WhatsApp us.");
+    }
   }
 
   return (
-    <form className="space-y-5" onSubmit={handleSubmit}>
+    <form className="relative space-y-5" onSubmit={handleSubmit}>
+      <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+        <label htmlFor="company">Company</label>
+        <input id="company" name="company" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label
-            htmlFor="name"
-            className="block text-sm font-medium text-zinc-900 mb-2"
-          >
+          <label htmlFor="name" className="block text-sm font-medium text-zinc-900 mb-2">
             Name
           </label>
           <input
@@ -49,10 +71,7 @@ export function ContactForm() {
           />
         </div>
         <div>
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-zinc-900 mb-2"
-          >
+          <label htmlFor="email" className="block text-sm font-medium text-zinc-900 mb-2">
             Email
           </label>
           <input
@@ -68,13 +87,10 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label
-          htmlFor="subject"
-          className="block text-sm font-medium text-zinc-900 mb-2"
-        >
+        <label htmlFor="subject" className="block text-sm font-medium text-zinc-900 mb-2">
           Subject
         </label>
-        <select id="subject" name="subject" className={fieldClass}>
+        <select id="subject" name="subject" className={fieldClass} defaultValue="General Enquiry">
           <option>General Enquiry</option>
           <option>Custom Bat Order</option>
           <option>Product Question</option>
@@ -84,10 +100,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label
-          htmlFor="message"
-          className="block text-sm font-medium text-zinc-900 mb-2"
-        >
+        <label htmlFor="message" className="block text-sm font-medium text-zinc-900 mb-2">
           Message
         </label>
         <textarea
@@ -106,15 +119,22 @@ export function ContactForm() {
         </p>
       )}
 
-      <button
-        type="submit"
-        className="w-full flex items-center justify-center gap-2 py-4 bg-brand text-white font-semibold rounded-xl hover:bg-brand-dark transition-colors active:scale-[0.98] shadow-lg shadow-brand/20"
-      >
-        <PaperPlaneTilt size={18} weight="fill" />
-        Send Message
-      </button>
+      {status === "sent" ? (
+        <p className="text-sm text-emerald-700 bg-emerald-50 border border-emerald-100 rounded-xl px-4 py-3">
+          Message sent. The ZA Cricket team will reply by email.
+        </p>
+      ) : (
+        <button
+          type="submit"
+          disabled={status === "sending"}
+          className="w-full flex items-center justify-center gap-2 py-4 bg-brand text-white font-semibold rounded-xl hover:bg-brand-dark transition-colors active:scale-[0.98] shadow-lg shadow-brand/20 disabled:opacity-60"
+        >
+          <PaperPlaneTilt size={18} weight="fill" />
+          {status === "sending" ? "Sending…" : "Send Message"}
+        </button>
+      )}
       <p className="text-xs text-zinc-500 text-center text-pretty">
-        Opens your email app addressed to zacricket26@gmail.com
+        Sends straight to the ZA Cricket team. No email app needed.
       </p>
     </form>
   );

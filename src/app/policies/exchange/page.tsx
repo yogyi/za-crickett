@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PolicyLayout } from "@/components/policies/PolicyLayout";
+import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY } from "@/lib/contact";
 
 export const metadata: Metadata = {
   title: "Exchange, Refund and Cancellation Policy",
@@ -21,7 +22,7 @@ const sections = [
   {
     title: "Exchange Process",
     content:
-      "1. Email zacricket26@gmail.com with your order number and reason for the request.\n2. Include clear product images, the invoice, and the required 360-degree unboxing video.\n3. Our team will respond within 24–48 working hours.\n4. If approved, hand the product to our pickup partner or self-courier it as instructed.\n5. The exchange will be processed after the product passes inspection.\n\nUnauthorised returns or shipments sent without prior approval will not be accepted.",
+      `1. Email ${CONTACT_EMAIL} or WhatsApp ${CONTACT_PHONE_DISPLAY} with your order details and the reason.\n2. Include clear product photos, the invoice, and the 360-degree unboxing video where the section below requires it.\n3. We reply within 24–48 working hours.\n4. If we approve the exchange, we tell you whether to hand the product to a pickup partner or to courier it.\n5. We complete the exchange after the product passes inspection.\n\nDo not post a product back before we agree. We will not accept it.`,
   },
   {
     title: "Unboxing Video Requirement",
@@ -37,6 +38,11 @@ const sections = [
     title: "Non-Exchangeable Products",
     content:
       "Used, damaged, altered, or improperly stored products cannot be exchanged. Products without original packaging, tags, or an invoice are also ineligible. Bat preparation services are non-refundable once work has begun. A request declined because required information is missing or incorrect cannot be resubmitted.",
+  },
+  {
+    title: "Refunds",
+    content:
+      "When a refund is due — an order cancelled before it is sent, or an exchange we approved but cannot complete — we arrange it in the same WhatsApp chat where you paid. This website cannot refund a card, because it never takes one.",
   },
   {
     title: "Cancellations",
@@ -55,7 +61,7 @@ export default function ExchangePolicyPage() {
     <PolicyLayout
       title="Exchange, Refund and Cancellation Policy"
       sections={sections}
-      lastUpdated="15 July 2026"
+      lastUpdated="28 September 2026"
     />
   );
 }

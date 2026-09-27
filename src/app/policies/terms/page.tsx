@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PolicyLayout } from "@/components/policies/PolicyLayout";
+import { CONTACT_EMAIL } from "@/lib/contact";
 
 export const metadata: Metadata = {
   title: "Terms and Conditions",
@@ -11,17 +12,17 @@ const sections = [
   {
     title: "1. Introduction",
     content:
-      'Welcome to ZA Cricket. The ZA Cricket website, online store, and related services, features, content, and products are collectively the "Site". The Site is operated by ZA Cricket Pte. Ltd. ("ZA Cricket", "we", "us", or "our").\n\nBy accessing the Site, creating an account, submitting an order, or purchasing a product, you agree to these Terms and Conditions, our Privacy Policy, Shipping and Delivery Policy, Returns, Exchanges and Refunds Policy, and other notices published on the Site. Do not use the Site or purchase products if you do not agree.',
+      'Welcome to ZA Cricket. The ZA Cricket website and the products offered through it are the "Site". The Site is operated by ZA Cricket Pte. Ltd. ("ZA Cricket", "we", "us", or "our").\n\nBy using the Site or placing an order, you agree to these Terms and Conditions, our Privacy Policy, Shipping and Delivery Policy, and Exchange, Refund and Cancellation Policy. Do not use the Site or place an order if you do not agree.',
   },
   {
     title: "2. Definitions",
     content:
-      '"Account" means a customer account registered on the Site. "Customer", "User", or "you" means a person who accesses the Site, communicates with us, or purchases or attempts to purchase a product. "Order" means an order submitted through the Site or another authorised ZA Cricket channel. "Products" includes our cricket equipment, apparel, accessories, and merchandise. "Services" means the Site and its associated content, functions, communications, and purchasing facilities.',
+      '"Customer", "User", or "you" means a person who uses the Site or contacts us about a product. "Order" means an order we confirm with you on WhatsApp. There is no customer account on this Site. "Products" means the cricket equipment listed on the Site.',
   },
   {
     title: "3. Eligibility",
     content:
-      "You must have legal capacity to enter a binding agreement to place an order. Users under 18 may browse the Site but should use it and purchase only with the consent and supervision of a parent or legal guardian. You confirm that the information you provide is complete and accurate, you are authorised to use the selected payment method, and your purchase is lawful.",
+      "You must be able to enter a binding agreement to place an order. Anyone under 18 may browse the Site, and should order only with a parent or guardian. You confirm that the details you send us are accurate and that the purchase is lawful.",
   },
   {
     title: "4. Site Access and Acceptable Use",
@@ -29,9 +30,9 @@ const sections = [
       "ZA Cricket grants you a limited, personal, non-exclusive, non-transferable, and revocable right to use the Site for lawful personal and shopping purposes.\n\nYou must not use the Site unlawfully or fraudulently; attempt unauthorised access; introduce malware; interfere with security or availability; scrape the Site without written permission; impersonate another person; reproduce or commercially exploit Site content without permission; or infringe the rights of ZA Cricket or any third party. We may restrict access where these Terms are breached or to protect the Site and its users.",
   },
   {
-    title: "5. Accounts",
+    title: "5. No customer accounts",
     content:
-      "You are responsible for accurate and current account information, maintaining the confidentiality of login details, restricting unauthorised access, and promptly notifying us of suspected unauthorised use. We may suspend or close an account containing false information, used fraudulently, or operated in breach of these Terms.",
+      "This Site does not offer customer accounts or saved login details. An order is confirmed in WhatsApp. You are responsible for the name, phone number, and delivery address you send in that chat.",
   },
   {
     title: "6. Product Information",
@@ -41,22 +42,22 @@ const sections = [
   {
     title: "7. Product Availability",
     content:
-      "All products are subject to availability, and adding an item to a cart does not reserve it. We may limit quantities. If an item becomes unavailable, we may offer an alternative, arrange a back order with your agreement, or cancel and refund the affected item.",
+      "Products are subject to availability. The cart is saved in your browser and does not reserve an item. If an item is unavailable, we tell you on WhatsApp before you pay. We may then offer another item or cancel that part of the order. If you have already paid and we cancel, we refund you in that same chat.",
   },
   {
     title: "8. Orders and Contract Formation",
     content:
-      "Submitting an order is an offer to purchase. An automated acknowledgement confirms receipt but not acceptance. An order is accepted when we expressly confirm it, notify you of dispatch, or otherwise accept it in writing.\n\nBefore acceptance, we may reject or cancel an order due to unavailability, an obvious price or product error, failed payment, suspected fraud, delivery restrictions, suspected unauthorised resale, or legal requirements. Payments received for a cancelled order will be refunded using the original method unless otherwise agreed.",
+      "Buy on WhatsApp opens a chat that names the product and asks about your game, grip, level, and the bat you use now. It does not include the price. Ordering from the cart opens WhatsApp with the items, the published price, and the delivery fee. Either message is your offer to buy. We accept it when we confirm the order in the chat. The Site does not send a separate automatic order confirmation.\n\nBefore we confirm, we may decline an order if the item is unavailable, the published price is an obvious error, we cannot deliver to the address, or we suspect fraud. If you have already paid and we then cancel, we refund you in the same WhatsApp chat.",
   },
   {
     title: "9. Prices and Promotions",
     content:
-      "Unless stated otherwise, prices are in Singapore dollars. Prices may change without notice but ordinarily will not affect accepted orders. Delivery, customs duties, import taxes, and other fees may be shown separately. We may correct obvious pricing errors. Promotions may be time-limited, subject to additional conditions, non-transferable, non-redeemable for cash, and withdrawn or corrected if published in error.",
+      "Prices on the product pages are in Singapore dollars. The price shown there is the price we confirm on WhatsApp. It does not change at a later checkout, because this Site does not take payment.\n\nDelivery is extra and is also shown on the product page: S$4.99 when the goods total is under S$75, and S$9.99 when the goods total is S$75 or more. Some deliveries outside Singapore cost more. If so, we state that fee in the WhatsApp chat before you pay.\n\nA later price change on the Site does not change an order we have already confirmed. If a published price is an obvious mistake, we will tell you before you pay and you can cancel.",
   },
   {
     title: "10. Payment",
     content:
-      "Payment must be made using an available payment method and may be processed by a third party under its own terms and privacy policy. By submitting payment information, you confirm it is accurate and that you are authorised to use it. ZA Cricket is not responsible for declines caused by insufficient funds, invalid details, bank limits, or provider security checks.",
+      "There is no card checkout on this Site, and we do not describe one as secure checkout. Orders are placed on WhatsApp. Payment is arranged in that chat after we confirm the order. You confirm that any payment details you choose to share there are accurate and that you are authorised to use them.",
   },
   {
     title: "11. Delivery",
@@ -96,7 +97,7 @@ const sections = [
   {
     title: "18. Site Availability",
     content:
-      "We aim to maintain a reliable Site but do not guarantee uninterrupted, secure, or error-free access. We may suspend access for maintenance, security, updates, or circumstances outside our control, and may modify or discontinue features without affecting accepted orders.",
+      "We aim to keep the Site available, but we do not guarantee uninterrupted or error-free access. We may pause the Site for maintenance or security. A pause does not cancel an order we have already confirmed on WhatsApp.",
   },
   {
     title: "19. Disclaimers",
@@ -121,7 +122,7 @@ const sections = [
   {
     title: "23. Suspension and Termination",
     content:
-      "We may suspend or terminate access or an account for a material breach, suspected fraud or unlawful conduct, threats to Site security, or legal requirements. You may stop using the Site and request account closure. Termination does not affect rights or liabilities that arose beforehand.",
+      "We may stop someone using the Site for a serious breach, suspected fraud, or a threat to the Site. You may stop using the Site at any time. Stopping does not cancel an order we have already confirmed, except as the Exchange, Refund and Cancellation Policy allows.",
   },
   {
     title: "24. Privacy and Personal Data",
@@ -156,7 +157,7 @@ const sections = [
   {
     title: "30. Contact Us",
     content:
-      "Questions about these Terms, an order, or the Site may be sent to:\n\nZA Cricket Pte. Ltd.\nEmail: zacricket26@gmail.com",
+      `Questions about these Terms, an order, or the Site may be sent to:\n\nZA Cricket Pte. Ltd.\nEmail: ${CONTACT_EMAIL}`,
   },
 ];
 
@@ -165,7 +166,7 @@ export default function TermsPage() {
     <PolicyLayout
       title="Terms and Conditions"
       sections={sections}
-      lastUpdated="15 July 2026"
+      lastUpdated="28 September 2026"
     />
   );
 }

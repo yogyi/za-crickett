@@ -29,12 +29,14 @@ const values = [
   {
     icon: ShieldCheck,
     title: "Pro-grade build",
-    description: "Premium materials built for players who push limits.",
+    description:
+      "Built for players who push limits — Grade 1 English willow with tight, straight grains.",
   },
   {
     icon: MapPin,
     title: "Singapore roots",
-    description: "Established in 2026 with a global ambition for the game.",
+    description:
+      "A global ambition for the game — established in Singapore in 2026, with athletes in Hong Kong too.",
   },
 ];
 
@@ -58,8 +60,9 @@ export default function AboutPage() {
                   ZA Cricket began with their shared passion for the game and a
                   belief that ambition should never be limited by access. Having
                   represented Singapore at age-group level, they created ZA to
-                  help players aim higher and pursue greatness wherever the game
-                  takes them.
+                  help players aim higher and pursue greatness — Grade 1 English
+                  willow, tested by five sponsored athletes in Singapore and
+                  Hong Kong.
                 </p>
               </div>
             </article>
@@ -110,9 +113,9 @@ export default function AboutPage() {
               Singapore-built gear for players who want more
             </h2>
             <p className="mt-3 text-sm sm:text-base text-zinc-600 leading-relaxed">
-              ZA Cricket equips players globally with high-quality English willow
-              bats, gloves, pads, and protection — tested on pitch and built to
-              help you achieve greatness.
+              Built to help you achieve greatness — Grade 1 English willow
+              bats, gloves, and pads, tested on pitch by five sponsored
+              athletes.
             </p>
           </div>
 
@@ -146,8 +149,8 @@ export default function AboutPage() {
             Ready to achieve greatness?
           </h2>
           <p className="mt-3 text-sm sm:text-base text-white/80 max-w-md mx-auto">
-            Shop the range, meet our athletes, or get sizing help for a custom
-            Signature bat.
+            A Signature bat in Grade 1 English willow, with weight, grain
+            count, and handle shape set on the page.
           </p>
           <div className="mt-6 flex flex-col sm:flex-row flex-wrap justify-center gap-3">
             <Link

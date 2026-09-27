@@ -104,7 +104,7 @@ export const products: Product[] = [
     price: 499,
     category: "bats",
     description:
-      "The pinnacle of the ZA Cricket range. A fully bespoke Grade 1 English Willow bat built to your exact specifications — from willow selection and weight to handle type, grip, and profile.",
+      "The pinnacle of the ZA Cricket range. A bespoke Grade 1 English Willow bat. Set weight, grain count, and handle shape on this page. Profile, grip, and the finer pick-up details are confirmed with us on WhatsApp.",
     tagline: "Custom · Grade 1 English Willow",
     image: signatureImages[0],
     images: signatureImages,
@@ -112,7 +112,8 @@ export const products: Product[] = [
     inStock: true,
     features: [
       "Premium-selection Grade 1 English Willow",
-      "Fully customisable weight, pick-up, profile, handle, and grip",
+      "Set weight, grain count, and handle shape on this page",
+      "Profile, grip, and pick-up details confirmed on WhatsApp",
       "Built to individual player specifications",
       "Personal engraving available",
     ],

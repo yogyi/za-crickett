@@ -35,8 +35,8 @@ export default async function ProductPage({ params }: Props) {
   }
 
   return (
-    <div className="py-12 lg:py-16">
-      <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="py-12 lg:py-16 overflow-x-clip">
+      <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 min-w-0">
         <nav className="text-sm text-zinc-500 mb-6 sm:mb-8 flex flex-wrap items-center gap-x-2 gap-y-1">
           <Link href="/shop" className="hover:text-brand">
             Shop

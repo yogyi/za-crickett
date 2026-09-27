@@ -1,4 +1,5 @@
 import { products } from "@/data/products";
+import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY } from "@/lib/contact";
 
 export interface AssistantAction {
   label: string;
@@ -134,7 +135,7 @@ POLICIES AND CONTACT
 - Delivery charges shown by the site: below S$75 is S$4.99; S$75 and above is S$9.99. Select international rates may vary.
 - ZA Cricket does not accept returns. Eligible exchange/replacement requests must be raised within 5 calendar days and are limited to an incorrect item, transit damage, defect, or verified manufacturing defect, subject to the full policy.
 - Damage claims require a continuous 360-degree unboxing video submitted within 24 hours.
-- Contact: zacricket26@gmail.com, WhatsApp/phone +65 9423 1702, or Instagram @_zacricket.
+- Contact: ${CONTACT_EMAIL}, WhatsApp/phone ${CONTACT_PHONE_DISPLAY}, or Instagram @_zacricket.
 
 APPROVED URLS
 ${ALLOWED_ACTIONS.map((action) => `${action.href} — ${action.label}`).join("\n")}

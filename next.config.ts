@@ -1,6 +1,11 @@
+import path from "path";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // A lockfile in the home folder was making Next treat ~/ as the app root.
+  outputFileTracingRoot: path.join(process.cwd()),
+  // Phone/LAN preview was stuck on the splash because dev scripts were blocked.
+  allowedDevOrigins: ["192.168.1.5"],
   async redirects() {
     return [
       {

@@ -45,8 +45,8 @@ export function ProductPageContent({ product }: ProductPageContentProps) {
   const displayImage = galleryImages[activeIndex] ?? product.image;
 
   return (
-    <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
-      <div>
+    <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 min-w-0">
+      <div className="min-w-0">
         <ProductGallery
           name={product.name}
           image={displayImage}
@@ -68,7 +68,7 @@ export function ProductPageContent({ product }: ProductPageContentProps) {
         )}
       </div>
 
-      <div>
+      <div className="min-w-0">
         {product.tagline && (
           <p className="text-brand font-semibold text-sm mb-2">
             {product.tagline}

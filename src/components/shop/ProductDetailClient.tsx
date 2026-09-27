@@ -1,16 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { ShoppingBag, Sliders, WhatsappLogo } from "@phosphor-icons/react";
+import { Sliders, WhatsappLogo } from "@phosphor-icons/react";
 import { useFormatPrice } from "@/hooks/useFormatPrice";
-import { useShipping } from "@/hooks/useShipping";
 import {
   formatCustomizationDisplay,
   getDefaultCustomizationValue,
 } from "@/lib/customization";
-import { COUNTRIES } from "@/lib/currency";
 import { getShippingFeeSgd, SHIPPING_LABELS } from "@/lib/shipping";
-import { openOrderWhatsApp } from "@/lib/orderMailto";
+import { openProductEnquiryWhatsApp } from "@/lib/orderMailto";
 import type { CustomizationOption, Product } from "@/types";
 import { useCart } from "@/store/cart";
 import { useCurrency } from "@/store/currency";
@@ -38,7 +36,7 @@ function RangeField({
   const percent = ((num - min) / (max - min)) * 100;
 
   return (
-    <div className="space-y-3">
+    <div className="min-w-0 max-w-full space-y-3">
       <div className="flex items-center justify-between gap-4">
         <output
           htmlFor={opt.id}
@@ -61,7 +59,7 @@ function RangeField({
         step={step}
         value={num}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full h-2 rounded-full appearance-none cursor-pointer bg-zinc-200 accent-brand"
+        className="block w-full min-w-0 max-w-full h-2 rounded-full appearance-none cursor-pointer bg-zinc-200 accent-brand"
         style={{
           background: `linear-gradient(to right, var(--brand) 0%, var(--brand) ${percent}%, #e4e4e7 ${percent}%, #e4e4e7 100%)`,
         }}
@@ -82,7 +80,9 @@ export function ProductDetailClient({
   const addItem = useCart((s) => s.addItem);
   const formatPrice = useFormatPrice();
   const country = useCurrency((s) => s.country);
-  const { feeFormatted, label } = useShipping();
+  const shippingSgd = getShippingFeeSgd(country, product.price);
+  const feeFormatted = formatPrice(shippingSgd);
+  const label = SHIPPING_LABELS[country];
   const [internalVariant, setInternalVariant] = useState(
     product.variants?.[0]?.label ?? ""
   );
@@ -116,41 +116,19 @@ export function ProductDetailClient({
   };
 
   const handleBuyWhatsApp = () => {
-    const filled = Object.fromEntries(
-      Object.entries(customization).filter(([, v]) => v.trim() !== "")
-    );
-    const shippingSgd = getShippingFeeSgd(country, product.price);
-    openOrderWhatsApp({
-      items: [
-        {
-          cartId: "direct",
-          productId: product.id,
-          slug: product.slug,
-          name: product.name,
-          price: product.price,
-          image: displayImage ?? product.image,
-          quantity: 1,
-          variant: variant || undefined,
-          customization: Object.keys(filled).length > 0 ? filled : undefined,
-        },
-      ],
-      subtotalFormatted: formatPrice(product.price),
-      shippingFormatted: formatPrice(shippingSgd),
-      shippingLabel: SHIPPING_LABELS[country],
-      totalFormatted: formatPrice(product.price + shippingSgd),
-      countryLabel: COUNTRIES[country]?.country ?? country,
-    });
+    openProductEnquiryWhatsApp(product.name);
   };
 
   return (
-    <div className="space-y-6 pb-28 lg:pb-0">
+    <div className="space-y-6 pb-28 lg:pb-0 min-w-0 max-w-full">
       {hasCustomization && (
         <div className="flex items-center gap-2 pb-2 border-b border-border">
           <Sliders size={20} weight="duotone" className="text-brand" />
           <div>
             <h3 className="font-bold text-zinc-900">Customize Your Bat</h3>
             <p className="text-xs text-zinc-500 mt-0.5">
-              Weight, grains & handle — built to order for The Signature
+              Set weight, grain count, and handle shape here. Profile, grip, and
+              pick-up are confirmed on WhatsApp.
             </p>
           </div>
         </div>
@@ -283,28 +261,28 @@ export function ProductDetailClient({
 
       {/* Sticky add-to-cart on mobile / tablet */}
       <div className="fixed bottom-0 left-0 right-0 z-30 lg:static lg:z-auto p-4 bg-white/95 backdrop-blur-md border-t border-border lg:border-0 lg:p-0 lg:bg-transparent lg:backdrop-blur-none safe-bottom">
-        <div className="flex items-center gap-3 max-w-[1800px] mx-auto lg:max-w-none lg:flex-col">
-          <span className="text-2xl font-bold text-zinc-900 lg:hidden shrink-0">
-            {formatPrice(product.price)}
-          </span>
-          <button
-            type="button"
-            onClick={handleBuyWhatsApp}
-            disabled={!product.inStock}
-            className="flex-1 lg:w-full flex items-center justify-center gap-2 py-4 bg-brand text-white font-semibold rounded-xl hover:bg-brand-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed active:scale-[0.98]"
-          >
-            <WhatsappLogo size={20} weight="fill" />
-            {product.inStock ? "Buy on WhatsApp" : "Sold Out"}
-          </button>
+        <div className="flex flex-col items-stretch gap-2 max-w-[1800px] mx-auto lg:max-w-none">
+          <div className="flex items-center gap-3">
+            <span className="text-2xl font-bold text-zinc-900 lg:hidden shrink-0">
+              {formatPrice(product.price)}
+            </span>
+            <button
+              type="button"
+              onClick={handleBuyWhatsApp}
+              disabled={!product.inStock}
+              className="flex-1 lg:w-full flex items-center justify-center gap-2 py-4 bg-brand text-white font-semibold rounded-xl hover:bg-brand-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed active:scale-[0.98]"
+            >
+              <WhatsappLogo size={20} weight="fill" />
+              {product.inStock ? "Buy on WhatsApp" : "Sold Out"}
+            </button>
+          </div>
           {product.inStock && (
             <button
               type="button"
               onClick={handleAddToCart}
-              className="h-14 w-14 lg:h-auto lg:w-full shrink-0 flex items-center justify-center gap-2 rounded-xl border border-border text-zinc-800 font-semibold hover:bg-zinc-50 transition-colors active:scale-[0.98] lg:py-3.5"
-              aria-label="Add to cart"
+              className="self-center text-sm font-medium text-zinc-500 hover:text-zinc-900 transition-colors"
             >
-              <ShoppingBag size={20} weight="fill" />
-              <span className="hidden lg:inline">Add to Cart</span>
+              Add to cart
             </button>
           )}
         </div>

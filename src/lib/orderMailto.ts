@@ -12,6 +12,30 @@ export type OrderSummary = {
   countryLabel: string;
 };
 
+export function buildProductEnquiryMessage(productName: string): string {
+  return [
+    "Hi ZA Cricket,",
+    "",
+    `I'm looking at ${productName}.`,
+    "",
+    "Before we get into price or specs, a bit about my game:",
+    "Game: ",
+    "Grip: ",
+    "Level: ",
+    "Bat I use now: ",
+    "",
+    "Thanks,",
+  ].join("\n");
+}
+
+export function openProductEnquiryWhatsApp(productName: string) {
+  window.open(
+    buildWhatsAppUrl(buildProductEnquiryMessage(productName)),
+    "_blank",
+    "noopener,noreferrer"
+  );
+}
+
 export function buildOrderMessage({
   items,
   subtotalFormatted,

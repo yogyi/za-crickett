@@ -69,9 +69,9 @@ export function ProductGallery({
   };
 
   return (
-    <div className="space-y-4">
+    <div className="min-w-0 max-w-full space-y-4">
       <div
-        className="relative aspect-square max-h-[70vh] sm:max-h-none rounded-2xl bg-zinc-100 overflow-hidden touch-pan-y"
+        className="relative w-full max-w-full aspect-square max-h-[70vh] sm:max-h-none rounded-2xl bg-zinc-100 overflow-hidden touch-pan-y"
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
@@ -84,7 +84,7 @@ export function ProductGallery({
           src={mainSrc}
           alt={`${name} — image ${active + 1} of ${gallery.length}`}
           priority
-          className="object-contain object-center p-3 sm:p-5 select-none"
+          className="object-contain object-center p-3 sm:p-5 select-none max-h-full max-w-full"
           sizes="(max-width: 1024px) 100vw, 50vw"
         />
 
@@ -128,7 +128,7 @@ export function ProductGallery({
       </div>
 
       {gallery.length > 1 && (
-        <div className="flex sm:grid sm:grid-cols-4 md:grid-cols-5 gap-2 sm:gap-3 overflow-x-auto sm:overflow-visible pb-1 -mx-1 px-1 snap-x snap-mandatory">
+        <div className="flex sm:grid sm:grid-cols-4 md:grid-cols-5 gap-2 sm:gap-3 overflow-x-auto sm:overflow-visible pb-1 w-full min-w-0 max-w-full snap-x snap-mandatory">
           {gallery.map((src, i) => (
             <button
               key={`${src}-${i}`}
