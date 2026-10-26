@@ -52,7 +52,7 @@ export interface Athlete {
   id: string;
   name: string;
   role: string;
-  region: "Singapore" | "Hong Kong";
+  region: "Singapore" | "Hong Kong" | "Kuwait";
   image: string;
   imageFocus?: string;
   /** Extra CSS scale for cards when the source portrait is framed small */

@@ -41,7 +41,7 @@ export function AthleteSpotlight() {
           ))}
         </div>
 
-        <div className="hidden lg:grid lg:grid-cols-5 gap-4 lg:gap-5">
+        <div className="hidden lg:grid lg:grid-cols-3 xl:grid-cols-6 gap-4 lg:gap-5">
           {featured.map((athlete) => (
             <AthleteCard key={athlete.id} athlete={athlete} variant="feature" />
           ))}

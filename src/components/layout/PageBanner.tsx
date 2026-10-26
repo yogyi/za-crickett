@@ -13,7 +13,7 @@ export function PageBanner({ title, description, image }: PageBannerProps) {
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div>
             <Image
-              src="/images/za-cricket-logo.png"
+              src="/images/za-logo.png"
               alt="ZA Cricket"
               width={120}
               height={48}

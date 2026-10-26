@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Minus, Plus, Trash } from "@phosphor-icons/react";
@@ -8,11 +9,14 @@ import { useOrderTotals } from "@/hooks/useShipping";
 import { formatCustomizationDisplay } from "@/lib/customization";
 import { COUNTRIES } from "@/lib/currency";
 import { openOrderWhatsApp } from "@/lib/orderMailto";
+import { startCardCheckout } from "@/lib/startCheckout";
 import { useCart } from "@/store/cart";
 import { useCurrency } from "@/store/currency";
 
 export default function CartPage() {
   const { items, removeItem, updateQuantity, clearCart } = useCart();
+  const [paying, setPaying] = useState(false);
+  const [payError, setPayError] = useState("");
   const formatPrice = useFormatPrice();
   const country = useCurrency((s) => s.country);
   const {
@@ -32,6 +36,24 @@ export default function CartPage() {
       totalFormatted,
       countryLabel,
     });
+  }
+
+  async function handlePay() {
+    setPaying(true);
+    setPayError("");
+    try {
+      await startCardCheckout(
+        items.map((item) => ({
+          productId: item.productId,
+          quantity: item.quantity,
+          variant: item.variant,
+          customization: item.customization,
+        }))
+      );
+    } catch (error) {
+      setPayError(error instanceof Error ? error.message : "Card checkout is unavailable right now.");
+      setPaying(false);
+    }
   }
 
   if (items.length === 0) {
@@ -160,13 +182,24 @@ export default function CartPage() {
             </div>
             <button
               type="button"
+              onClick={handlePay}
+              disabled={paying}
+              className="w-full mt-6 py-3.5 bg-brand text-white font-semibold rounded-xl hover:bg-brand-dark transition-colors active:scale-[0.98] disabled:opacity-50"
+            >
+              {paying ? "Opening checkout…" : "Pay now"}
+            </button>
+            {payError && (
+              <p className="mt-2 text-sm text-red-600 text-center">{payError}</p>
+            )}
+            <button
+              type="button"
               onClick={handleCheckout}
-              className="w-full mt-6 py-3.5 bg-brand text-white font-semibold rounded-xl hover:bg-brand-dark transition-colors active:scale-[0.98]"
+              className="w-full mt-3 py-2 text-sm font-medium text-zinc-500 hover:text-zinc-900"
             >
               Order on WhatsApp
             </button>
             <p className="mt-2 text-xs text-zinc-500 text-center">
-              Opens WhatsApp with your order for ZA Cricket to confirm
+              Card payment is taken by Stripe. WhatsApp is still there if you want to talk first.
             </p>
             <button
               type="button"

@@ -39,7 +39,7 @@ export const heroSlides: HeroSlide[] = [
     title: "Achieve",
     highlight: "Greatness",
     description:
-      "Built for cricketers who demand more — Grade 1 English willow bats, tested on pitch by five sponsored athletes.",
+      "Built for cricketers who demand more — Grade 1 English willow bats, tested on pitch by six sponsored athletes.",
     primaryCta: { label: "Shop Collection", href: "/shop" },
     secondaryCta: { label: "Customise Your Bat", href: "/product/the-signature" },
   },
@@ -57,12 +57,12 @@ export const heroSlides: HeroSlide[] = [
   {
     id: "coloured-pads",
     background: "warm",
-    accentImage: "/images/hero/coloured-red-pads-cut.webp?v=7",
+    accentImage: "/images/hero/players-pads-hero-cut.webp",
     eyebrow: "Stand Out",
     title: "Coloured",
     highlight: "Pads",
     description:
-      "Stand out at the crease — Players Edition pads in white, red, green, or black, with the same pro foam.",
+      "Stand out at the crease — Players batting pads, available in all colours, with reliable match protection.",
     primaryCta: { label: "Shop Pads", href: "/product/players-edition-pads" },
     secondaryCta: { label: "All Pads", href: "/shop/pads" },
   },
@@ -85,7 +85,7 @@ export const heroSlides: HeroSlide[] = [
     title: "Match",
     highlight: "Accessories",
     description:
-      "Thigh pads and custom duffel bags — finish your kit with ZA Cricket essentials.",
+      "A custom duffel bag to finish the kit — spacious, durable, and finished with your details.",
     primaryCta: { label: "Shop Accessories", href: "/shop/accessories" },
     secondaryCta: { label: "Wicket Keeping", href: "/shop/wicket-keeping" },
   },

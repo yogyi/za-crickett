@@ -28,7 +28,7 @@ export function Footer() {
           <div>
             <div className="mb-4">
               <Image
-                src="/images/za-cricket-logo.png"
+                src="/images/za-logo.png"
                 alt="ZA Cricket"
                 width={140}
                 height={56}
@@ -38,7 +38,7 @@ export function Footer() {
             <p className="text-sm leading-relaxed text-zinc-400 max-w-xs">
               Singapore-based cricket equipment built to bring out the best in
               every player. Achieve Greatness with Grade 1 English willow,
-              tested by five sponsored athletes.
+              tested by six sponsored athletes.
             </p>
             <p className="mt-4 text-xs text-zinc-500">
               Trusted by club players, schools, and sponsored athletes across

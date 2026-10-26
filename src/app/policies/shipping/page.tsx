@@ -27,7 +27,7 @@ const sections = [
   {
     title: "Delivery Charges",
     content:
-      "These are the fees shown on the product page. There is no extra fee added at a card checkout, because this site does not take payment.\n\nOrders below S$75: S$4.99\nOrders of S$75 and above: S$9.99\n\nSome deliveries outside Singapore cost more. If yours does, we state that fee on WhatsApp before you pay.",
+      "These are the fees shown on the product page and added at card checkout.\n\nOrders below S$75: S$4.99\nOrders of S$75 and above: S$9.99\n\nSome deliveries outside Singapore cost more. If yours does, we state that fee on WhatsApp before you pay.",
   },
   {
     title: "Order Tracking",

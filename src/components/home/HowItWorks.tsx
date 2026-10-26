@@ -97,7 +97,7 @@ export function HowItWorks() {
             <TiltCard className="w-full" intensity={14}>
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl shadow-brand/25 border border-white/50 bg-brand-subtle">
                 <Image
-                  src="/images/products/the-signature/signature-studio.jpg"
+                  src="/images/products/the-signature/signature-01.jpg"
                   alt="ZA Cricket The Signature custom bat"
                   fill
                   className="object-contain object-center p-6 pb-28"

@@ -42,7 +42,7 @@ export function SplashScreen() {
     >
       <div className="splash-logo relative w-36 h-36 sm:w-44 sm:h-44">
         <Image
-          src="/images/za-cricket-logo.png"
+          src="/images/za-logo.png"
           alt="ZA Cricket"
           fill
           priority

@@ -5,6 +5,7 @@ import { ArrowRight, CheckCircle } from "@phosphor-icons/react/dist/ssr";
 import {
   athletes,
   hongKongAthletes,
+  kuwaitAthletes,
   singaporeAthletes,
 } from "@/data/athletes";
 import { AthleteCard } from "@/components/athletes/AthleteCard";
@@ -200,9 +201,8 @@ export default function AthletesPage() {
             ZA Stars Select
           </h1>
           <p className="mt-5 text-zinc-400 text-base sm:text-lg leading-relaxed max-w-2xl">
-            Five sponsored athletes. Real international experience. Every product
-            is tested on pitch by our Singapore and Hong Kong stars before it
-            reaches you.
+            Six sponsored athletes. Real international experience. Every product
+            is tested on pitch by our stars before it reaches you.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <span className="px-4 py-2 rounded-full bg-white/10 border border-white/15 text-sm font-medium">
@@ -210,6 +210,9 @@ export default function AthletesPage() {
             </span>
             <span className="px-4 py-2 rounded-full bg-white/10 border border-white/15 text-sm font-medium">
               {hongKongAthletes.length} Hong Kong athletes
+            </span>
+            <span className="px-4 py-2 rounded-full bg-white/10 border border-white/15 text-sm font-medium">
+              {kuwaitAthletes.length} Kuwait athlete
             </span>
           </div>
         </div>
@@ -224,11 +227,11 @@ export default function AthletesPage() {
                 Roster
               </p>
               <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900">
-                Meet the five
+                Meet the roster
               </h2>
             </div>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
             {athletes.map((athlete) => (
               <div key={athlete.id} className="space-y-3">
                 <AthleteCard athlete={athlete} />
@@ -255,6 +258,11 @@ export default function AthletesPage() {
           title="Hong Kong squad"
           subtitle="Representative players testing ZA gear across regional and international fixtures."
           regionAthletes={hongKongAthletes}
+        />
+        <AthleteRegionSection
+          title="Kuwait"
+          subtitle="A sponsored athlete wearing ZA colours for Kuwait Cricket."
+          regionAthletes={kuwaitAthletes}
         />
       </div>
     </div>

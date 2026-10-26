@@ -9,11 +9,15 @@ import { openOrderWhatsApp } from "@/lib/orderMailto";
 import { useFormatPrice } from "@/hooks/useFormatPrice";
 import { useOrderTotals } from "@/hooks/useShipping";
 import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
+import { useState } from "react";
+import { startCardCheckout } from "@/lib/startCheckout";
 import { useCart } from "@/store/cart";
 import { useCurrency } from "@/store/currency";
 
 export function CartDrawer() {
   const { items, isOpen, setCartOpen, removeItem, updateQuantity } = useCart();
+  const [paying, setPaying] = useState(false);
+  const [payError, setPayError] = useState("");
   const formatPrice = useFormatPrice();
   const country = useCurrency((s) => s.country);
   const {
@@ -34,6 +38,24 @@ export function CartDrawer() {
       countryLabel: COUNTRIES[country]?.country ?? country,
     });
     setCartOpen(false);
+  }
+
+  async function handlePay() {
+    setPaying(true);
+    setPayError("");
+    try {
+      await startCardCheckout(
+        items.map((item) => ({
+          productId: item.productId,
+          quantity: item.quantity,
+          variant: item.variant,
+          customization: item.customization,
+        }))
+      );
+    } catch (error) {
+      setPayError(error instanceof Error ? error.message : "Card checkout is unavailable right now.");
+      setPaying(false);
+    }
   }
 
   if (!isOpen) return null;
@@ -65,7 +87,7 @@ export function CartDrawer() {
         {items.length === 0 ? (
           <div className="flex-1 flex flex-col items-center justify-center px-6 text-center">
             <Image
-              src="/images/za-cricket-logo.png"
+              src="/images/za-logo.png"
               alt="ZA Cricket"
               width={100}
               height={40}
@@ -187,13 +209,19 @@ export function CartDrawer() {
                 <span className="font-semibold text-zinc-900">Total</span>
                 <span className="font-bold text-brand">{totalFormatted}</span>
               </div>
-              <p className="text-xs text-zinc-500">
-                Confirm your order on WhatsApp — we will send payment details.
-              </p>
+              <button
+                type="button"
+                onClick={handlePay}
+                disabled={paying}
+                className="block w-full text-center py-3.5 bg-brand text-white font-semibold rounded-xl hover:bg-brand-dark transition-colors active:scale-[0.98] disabled:opacity-50"
+              >
+                {paying ? "Opening checkout…" : "Pay now"}
+              </button>
+              {payError && <p className="text-sm text-red-600">{payError}</p>}
               <button
                 type="button"
                 onClick={handleCheckout}
-                className="block w-full text-center py-3.5 bg-brand text-white font-semibold rounded-xl hover:bg-brand-dark transition-colors active:scale-[0.98]"
+                className="block w-full text-center py-2 text-sm font-medium text-zinc-500 hover:text-zinc-900"
               >
                 Order on WhatsApp
               </button>

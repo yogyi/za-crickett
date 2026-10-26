@@ -9,6 +9,7 @@ import {
 } from "@/lib/customization";
 import { getShippingFeeSgd, SHIPPING_LABELS } from "@/lib/shipping";
 import { openProductEnquiryWhatsApp } from "@/lib/orderMailto";
+import { startCardCheckout } from "@/lib/startCheckout";
 import type { CustomizationOption, Product } from "@/types";
 import { useCart } from "@/store/cart";
 import { useCurrency } from "@/store/currency";
@@ -115,8 +116,32 @@ export function ProductDetailClient({
     });
   };
 
+  const [paying, setPaying] = useState(false);
+  const [payError, setPayError] = useState("");
+
   const handleBuyWhatsApp = () => {
     openProductEnquiryWhatsApp(product.name);
+  };
+
+  const handleBuyNow = async () => {
+    const filled = Object.fromEntries(
+      Object.entries(customization).filter(([, v]) => v.trim() !== "")
+    );
+    setPaying(true);
+    setPayError("");
+    try {
+      await startCardCheckout([
+        {
+          productId: product.id,
+          quantity: 1,
+          variant: variant || undefined,
+          customization: Object.keys(filled).length > 0 ? filled : undefined,
+        },
+      ]);
+    } catch (error) {
+      setPayError(error instanceof Error ? error.message : "Card checkout is unavailable right now.");
+      setPaying(false);
+    }
   };
 
   return (
@@ -268,22 +293,34 @@ export function ProductDetailClient({
             </span>
             <button
               type="button"
-              onClick={handleBuyWhatsApp}
-              disabled={!product.inStock}
+              onClick={handleBuyNow}
+              disabled={!product.inStock || paying}
               className="flex-1 lg:w-full flex items-center justify-center gap-2 py-4 bg-brand text-white font-semibold rounded-xl hover:bg-brand-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed active:scale-[0.98]"
             >
-              <WhatsappLogo size={20} weight="fill" />
-              {product.inStock ? "Buy on WhatsApp" : "Sold Out"}
+              {product.inStock ? (paying ? "Opening checkout…" : "Buy now") : "Sold Out"}
             </button>
           </div>
+          {payError && (
+            <p className="text-sm text-red-600 text-center">{payError}</p>
+          )}
           {product.inStock && (
-            <button
-              type="button"
-              onClick={handleAddToCart}
-              className="self-center text-sm font-medium text-zinc-500 hover:text-zinc-900 transition-colors"
-            >
-              Add to cart
-            </button>
+            <div className="flex items-center justify-center gap-4">
+              <button
+                type="button"
+                onClick={handleAddToCart}
+                className="text-sm font-medium text-zinc-500 hover:text-zinc-900 transition-colors"
+              >
+                Add to cart
+              </button>
+              <button
+                type="button"
+                onClick={handleBuyWhatsApp}
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-500 hover:text-zinc-900 transition-colors"
+              >
+                <WhatsappLogo size={16} weight="fill" />
+                Ask on WhatsApp
+              </button>
+            </div>
           )}
         </div>
       </div>

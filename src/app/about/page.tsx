@@ -46,33 +46,87 @@ export default function AboutPage() {
       {/* Founders + Future stars */}
       <section className="py-10 sm:py-14 lg:py-16">
         <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-6 sm:mb-8 max-w-2xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand">
+              About the founders
+            </p>
+            <h1 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900">
+              Kabir Zandani &amp; Veer Avlani
+            </h1>
+            <p className="mt-3 text-sm sm:text-base text-zinc-600 leading-relaxed">
+              Two Singapore cricketers. ZA is the gear they wanted for their
+              own matches.
+            </p>
+          </div>
           <div className="grid lg:grid-cols-2 gap-4 sm:gap-6">
-            <article className="relative overflow-hidden rounded-3xl bg-brand text-white p-6 sm:p-8">
-              <div className="absolute inset-0 pattern-dots-light opacity-20" />
-              <div className="relative">
-                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-violet-200">
-                  About the founders
+            <article className="overflow-hidden rounded-3xl border border-border bg-white">
+              <div className="relative aspect-[4/5] bg-zinc-100">
+                <Image
+                  src="/images/founders/kabir-zandani.jpg"
+                  alt="Kabir Zandani batting in Singapore colours"
+                  fill
+                  className="object-cover object-[center_20%]"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                />
+              </div>
+              <div className="p-6 sm:p-8">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand">
+                  Founder
                 </p>
-                <h1 className="mt-3 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">
-                  Kabir Zandani &amp; Veer Avlani
-                </h1>
-                <p className="mt-4 text-sm sm:text-base text-white/85 leading-relaxed">
-                  ZA Cricket began with their shared passion for the game and a
-                  belief that ambition should never be limited by access. Having
-                  represented Singapore at age-group level, they created ZA to
-                  help players aim higher and pursue greatness — Grade 1 English
-                  willow, tested by five sponsored athletes in Singapore and
-                  Hong Kong.
+                <h2 className="mt-2 text-2xl font-bold tracking-tight text-zinc-900">
+                  Kabir Zandani
+                </h2>
+                <p className="mt-4 text-sm sm:text-base text-zinc-600 leading-relaxed">
+                  I have been playing cricket since the age of five. I came
+                  through the academy system in Singapore, was selected for the
+                  National Under-19 team, and went on to represent Singapore at
+                  the Men&apos;s level. Competing at that level taught me how
+                  much the right equipment matters. ZA is made by cricketers who
+                  have represented Singapore, and every product we offer has
+                  been chosen and tested to the standard we expect in our own
+                  matches.
                 </p>
               </div>
             </article>
 
-            <article className="relative overflow-hidden rounded-3xl bg-zinc-950 text-white min-h-[260px] sm:min-h-[300px]">
+            <article className="overflow-hidden rounded-3xl border border-border bg-white">
+              <div className="relative aspect-[4/5] bg-zinc-100">
+                <Image
+                  src="/images/founders/veer-avlani.jpg"
+                  alt="Veer Avlani fielding in Singapore colours"
+                  fill
+                  className="object-cover object-[center_15%]"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                />
+              </div>
+              <div className="p-6 sm:p-8">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand">
+                  Co-founder
+                </p>
+                <h2 className="mt-2 text-2xl font-bold tracking-tight text-zinc-900">
+                  Veer Avlani
+                </h2>
+                <p className="mt-4 text-sm sm:text-base text-zinc-600 leading-relaxed">
+                  I&apos;ve been playing cricket for as long as I can remember,
+                  coming up through the club system in Singapore. Captaining the
+                  Singapore Under-16 side at the ACC U16 Eastern Region
+                  Tournament in 2023 is still one of the proudest moments of my
+                  cricketing life. Kabir and I wanted a brand run by players who
+                  have actually led sides and represented Singapore. Every
+                  product we make is tested to that same standard.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <article className="relative mt-4 sm:mt-6 overflow-hidden rounded-3xl bg-zinc-950 text-white min-h-[260px] sm:min-h-[300px]">
               <Image
                 src="/images/athletes/suryansh-gulecha.jpg"
                 alt="ZA Cricket sponsored player"
                 fill
-                className="object-contain object-right-bottom opacity-50"
+                className="object-cover object-top opacity-40"
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 priority
               />
@@ -98,7 +152,6 @@ export default function AboutPage() {
                 </Link>
               </div>
             </article>
-          </div>
         </div>
       </section>
 
@@ -114,7 +167,7 @@ export default function AboutPage() {
             </h2>
             <p className="mt-3 text-sm sm:text-base text-zinc-600 leading-relaxed">
               Built to help you achieve greatness — Grade 1 English willow
-              bats, gloves, and pads, tested on pitch by five sponsored
+              bats, gloves, and pads, tested on pitch by six sponsored
               athletes.
             </p>
           </div>

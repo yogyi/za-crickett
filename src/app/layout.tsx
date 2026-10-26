@@ -30,14 +30,14 @@ export const metadata: Metadata = {
     "ZA Cricket",
   ],
   icons: {
-    icon: "/images/za-cricket-logo.png",
-    apple: "/images/za-cricket-logo.png",
+    icon: "/images/za-logo.png",
+    apple: "/images/za-logo.png",
   },
   openGraph: {
     title: "ZA Cricket | Achieve Greatness",
     description:
       "Singapore-based premium cricket equipment. Custom bats, pro gloves, pads, and wicket keeping gear.",
-    images: ["/images/za-cricket-logo.png"],
+    images: ["/images/za-logo.png"],
   },
   viewport: {
     width: "device-width",

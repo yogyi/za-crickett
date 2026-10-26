@@ -157,7 +157,7 @@ export default function ContactPage() {
                     <div className="hero-product-glow absolute inset-[14%] rounded-full" />
                   </div>
                   <Image
-                    src="/images/hero/signature-hero-cut.webp"
+                    src="/images/products/the-signature/signature-01.jpg"
                     alt="ZA Signature cricket bat"
                     fill
                     unoptimized

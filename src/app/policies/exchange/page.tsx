@@ -42,7 +42,7 @@ const sections = [
   {
     title: "Refunds",
     content:
-      "When a refund is due — an order cancelled before it is sent, or an exchange we approved but cannot complete — we arrange it in the same WhatsApp chat where you paid. This website cannot refund a card, because it never takes one.",
+      "When a refund is due — an order cancelled before it is sent, or an exchange we approved but cannot complete — we arrange it with you. Card payments are refunded through Stripe. WhatsApp orders are refunded in the same chat where you paid.",
   },
   {
     title: "Cancellations",

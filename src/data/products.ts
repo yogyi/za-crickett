@@ -2,53 +2,72 @@ import type { Product, ProductCategory } from "@/types";
 import type { CountryCode } from "@/lib/currency";
 import { formatPrice as formatPriceForCountry } from "@/lib/currency";
 
-const PLACEHOLDER = "/images/za-cricket-logo.png";
+const PLACEHOLDER = "/images/za-logo.png";
 
 const monarchImages = [
-  "/images/products/the-monarch/monarch-studio.jpg",
-  "/images/products/the-monarch/monarch-front-02.jpg",
-  "/images/products/the-monarch/monarch-front-03.jpg",
-  "/images/products/the-monarch/monarch-angle.jpg",
-  "/images/products/the-monarch/monarch-detail-01.jpg",
-  "/images/products/the-monarch/monarch-detail-02.jpg",
-  "/images/products/the-monarch/monarch-lifestyle-01.jpg",
-  "/images/products/the-monarch/monarch-lifestyle-02.jpg",
+  "/images/products/the-monarch/monarch-01.jpg",
+  "/images/products/the-monarch/monarch-02.jpg",
+  "/images/products/the-monarch/monarch-03.jpg",
 ];
 
 const eagleImages = [
-  "/images/products/the-eagle/eagle-studio.jpg",
-  "/images/products/the-eagle/eagle-hero.jpg",
-  "/images/products/the-eagle/eagle-front-03.jpg",
-  "/images/products/the-eagle/eagle-detail-01.jpg",
-  "/images/products/the-eagle/eagle-detail-02.jpg",
-  "/images/products/the-eagle/eagle-lifestyle-01.jpg",
-  "/images/products/the-eagle/eagle-lifestyle-02.jpg",
+  "/images/products/the-eagle/eagle-01.jpg",
+  "/images/products/the-eagle/eagle-02.jpg",
+  "/images/products/the-eagle/eagle-03.jpg",
 ];
 
 const signatureImages = [
-  "/images/products/the-signature/signature-studio.jpg",
-  "/images/products/the-signature/signature-front-02.jpg",
-  "/images/products/the-signature/signature-front-03.jpg",
-  "/images/products/the-signature/signature-side.jpg",
-  "/images/products/the-signature/signature-angle.jpg",
-  "/images/products/the-signature/signature-detail.jpg",
+  "/images/products/the-signature/signature-01.jpg",
+  "/images/products/the-signature/signature-02.jpg",
+  "/images/products/the-signature/signature-03.jpg",
 ];
 
 const playersGlovesImages = [
-  "/images/products/gloves/players-edition.png",
-  "/images/products/gloves/img_8684.jpg",
-  "/images/products/gloves/img_8685.jpg",
-  "/images/products/gloves/img_8686.jpg",
-  "/images/products/gloves/img_8687.jpg",
+  "/images/products/gloves/players-01.jpg",
+  "/images/products/gloves/players-02.jpg",
+  "/images/products/gloves/players-03.jpg",
+  "/images/products/gloves/players-04.jpg",
 ];
 
-const ghostGlovesImages = ["/images/products/gloves/ghost-edition.png"];
+const ghostGlovesImages = [
+  "/images/products/gloves/ghost-01.jpg",
+  "/images/products/gloves/ghost-02.jpg",
+  "/images/products/gloves/ghost-03.jpg",
+  "/images/products/gloves/ghost-04.jpg",
+];
+
+const as04GlovesImages = [
+  "/images/products/gloves/as04-01.jpg",
+  "/images/products/gloves/as04-02.jpg",
+  "/images/products/gloves/as04-03.jpg",
+];
 
 const playersPadsImages = [
-  "/images/products/pads/white-pads.png",
-  "/images/products/pads/coloured-red-pads.png",
-  "/images/products/pads/green-pads-studio.jpg",
-  "/images/products/pads/black-pads-studio.jpg",
+  "/images/products/pads/players-pads-01.jpg",
+  "/images/products/pads/players-pads-02.jpg",
+  "/images/products/pads/players-pads-03.jpg",
+  "/images/products/pads/players-pads-04.jpg",
+  "/images/products/pads/players-pads-05.jpg",
+];
+
+const keepingGlovesImages = [
+  "/images/products/wicket-keeping/keeping-gloves-01.jpg",
+  "/images/products/wicket-keeping/keeping-gloves-02.jpg",
+  "/images/products/wicket-keeping/keeping-gloves-03.jpg",
+];
+
+const keepingPadsImages = [
+  "/images/products/wicket-keeping/keeping-pads-01.jpg",
+  "/images/products/wicket-keeping/keeping-pads-02.jpg",
+  "/images/products/wicket-keeping/keeping-pads-03.jpg",
+  "/images/products/wicket-keeping/keeping-pads-04.jpg",
+];
+
+const duffelImages = [
+  "/images/products/bags/duffel-01.jpg",
+  "/images/products/bags/duffel-02.jpg",
+  "/images/products/bags/duffel-03.jpg",
+  "/images/products/bags/duffel-04.jpg",
 ];
 
 export const categoryMeta: Record<
@@ -72,13 +91,13 @@ export const categoryMeta: Record<
   },
   "wicket-keeping": {
     label: "Wicket Keeping",
-    description: "Gloves, pads, and inners for keepers.",
-    image: PLACEHOLDER,
+    description: "Gloves and pads for keepers.",
+    image: "/images/products/wicket-keeping/keeping-gloves-01.jpg",
   },
   accessories: {
     label: "Accessories",
-    description: "Thigh pads and custom duffel bags.",
-    image: PLACEHOLDER,
+    description: "Custom duffel bags.",
+    image: "/images/products/bags/duffel-01.jpg",
   },
   services: {
     label: "Bundles",
@@ -101,20 +120,20 @@ export const products: Product[] = [
     id: "bat-signature",
     slug: "the-signature",
     name: "Signature Edition",
-    price: 499,
+    price: 799,
     category: "bats",
     description:
-      "The pinnacle of the ZA Cricket range. A bespoke Grade 1 English Willow bat. Set weight, grain count, and handle shape on this page. Profile, grip, and the finer pick-up details are confirmed with us on WhatsApp.",
-    tagline: "Custom · Grade 1 English Willow",
+      "Fully custom Grade 1 English willow, made to your specification on the same premium willow as the Eagle. Set weight, grain count, and handle shape on this page. Profile, grip, and pick-up are confirmed on WhatsApp.",
+    tagline: "Custom Grade 1 English Willow",
     image: signatureImages[0],
     images: signatureImages,
     badge: "Flagship",
     inStock: true,
     features: [
-      "Premium-selection Grade 1 English Willow",
+      "Same premium Grade 1 English willow as the Eagle",
       "Set weight, grain count, and handle shape on this page",
-      "Profile, grip, and pick-up details confirmed on WhatsApp",
-      "Built to individual player specifications",
+      "Profile, grip, and pick-up confirmed on WhatsApp",
+      "Made to your specification",
       "Personal engraving available",
     ],
     customization: [
@@ -160,198 +179,165 @@ export const products: Product[] = [
     id: "bat-eagle",
     slug: "the-eagle",
     name: "Eagle Edition",
-    price: 399,
+    price: 599,
     category: "bats",
     description:
-      "Where craftsmanship meets performance. The Eagle is made from premium Grade 1 English Willow with minimal blemishes and tight, straight grains for the serious competitor.",
-    tagline: "Grade 1 English Willow",
+      "Grade 1 English willow for competitive cricket. Cleaner grains and a lighter, more responsive profile for players stepping up.",
+    tagline: "Grade 1 English Willow · Competitive",
     image: eagleImages[0],
     images: eagleImages,
     badge: "Athlete Edition",
     inStock: true,
     features: [
-      "Premium Grade 1 English Willow",
-      "Minimal blemishes with tight, straight grains",
-      "Enhanced edge thickness",
-      "Deep, powerful sweet spot",
+      "Grade 1 English willow",
+      "Cleaner grains than the club bat",
+      "Lighter, more responsive profile",
+      "Built for competitive cricket",
     ],
   },
   {
     id: "bat-monarch",
     slug: "the-monarch",
     name: "Monarch Edition",
-    price: 299,
+    price: 399,
     category: "bats",
     description:
-      "Built for the player who demands performance without compromise. The Monarch is crafted from hand-selected Grade 2 English Willow with a generous sweet spot, balanced pick-up, and a clean, responsive sound.",
-    tagline: "Grade 2 English Willow",
+      "A dependable Grade 2 English willow bat for club and school cricket, with a solid pick-up and consistent performance.",
+    tagline: "Grade 2 English Willow · Club and school",
     image: monarchImages[0],
     images: monarchImages,
     inStock: true,
     features: [
-      "Hand-selected Grade 2 English Willow",
-      "Balanced weight distribution for enhanced control",
-      "Traditional profile",
-      "Generous, powerful sweet spot",
+      "Grade 2 English willow",
+      "Solid pick-up for club and school cricket",
+      "Consistent performance",
+      "The entry bat in the ZA range",
     ],
   },
   {
     id: "pads-players",
     slug: "players-edition-pads",
     name: "Players Edition Pads",
-    price: 80,
+    price: 90,
     category: "pads",
     description:
-      "Protection built to move with you. Players Edition Pads combine lightweight, high-density foam with a traditional three-strap design for a secure, comfortable fit through long innings.",
+      "Reliable standard protection for training and match play. Available in all colours — the photos show the white set. Confirm your colour on WhatsApp.",
     image: playersPadsImages[0],
     images: playersPadsImages,
-    variants: [
-      {
-        id: "white",
-        label: "White",
-        color: "#F4F4F5",
-        image: "/images/products/pads/white-pads.png",
-      },
-      {
-        id: "red",
-        label: "Red",
-        color: "#DC2626",
-        image: "/images/products/pads/coloured-red-pads.png",
-      },
-      {
-        id: "green",
-        label: "Green",
-        color: "#15803D",
-        image: "/images/products/pads/green-pads-studio.jpg",
-      },
-      {
-        id: "black",
-        label: "Black",
-        color: "#18181B",
-        image: "/images/products/pads/black-pads-studio.jpg",
-      },
-    ],
     inStock: true,
     features: [
-      "Available in white, red, green, and black",
-      "Lightweight, high-density protective foam",
-      "Traditional three-strap secure fit",
-      "Reinforced knee rolls and shin protection",
+      "Players batting pads",
+      "Available in all colours",
+      "Reliable protection for training and match play",
+      "Confirm the colour on WhatsApp",
     ],
   },
   {
     id: "wk-pads",
     slug: "wicket-keeping-pads",
     name: "Wicket-keeping Pads",
-    price: 55,
+    price: 65,
     category: "wicket-keeping",
     description:
-      "Built for the player behind the stumps who never switches off. Low-profile, lightweight protection designed for speed, mobility, and extended wear.",
-    image: PLACEHOLDER,
+      "Streamlined wicketkeeping pads designed for comfort and mobility. Available in all colours.",
+    image: keepingPadsImages[0],
+    images: keepingPadsImages,
     inStock: true,
     features: [
-      "Low-profile design for speed behind the stumps",
-      "Lightweight construction for extended wear",
-      "Secure strap fit for long sessions",
+      "Keeping pads",
+      "Designed for comfort and mobility behind the stumps",
+      "Available in all colours",
     ],
   },
   {
     id: "gloves-ghost",
     slug: "ghost-edition-gloves",
     name: "Ghost Edition Gloves",
-    price: 50,
+    price: 65,
     category: "gloves",
     description:
-      "Precision, silence, power. The all-white Ghost Edition pairs a clean ZA silhouette with segmented protective padding, a soft grip palm, and a secure wrist strap for confident training and match play.",
+      "A more refined feel than the Players glove, with improved cushioning and confident protection. Cut-finger construction, available in all colours.",
+    tagline: "Cut type · All colours",
     image: ghostGlovesImages[0],
     images: ghostGlovesImages,
-    badge: "Limited",
     inStock: true,
     features: [
-      "All-white ZA profile with bold branding",
-      "Segmented protective padding for flexibility",
-      "Soft grip palm with secure wrist strap",
+      "Upgraded fit and cushioning",
+      "Cut-finger construction",
+      "Available in all colours",
+      "A step up from the Players glove",
     ],
   },
   {
     id: "gloves-players",
     slug: "players-edition-gloves",
     name: "Players Edition Gloves",
-    price: 40,
+    price: 50,
     category: "gloves",
     description:
-      "Everyday reliability engineered for performance. The Players Edition uses a classic sausage-finger design with high-density foam and a durable, breathable palm for players who train and compete week after week.",
+      "Comfortable, durable protection for regular training and match use. A sausage-finger glove for everyday cricket.",
+    tagline: "Sausage type",
     image: playersGlovesImages[0],
     images: playersGlovesImages,
     inStock: true,
     features: [
-      "Sausage-finger segmented protection",
-      "High-density shock-absorbing foam",
-      "Breathable, durable palm construction",
+      "Everyday training and match glove",
+      "Sausage-finger construction",
+      "Comfortable, durable protection",
+    ],
+  },
+  {
+    id: "gloves-as04",
+    slug: "as04-batting-gloves",
+    name: "AS04 Batting Gloves",
+    price: 95,
+    category: "gloves",
+    description:
+      "The premium ZA × Hound collaboration, the Abhishek Sharma 04 Edition. Top-tier materials and construction for protection, comfort, and feel.",
+    tagline: "ZA × Hound · Abhishek Sharma 04",
+    image: as04GlovesImages[0],
+    images: as04GlovesImages,
+    badge: "Collaboration",
+    inStock: true,
+    features: [
+      "ZA × Hound collaboration",
+      "Abhishek Sharma 04 Edition",
+      "Premium materials and construction",
+      "Built for protection, comfort, and feel",
     ],
   },
   {
     id: "wk-gloves",
     slug: "wicket-keeping-gloves",
     name: "Wicket-keeping Gloves",
-    price: 70,
+    price: 75,
     category: "wicket-keeping",
     description:
-      "Safe hands, every time. ZA Wicket-keeping Gloves combine an internal support cage, high-density padding, and a soft sure-grip palm to help keepers take the toughest chances cleanly.",
-    image: PLACEHOLDER,
+      "Reinforced palm and finger protection for confident work behind the stumps. Available in all colours.",
+    image: keepingGlovesImages[0],
+    images: keepingGlovesImages,
     inStock: true,
     features: [
-      "Internal support cage for finger protection",
-      "High-density palm and back-of-hand padding",
-      "Sure-grip palm surface for clean takes",
-    ],
-  },
-  {
-    id: "wk-inners",
-    slug: "wicket-keeping-inners",
-    name: "Wicket-keeping Inners",
-    price: 15,
-    category: "wicket-keeping",
-    description:
-      "Lightweight cotton inners for comfort and moisture control under your keeping gloves.",
-    image: PLACEHOLDER,
-    inStock: true,
-    features: [
-      "Soft cotton feel for all-day comfort",
-      "Helps manage moisture behind the gloves",
-      "Standard fit for most keepers",
-    ],
-  },
-  {
-    id: "thigh-pad",
-    slug: "thigh-pad",
-    name: "Thigh Pad",
-    price: 70,
-    category: "accessories",
-    description:
-      "Targeted thigh protection for batting — designed for mobility without sacrificing coverage.",
-    image: PLACEHOLDER,
-    inStock: true,
-    features: [
-      "Focused impact protection",
-      "Secure, comfortable fit under whites",
-      "Built for club and representative cricket",
+      "Keeping gloves",
+      "Reinforced palm and finger protection",
+      "Available in all colours",
     ],
   },
   {
     id: "duffel-bag",
     slug: "custom-duffel-bag",
     name: "Custom Duffel Bag",
-    price: 99,
+    price: 199,
     category: "accessories",
     description:
-      "A durable custom ZA duffel bag sized for bats, pads, and match-day kit.",
-    image: PLACEHOLDER,
+      "A spacious, durable kit bag finished with personalised detailing. Custom finish.",
+    image: duffelImages[0],
+    images: duffelImages,
     inStock: true,
     features: [
-      "Spacious main compartment for full kit",
-      "Custom ZA branding",
-      "Built for training and travel",
+      "Spacious kit bag for bats, pads, and match-day gear",
+      "Durable build",
+      "Personalised custom finish",
     ],
   },
   {
@@ -412,6 +398,10 @@ export const products: Product[] = [
 
 export function getProductBySlug(slug: string): Product | undefined {
   return products.find((p) => p.slug === slug);
+}
+
+export function getProductById(id: string): Product | undefined {
+  return products.find((p) => p.id === id);
 }
 
 /** Products shown in the main shop grid (excludes workshop services). */

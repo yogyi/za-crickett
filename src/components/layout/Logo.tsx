@@ -12,7 +12,7 @@ export function Logo({ variant = "default", className = "" }: LogoProps) {
   return (
     <Link href="/" className={`inline-flex items-center shrink-0 ${className}`}>
       <Image
-        src="/images/za-cricket-logo.png"
+        src="/images/za-logo.png"
         alt="ZA Cricket"
         width={height * 2.2}
         height={height}

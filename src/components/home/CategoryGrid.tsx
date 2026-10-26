@@ -26,7 +26,7 @@ function CategoryCard({ cat }: { cat: ProductCategory }) {
             alt={meta.label}
             sizes="(max-width: 640px) 80vw, 25vw"
             className={`transition-transform duration-500 group-hover:scale-105 ${
-              meta.image.includes("za-cricket-logo")
+              meta.image.includes("za-logo")
                 ? "object-contain p-8 opacity-40"
                 : "object-contain object-center p-4 pb-16"
             }`}

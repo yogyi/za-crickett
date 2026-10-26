@@ -17,7 +17,7 @@ const sections = [
     title: "What we collect",
     content: `Contact form. If you write to us on the contact page, we receive your name, email address, subject, and message. We do not ask for a card number on that form.
 
-Orders. Buy on WhatsApp opens a chat that names the product and asks about your game. It does not include the price. Ordering from the cart opens WhatsApp with the items, the published price, and the delivery fee. Anything you then send in that chat — your name, phone number, delivery address, and how you will pay — is handled in WhatsApp, which is operated by Meta. We do not collect or store card numbers on this website.
+Orders. Buy now sends you to Stripe’s checkout page. Stripe collects the card details, your email, and the delivery address. This website does not store the card number. Ask on WhatsApp opens a chat that names the product and asks about your game. It does not include the price. Ordering from the cart on WhatsApp includes the items, the published price, and the delivery fee. Anything you then send in that chat is handled in WhatsApp, which is operated by Meta.
 
 Chat assistant. If you use the on-site chat, the messages you type are sent to our server and then to Google's Gemini service so it can draft a reply. Do not put card numbers or identity documents in that chat.
 
@@ -32,12 +32,12 @@ Technical logs. Our host may record an IP address and basic browser details to r
   },
   {
     title: "Who else handles it",
-    content: `FormSubmit (formsubmit.co) emails the contact form to our team.\nWhatsApp (Meta) carries order and support chats.\nGoogle Gemini drafts replies in the on-site chat.\nVercel hosts the website.\nA courier receives the name, address, and phone number you gave us when we ship an order.\n\nEach of those services handles the data only for that job.`,
+    content: `FormSubmit (formsubmit.co) emails the contact form to our team.\nStripe processes card payments and sends the receipt.\nWhatsApp (Meta) carries order and support chats.\nGoogle Gemini drafts replies in the on-site chat.\nVercel hosts the website.\nA courier receives the name, address, and phone number you gave us when we ship an order.\n\nEach of those services handles the data only for that job.`,
   },
   {
     title: "Payment details",
     content:
-      "This website does not take payment and does not store card numbers. If you pay, you arrange it in the WhatsApp chat after we confirm the order. The price we confirm is the price published on the product page, plus the delivery fee shown there, unless we have told you a different international delivery fee in that chat before you pay.",
+      "Card payment is taken on Stripe’s checkout page. This website does not store card numbers. You can also order on WhatsApp and arrange payment in that chat. The amount charged is the price published on the product page, plus the delivery fee shown there.",
   },
   {
     title: "How long we keep it",

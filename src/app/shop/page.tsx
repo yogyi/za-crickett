@@ -45,7 +45,7 @@ export default function ShopPage() {
       <PageBanner
         title="Shop All Products"
         description="Premium cricket equipment for every level of play. From custom English willow bats to pro-grade protection gear."
-        image="/images/products/the-signature/signature-studio.jpg"
+        image="/images/products/the-signature/signature-01.jpg"
       />
 
       <div className="py-12 lg:py-16">

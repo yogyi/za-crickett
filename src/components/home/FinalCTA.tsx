@@ -7,12 +7,12 @@ import { TiltCard } from "@/components/ui/TiltCard";
 
 const stackImages = [
   {
-    src: "/images/products/the-monarch/monarch-studio.jpg",
+    src: "/images/products/the-monarch/monarch-01.jpg",
     alt: "The Monarch bat",
     label: "The Monarch",
   },
   {
-    src: "/images/products/gloves/players-edition.png",
+    src: "/images/products/gloves/players-01.jpg",
     alt: "Players Edition gloves",
     label: "Pro gloves",
   },
@@ -36,7 +36,7 @@ export function FinalCTA() {
               Step up to the crease with confidence
             </h2>
             <p className="mt-3 text-white/75 text-sm sm:text-base leading-relaxed max-w-lg mx-auto lg:mx-0">
-              Step up with gear tested on Singapore pitches by five sponsored
+              Step up with gear tested on Singapore pitches by six sponsored
               athletes — Grade 1 English willow bats, gloves, and pads.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3 justify-center lg:justify-start">

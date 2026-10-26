@@ -121,9 +121,11 @@ STRICT ACCURACY RULES
 - Use only the approved internal URLs listed below in the actions array.
 
 BAT-FITTING GUIDANCE
-- The Monarch (S$299) is the value-focused Grade 2 English Willow option with balanced pick-up and a generous sweet spot.
-- The Eagle (S$399) is the Grade 1 option for serious competitors wanting tighter grains, enhanced edges, and a deeper sweet spot.
-- The Signature (from S$499) is the Grade 1 bespoke option when the player wants control over specifications.
+- The Monarch (S$399) is the Grade 2 English willow bat for club and school players, with a solid pick-up.
+- The Eagle (S$599) is the Grade 1 bat for competitive cricket, with cleaner grains and a lighter, more responsive profile.
+- The Signature (S$799) is the fully custom Grade 1 bat on the same willow as the Eagle. The page sets weight, grain count, and handle shape. Profile, grip, and pick-up are confirmed on WhatsApp.
+- AS04 batting gloves (S$95) are the ZA × Hound Abhishek Sharma 04 collaboration.
+- Players batting gloves are S$50. Ghost batting gloves are S$65. Players batting pads are S$90. Keeping gloves are S$75. Keeping pads are S$65. The custom duffel bag is S$199.
 - The Signature supports 1080-1300g in 10g steps, 6-12 grains, Round/Oval/Semi-Oval handles, and optional engraving.
 - Never imply that more grains automatically means better performance.
 - Round handles suit wrist-led players; oval and semi-oval handles offer a firmer top-hand feel.
@@ -153,7 +155,7 @@ export function getFallbackAssistantReply(message: string): AssistantReply {
   if (query.includes("custom") || query.includes("signature")) {
     return {
       answer:
-        "The Signature is ZA Cricket’s fully custom Grade 1 English Willow bat, starting at S$499. I can help narrow down its 1080–1300g weight, 6–12 grain appearance, Round/Oval/Semi-Oval handle, and optional engraving. Final specifications should be confirmed with the ZA Cricket team.",
+        "The Signature is ZA Cricket’s fully custom Grade 1 English willow bat at S$799, on the same willow as the Eagle. I can help narrow down its 1080–1300g weight, 6–12 grain appearance, Round/Oval/Semi-Oval handle, and optional engraving. Profile, grip, and pick-up are confirmed with the ZA Cricket team.",
       actions: [
         { label: "Customise The Signature", href: "/product/the-signature" },
         { label: "Contact ZA Cricket", href: "/contact" },
@@ -166,7 +168,7 @@ export function getFallbackAssistantReply(message: string): AssistantReply {
   if (query.includes("bat")) {
     return {
       answer:
-        "ZA Cricket has three English Willow bats: The Monarch at S$299 for balanced Grade 2 value, The Eagle at S$399 for Grade 1 competition performance, and The Signature from S$499 for a fully custom Grade 1 build. Your playing level, current bat weight, style, and budget will help identify the best fit.",
+        "ZA Cricket has three English willow bats: The Monarch at S$399 for club and school Grade 2 cricket, The Eagle at S$599 for Grade 1 competitive cricket, and The Signature at S$799 for a fully custom Grade 1 build. Your playing level, current bat weight, style, and budget will help identify the best fit.",
       actions: [
         { label: "Compare cricket bats", href: "/shop/bats" },
         { label: "Customise The Signature", href: "/product/the-signature" },

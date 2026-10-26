@@ -43,7 +43,7 @@ const slideChips: Record<string, { icon: typeof Medal; label: string }[]> = {
     { icon: Lightning, label: "Built To Your Spec" },
   ],
   accessories: [
-    { icon: Package, label: "Thigh Pads & Bags" },
+    { icon: Package, label: "Custom Duffel Bag" },
     { icon: Sparkle, label: "Complete Your Kit" },
     { icon: Truck, label: "Match-Day Ready" },
   ],

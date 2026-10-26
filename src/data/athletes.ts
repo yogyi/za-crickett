@@ -8,7 +8,7 @@ export const athletes: Athlete[] = [
     role: "Opening Batter",
     region: "Singapore",
     image: "/images/athletes/suryansh-gulecha.jpg",
-    imageFocus: "object-contain object-bottom",
+    imageFocus: "object-cover object-top",
     productLine: "Eagle Edition",
     productHref: "/product/the-eagle",
     featured: true,
@@ -39,7 +39,7 @@ export const athletes: Athlete[] = [
     role: "Middle Order",
     region: "Singapore",
     image: "/images/athletes/mahiyu-bhatia.jpg",
-    imageFocus: "object-contain object-bottom",
+    imageFocus: "object-cover object-top",
     featured: true,
     bio: "Singapore representative with a strong youth-to-senior pathway. Mahiyu has featured across World Cup qualifiers, SEA Games, Asia Cup qualifiers, and regional championships.",
     experience: [
@@ -64,7 +64,7 @@ export const athletes: Athlete[] = [
     role: "All-Rounder",
     region: "Singapore",
     image: "/images/athletes/aslan-jafri.jpg",
-    imageFocus: "object-contain object-bottom",
+    imageFocus: "object-cover object-top",
     featured: true,
     bio: "Singapore all-rounder with experience across senior and age-group internationals, from SEA Games and ACC pathway events to bilateral series in the region.",
     experience: [
@@ -89,8 +89,8 @@ export const athletes: Athlete[] = [
     name: "Shahid Wasif",
     role: "Top Order",
     region: "Hong Kong",
-    image: "/images/athletes/shahid-wasif-fit.jpg",
-    imageFocus: "object-contain object-bottom",
+    image: "/images/athletes/shahid-wasif.jpg",
+    imageFocus: "object-cover object-top",
     featured: true,
     bio: "Experienced Hong Kong batter with a long international résumé across Asia Cup, World Cup qualifiers, Asian Games, and high-profile T20 events.",
     experience: [
@@ -133,7 +133,18 @@ export const athletes: Athlete[] = [
       "Asian Games Qualifiers",
     ],
   },
+  {
+    id: "meet",
+    name: "Meet Bhavsar",
+    role: "Sponsored athlete",
+    region: "Kuwait",
+    image: "/images/athletes/meet-bhavsar.jpg",
+    imageFocus: "object-cover object-top",
+    featured: true,
+    bio: "Part of the ZA Stars Select roster, pictured here in Kuwait Cricket colours.",
+  },
 ];
 
 export const singaporeAthletes = athletes.filter((a) => a.region === "Singapore");
 export const hongKongAthletes = athletes.filter((a) => a.region === "Hong Kong");
+export const kuwaitAthletes = athletes.filter((a) => a.region === "Kuwait");

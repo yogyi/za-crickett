@@ -15,7 +15,7 @@ const reasons = [
     icon: UsersThree,
     title: "Athlete-Developed",
     description:
-      "Tested by sponsored athletes across Singapore and Hong Kong — including Suryansh Gulecha, Aslan Jafri, Mahiyu Bhatia, Hafeez Khan, and Shahid Wasif.",
+      "Tested by sponsored athletes across Singapore, Hong Kong, and Kuwait — including Suryansh Gulecha, Aslan Jafri, Mahiyu Bhatia, Hafeez Khan, Shahid Wasif, and Meet Bhavsar.",
   },
   {
     icon: MapPin,
@@ -45,7 +45,7 @@ export function WhyChooseUs() {
             Why players choose ZA
           </h2>
           <p className="mt-3 text-zinc-600 max-w-xl mx-auto">
-            Built by players, for players — five sponsored athletes test the
+            Built by players, for players — six sponsored athletes test the
             bats, gloves, and pads in Singapore and Hong Kong.
           </p>
         </div>
@@ -73,7 +73,7 @@ export function WhyChooseUs() {
                 <div className="relative w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 shrink-0 -mb-1 -mr-1 sm:-mb-2 sm:-mr-2 pointer-events-none">
                   <div className="absolute inset-0 rounded-2xl rotate-6 bg-white shadow-2xl overflow-hidden flex items-center justify-center p-4">
                     <Image
-                      src="/images/za-cricket-logo.png"
+                      src="/images/za-logo.png"
                       alt="ZA Cricket"
                       width={120}
                       height={120}

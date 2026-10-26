@@ -52,12 +52,12 @@ const sections = [
   {
     title: "9. Prices and Promotions",
     content:
-      "Prices on the product pages are in Singapore dollars. The price shown there is the price we confirm on WhatsApp. It does not change at a later checkout, because this Site does not take payment.\n\nDelivery is extra and is also shown on the product page: S$4.99 when the goods total is under S$75, and S$9.99 when the goods total is S$75 or more. Some deliveries outside Singapore cost more. If so, we state that fee in the WhatsApp chat before you pay.\n\nA later price change on the Site does not change an order we have already confirmed. If a published price is an obvious mistake, we will tell you before you pay and you can cancel.",
+      "Prices on the product pages are in Singapore dollars. Card checkout charges that published price. It is also the price we confirm if you order on WhatsApp.\n\nDelivery is extra and is also shown on the product page: S$4.99 when the goods total is under S$75, and S$9.99 when the goods total is S$75 or more. Card checkout adds that same delivery fee. Some deliveries outside Singapore cost more. If so, we state that fee in the WhatsApp chat before you pay.\n\nA later price change on the Site does not change an order we have already confirmed. If a published price is an obvious mistake, we will tell you before you pay and you can cancel.",
   },
   {
     title: "10. Payment",
     content:
-      "There is no card checkout on this Site, and we do not describe one as secure checkout. Orders are placed on WhatsApp. Payment is arranged in that chat after we confirm the order. You confirm that any payment details you choose to share there are accurate and that you are authorised to use them.",
+      "You can pay by card on Stripe’s checkout page, or place the order on WhatsApp and arrange payment in that chat. This Site does not store your card number. Stripe processes the card payment. You confirm that you are authorised to use the card or the payment method you choose.",
   },
   {
     title: "11. Delivery",

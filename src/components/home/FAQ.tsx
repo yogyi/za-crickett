@@ -30,7 +30,7 @@ const faqs = [
     icon: Question,
     question: "What products do you sell?",
     answer:
-      "Signature, Eagle, and Monarch bats; Players Edition pads; Ghost & Players gloves; wicket-keeping gear; thigh pads; and custom duffel bags.",
+      "Monarch, Eagle, and Signature bats; Players, Ghost, and AS04 batting gloves; Players batting pads; keeping gloves and pads; and the custom duffel bag.",
   },
   {
     icon: Ruler,
