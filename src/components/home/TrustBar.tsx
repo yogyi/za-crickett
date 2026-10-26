@@ -1,4 +1,4 @@
-import { ShieldCheck, Truck, Medal, WhatsappLogo } from "@phosphor-icons/react/dist/ssr";
+import { CreditCard, ShieldCheck, Truck, Medal } from "@phosphor-icons/react/dist/ssr";
 
 const trustItems = [
   {
@@ -14,9 +14,9 @@ const trustItems = [
     color: "bg-emerald-100 text-emerald-700",
   },
   {
-    icon: WhatsappLogo,
-    title: "Order on WhatsApp",
-    description: "Payment confirmed in chat.",
+    icon: CreditCard,
+    title: "Pay by card",
+    description: "Checkout on Stripe.",
     color: "bg-sky-100 text-sky-700",
   },
   {
