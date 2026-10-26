@@ -31,20 +31,22 @@ export function TrustBar() {
   return (
     <section className="py-6 sm:py-8 bg-brand-gradient-soft border-y border-border/60">
       <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
           {trustItems.map((item) => (
             <div
               key={item.title}
-              className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/70 backdrop-blur-sm border border-white shadow-sm"
+              className="flex items-center gap-3 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-white/70 backdrop-blur-sm border border-white shadow-sm min-w-0"
             >
               <div
                 className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${item.color}`}
               >
                 <item.icon size={22} weight="duotone" />
               </div>
-              <div>
-                <h3 className="font-semibold text-sm text-zinc-900">{item.title}</h3>
-                <p className="text-xs text-zinc-500 mt-0.5 leading-relaxed">
+              <div className="min-w-0">
+                <h3 className="font-semibold text-sm text-zinc-900 leading-snug text-balance">
+                  {item.title}
+                </h3>
+                <p className="text-xs text-zinc-500 mt-0.5 leading-snug text-balance">
                   {item.description}
                 </p>
               </div>
